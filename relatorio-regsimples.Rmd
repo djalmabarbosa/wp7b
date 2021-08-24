@@ -9,12 +9,15 @@ title: " "
 - Todas regressões utilizam o modelo logit incorporando expansão da amostra
 - As variáveis foram dividas em blocos, seguindo literatura
 
-### Regressões Simples - Variáveis Demográficas
+<br/><br/>  
 
-<br/><br/> 
+### Regressões Simples - Variáveis Demográficas  
+
+<br/>   
 
 ### Sexo
 <br/>
+<div align="center">
 ```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
 
 dadoswp7a <- readRDS("dadoswp7a.RDS")
@@ -36,12 +39,13 @@ stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
 ```
-
+</div>
 <br/><br/>  
 
 ### Idade  
 
 <br/>
+<div align="center">
 ```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
 
 logit <- (svyglm(FezMeditacao12m~Idade, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
@@ -58,11 +62,12 @@ stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
 ```
-
+</div>
 <br/><br/>
 
 ### Cor/Raca com três categorias
 <br/>
+<div align="center">
 ```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
 
 logit <- (svyglm(FezMeditacao12m~CorRaca3, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
@@ -79,11 +84,12 @@ stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
 ```
-
+</div>
 <br/><br/>
 
 ### Em relacionamento (inclui aqueles que moram com companheiro, mas não são casados)
 <br/>
+<div align="center">
 ```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
 
 logit <- (svyglm(FezMeditacao12m~EmRelacionamento, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
@@ -99,11 +105,12 @@ stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
           notes=Notes,notes.append=F,notes.label = noteslabel,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
-
+</div>
 <br/><br/>
 
 ### Região 
 <br/>
+<div align="center">
 ```{r Regressões, eval=T, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
 
 #### Região
@@ -122,11 +129,12 @@ stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
 ```
-
+</div>
 <br/><br/>
 
 ### Nível de instrução mais elevado alcançado
 <br/>
+<div align="center">
 ```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
 
 logit <- (svyglm(FezMeditacao12m~NivelEducacional, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
@@ -143,11 +151,12 @@ stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
 ```
-
+</div>
 <br/><br/>
 
 ### Tercis de Renda Familiar *Per capita*
 <br/>
+<div align="center">
 ```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
 
 logit <- (svyglm(FezMeditacao12m~RendaFamiliarPc, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
@@ -164,7 +173,7 @@ stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
 ```
-
+</div>
 <br/><br/><br/><br/>
 
 ## Regressões Simples - Serviços de saúde
@@ -173,6 +182,7 @@ stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
 
 #### Frequência de visita do Agente Comunitário
 <br/>
+<div align="center">
 ```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
 
 logit <- (svyglm(FezMeditacao12m~VisitasDoAC12m, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
@@ -189,11 +199,12 @@ stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
 ```
-
+</div>
 <br/><br/>
 
 #### Tem plano de saúde
 <br/>
+<div align="center">
 ```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
 
 logit <- (svyglm(FezMeditacao12m~TemPlanoSaude, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
@@ -210,8 +221,7 @@ stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
 ```
-
-
+</div>
 
 <br/><br/>
 
@@ -223,6 +233,7 @@ stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
 
 ### Número de doenças crônicas diagnosticadas
 <br/>
+<div align="center">
 ```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
 
 logit <- (svyglm(FezMeditacao12m~DoencasCronicas, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
@@ -239,11 +250,12 @@ stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
 ```
-
+</div>
 <br/><br/>
 
 ### Diagnóstico de artrite ou reumatismo
 <br/>
+<div align="center">
 ```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
 
 logit <- (svyglm(FezMeditacao12m~Artrite, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
@@ -260,11 +272,12 @@ stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
 ```
-
+</div>
 <br/><br/>
 
 ### Diagnóstico de asma ou bronquite asmática
 <br/>
+<div align="center">
 ```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
 
 logit <- (svyglm(FezMeditacao12m~Asma, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
@@ -280,11 +293,12 @@ stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
           notes=Notes,notes.append=F,notes.label = noteslabel,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
-
+</div>
 <br/><br/>
 
 ### Diagnóstico de colesterol alto
 <br/>
+<div align="center">
 ```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
 
 logit <- (svyglm(FezMeditacao12m~Hipercolesterol, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
@@ -301,11 +315,12 @@ stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
 ```
-
+</div>
 <br/><br/>
 
 ### Diagnóstico de diabetes
 <br/>
+<div align="center">
 ```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
 
 logit <- (svyglm(FezMeditacao12m~Diabetes, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
@@ -322,11 +337,12 @@ stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
 ```
-
+</div>
 <br/><br/>
 
 ### Diagnóstico de DORT (Distúrbios Osteomusculares Relacionados ao Trabalho)
 <br/>
+<div align="center">
 ```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
 
 logit <- (svyglm(FezMeditacao12m~DORT, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
@@ -343,11 +359,12 @@ stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
 ```
-
+</div>
 <br/><br/>
 
 ### Diagnóstico de hipertensão arterial
 <br/>
+<div align="center">
 ```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
 
 logit <- (svyglm(FezMeditacao12m~Hipertensao, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
@@ -364,11 +381,12 @@ stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
 ```
-
+</div>
 <br/><br/>
 
 ### Diagnóstico de insuficiência renal crônica
 <br/>
+<div align="center">
 ```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
 
 logit <- (svyglm(FezMeditacao12m~InsRenCronica, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
@@ -385,11 +403,12 @@ stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
 ```
-
+</div>
 <br/><br/>
 
 ### Diagnóstico de alguma doença crônica do pulmão
 <br/>
+<div align="center">
 ```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
 
 logit <- (svyglm(FezMeditacao12m~DoenCronPul, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
@@ -406,11 +425,12 @@ stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
 ```
-
+</div>
 <br/><br/>
 
 ### Diagnóstico de depressão
 <br/>
+<div align="center">
 ```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
 
 logit <- (svyglm(FezMeditacao12m~DiagDepressao, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
@@ -427,11 +447,12 @@ stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
 ```
-
+</div>
 <br/><br/>
 
 ### Diagnóstico de transtorno bipolar
 <br/>
+<div align="center">
 ```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
 
 logit <- (svyglm(FezMeditacao12m~DiagTransBip, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
@@ -448,11 +469,12 @@ stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
 ```
-
+</div>
 <br/><br/>
 
 ### Diagnóstico de TOC (transtorno obsessivo compulsivo)
 <br/>
+<div align="center">
 ```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
 
 logit <- (svyglm(FezMeditacao12m~DiagTOC, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
@@ -469,7 +491,7 @@ stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
 ```
-
+</div>
 <br/><br/><br/><br/>
 
 ## Regressões simples - Estilo de vida  
@@ -478,6 +500,7 @@ stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
 
 ### Atualmente fuma algum produto do tabaco
 <br/>
+<div align="center">
 ```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
 
 logit <- (svyglm(FezMeditacao12m~Tabagismo, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
@@ -494,11 +517,12 @@ stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
 ```
-
+</div>
 <br/><br/>
 
 ### Frequência em que consome bebida alcoólica
 <br/>
+<div align="center">
 ```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
 
 logit <- (svyglm(FezMeditacao12m~FreqAlcool1m, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
@@ -515,11 +539,12 @@ stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
 ```
-
+</div>
 <br/><br/>
 
 ### Frequência da prática de atividade física
 <br/>
+<div align="center">
 ```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
 
 logit <- (svyglm(FezMeditacao12m~Exercicio1s, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
@@ -536,7 +561,7 @@ stargazer(logit,logit2,logit3,type='html', header = F,ci=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
 ```
-
+</div>
 
 
 

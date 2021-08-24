@@ -19,9 +19,9 @@ dispersiontest(rd,trafo=1)
 
 ```
 
-
 ### Preditores da Prática de Meditação 
 
+<div align="center">
 ```{r eval=T, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
 
 dadoswp7a <- readRDS("dadoswp7a.RDS")
@@ -58,11 +58,12 @@ stargazer(logit1,logit2,logit3,logit4,
           )
 
 ```
-
+</div>
 <br/><br/>
 
 ### Preditores da Prática de Yoga
 
+<div align="center">
 ```{r eval=T, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
 
 dadoswp7a <- readRDS("dadoswp7a.RDS")
@@ -100,11 +101,12 @@ stargazer(logit1,logit2,logit3,logit4,
           )
 
 ```
-
+</div>
 <br/><br/>
 
 ### Preditores da Prática de Tai chi chuan ou Lian gong ou Qi gong
 
+<div align="center">
 ```{r eval=T, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
 
 dadoswp7a <- readRDS("dadoswp7a.RDS")
@@ -141,4 +143,4 @@ stargazer(logit1,logit2,logit3,logit4,
           )
 
 ```
-
+</div>
