@@ -1,0 +1,17 @@
+table {
+  width: 100%;
+}
+
+th { 
+  font-size: 12px;
+  border-collapse: collapse;
+  border-width:3px
+ }
+ 
+td { 
+  font-size: 12px;
+  border-collapse: collapse;
+  border-width:3px
+}
+
+

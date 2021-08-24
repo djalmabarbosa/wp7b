@@ -1,0 +1,100 @@
+---
+title: " "
+---
+
+<br/><br/>
+
+### Comparações entre grupos - Prática de Meditação
+<br/>
+
+```{r eval=TRUE, echo=FALSE, message=F, warning=F}
+
+dadoswp7a <- readRDS("dadoswp7a.RDS")
+
+#levels(dadoswp7a$variables$FezMeditacao12m) = c("Não Meditou (%)","Meditou (%)")
+#dadoswp7a$variables$FezMeditacao12m <- as.numeric(as.character(dadoswp7a$variables$FezMeditacao12m))
+
+library(gtsummary)
+library(dplyr)
+
+tbl_svysummary(dadoswp7a,by = FezMeditacao12m,
+               include=c(Sexo,Idade,CorRaca3,EmRelacionamento,NivelEducacional,Regiao,RendaFamiliarPc,
+                         VisitasDoAC12m,TemPlanoSaude,
+                         DoencasCronicas,
+                         Artrite,Asma,Hipercolesterol,Diabetes,DORT,Hipertensao,InsRenCronica,DoenCronPul,
+                         DiagDepressao,DiagTransBip,DiagTOC,
+                         Tabagismo,FreqAlcool1m,Exercicio1s),
+               statistic = list(all_categorical() ~ "{p}"),
+               digits = list(all_categorical() ~ c(2)),
+               missing = 'no',
+               ) %>%
+                  bold_labels() %>%
+                  modify_header(label = "**Variáveis**") %>%
+                  modify_header(update = stat_1 ~ "**Não meditaram (99.47%)**") %>%
+                  modify_header(update = stat_2 ~ "**Meditaram (0.53%)**") %>%
+                  add_p(pvalue_fun = ~style_pvalue(.x,digits = 3))
+
+```
+
+
+<br/><br/><br/><br/>
+
+
+### Comparações entre grupos - Prática de Yoga
+<br/>
+
+```{r eval=TRUE, echo=FALSE, message=F, warning=F}
+
+tbl_svysummary(dadoswp7a,by = FezYoga12m,
+               include=c(Sexo,Idade,CorRaca3,EmRelacionamento,NivelEducacional,Regiao,RendaFamiliarPc,
+                         VisitasDoAC12m,TemPlanoSaude,
+                         DoencasCronicas,
+                         Artrite,Asma,Hipercolesterol,Diabetes,DORT,Hipertensao,InsRenCronica,DoenCronPul,
+                         DiagDepressao,DiagTransBip,DiagTOC,
+                         Tabagismo,FreqAlcool1m,Exercicio1s),
+               statistic = list(all_categorical() ~ "{p}"),
+               digits = list(all_categorical() ~ c(2)),
+               missing = 'no',
+               ) %>%
+                  bold_labels() %>%
+                  modify_header(label = "**Variáveis**") %>%
+                  modify_header(update = stat_1 ~ "**Não praticaram Yoga (99.64%)**") %>%
+                  modify_header(update = stat_2 ~ "**Praticaram Yoga (0.36%)**") %>%
+                  add_p(pvalue_fun = ~style_pvalue(.x,digits = 3))
+
+```
+
+
+<br/><br/><br/><br/>
+
+### Comparações entre grupos - Prática de Tai chi chuan ou Lian gong ou Qi gong
+<br/>
+
+```{r eval=TRUE, echo=FALSE, message=F, warning=F}
+
+dadoswp7a <- readRDS("dadoswp7a.RDS")
+
+#levels(dadoswp7a$variables$FezMeditacao12m) = c("Não Meditou (%)","Meditou (%)")
+#dadoswp7a$variables$FezMeditacao12m <- as.numeric(as.character(dadoswp7a$variables$FezMeditacao12m))
+
+library(gtsummary)
+library(dplyr)
+
+tbl_svysummary(dadoswp7a,by = FezTaix12m,
+               include=c(Sexo,Idade,CorRaca3,EmRelacionamento,NivelEducacional,Regiao,RendaFamiliarPc,
+                         VisitasDoAC12m,TemPlanoSaude,
+                         DoencasCronicas,
+                         Artrite,Asma,Hipercolesterol,Diabetes,DORT,Hipertensao,InsRenCronica,DoenCronPul,
+                         DiagDepressao,DiagTransBip,DiagTOC,
+                         Tabagismo,FreqAlcool1m,Exercicio1s),
+               statistic = list(all_categorical() ~ "{p}"),
+               digits = list(all_categorical() ~ c(2)),
+               missing = 'no',
+               ) %>%
+                  bold_labels() %>%
+                  modify_header(label = "**Variáveis**") %>%
+                  modify_header(update = stat_1 ~ "**Não praticaram taix (99.96%)**") %>%
+                  modify_header(update = stat_2 ~ "**Praticaram taix (0.04%)**") %>%
+                  add_p(pvalue_fun = ~style_pvalue(.x,digits = 3))
+
+```

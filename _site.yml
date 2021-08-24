@@ -1,0 +1,25 @@
+name: "Working Paper"
+output_dir: "."
+navbar:
+  title: "Working Paper"
+  left:
+    - text: "Apresentação"
+      href: index.html
+    - text: "Dicionário de Variáveis"
+      href: dicionario.html
+    - text: "Amostra"
+      href: descricao-amostra.html
+    - text: "Prevalências"
+      href: relatorio-prevalencias.html
+    - text: "Comparações"
+      href: comparacao-todas.html
+    - text: "Regressões Simples"
+      href: relatorio-regsimples.html
+    - text: "Regressões Múltiplas"
+      href: relatorio-regressoes.html
+    - text: "Referências"
+      href: referencias.html
+output:
+  html_document:
+    theme: flatly
+

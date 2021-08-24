@@ -1,0 +1,35 @@
+---
+title: " "
+---
+
+<br/><br/>
+
+```{css,echo=FALSE}
+
+.main-container {
+    max-width: 100%;
+}
+
+```
+
+### Notas - Amostra   
+- A amostra é composta por indivíduos adultos (18 anos ou mais)
+
+<br/><br/>
+
+### Descrição da Amostra
+
+<br/>
+
+<div align="center">
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
+dadoswp7a <- readRDS("dadoswp7a.RDS")
+
+library(summarytools)
+
+print(dfSummary(dadoswp7a$variables[!is.na(dadoswp7a$variables$Idade), ],valid.col = F,display.labels = TRUE,graph.magnif = 1,
+                style = "multiline", headings = F),
+method = "render")
+
+```
+</div>

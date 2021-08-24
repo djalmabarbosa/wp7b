@@ -1,0 +1,54 @@
+---
+title: " "
+---
+
+<br/><br/>
+
+
+### Descrição das variáveis do estudo
+
+--- 
+
+| Variável | Descrição | Pergunta original |
+| ----------| --------- | --------- |
+| Variáveis relacionadas ao "desfecho"| 
+| UsouIntegrativa12m | Usou qualquer prática integrativa (PI) como tratamento nos últimos 12m | Nos últimos doze meses, ___ utilizou tratamento como acupuntura, homeopatia, plantas medicinais e fitoterapia, meditação, yoga, tai chi chuan, lian gong ou outra prática integrativa e complementar a saúde? | 
+| FezMeditacao12m | Fez Meditação como tratamento nos últimos 12 meses | Qual tratamento _________ fez uso meditação |
+| FezYoga12m | Fez Yoga como tratamento nos últimos 12 meses | Qual tratamento _________ fez uso Yoga |
+| FezTaix12m | Fez Tai chi chuan ou Lian gong ou Qi gong como tratamento nos últimos 12 meses | Qual tratamento _________ fez uso YTai chi chuan ou Lian gong ou Qi gong |
+| QualquerTipoMedit | Fez Yoga ou Tai chi chuan ou Lian gong ou Qi gong ou Meditação | Variável derivada |
+| |
+| **Variáveis demográficas** |
+| Sexo | Sexo | Sexo |
+| Idade | Classes de idade | Variável derivada |
+| CorRaca3 | Cor/Raça - variável derivada | Variável derivada de: Qual sua cor/raça? Se "Branca","Branca"; se "Preta ou Parda","Preta ou Marrom"; se amarelo ou indígena, "Leste Asiático ou Indígena" |
+| EmRelacionamento | Casado ou que mora com companheiro | Variável derivada: conjuga Estado Civil com Morar com companheiro |
+|Regiao| Região do Brasil | Variável derivada |
+| NivelEducacional | Nível educacional | Variável derivada de: Nível de instrução mais elevado alcançado (pessoas de 5 anos ou mais de idade) padronizado para o Ensino Fundamental -  SISTEMA DE 9 ANOS |
+| RendaFamiliarPc | Tercis de renda familiar *per capita* | Variável derivada de: Rendimento domiciliar per capita |
+| |
+| **Uso de serviços de saúde** | 
+| CadastroNaUSF | Domicílio cadastrado na unidade de saúde da família | O seu domicílio está cadastrado na unidade de saúde da família  |
+| VisitasDoAC12m | Frequência em que o domicíio recebeu visita do Agente Comunitário nos últimos 12 meses | Nos últimos doze meses, com que frequência o seu domicílio recebeu uma visita de algum Agente Comunitário ou algum membro da Equipe de Saúde da Família?  |
+| TemPlanoSaude | Tem algum plano de saúde médico particular | tem algum plano de saúde médico particular, de empresa ou órgão público? |
+| |
+| **Estado de saúde** |
+| DoencasCronicas | Soma dos diagnósticos de doenças crônicas | Variável derivada |
+| Artrite | Já teve diagnóstico de artrite | Algum médico já lhe deu o diagnóstico de artrite ou reumatismo?  |
+| Asma | Já teve diagnóstico de asma | Algum médico já lhe deu o diagnóstico de asma (ou bronquite asmática)?  |
+| Hipercolesterol | Já teve diagnóstico de colesterol alto | Algum médico já lhe deu o diagnóstico de colesterol alto? |
+| Diabetes | Já teve diagnóstico de diabetes | Algum médico já lhe deu o diagnóstico de diabetes?  |
+| DORT | Já teve diagnóstico de DORT | Algum médico já lhe deu o diagnóstico de DORT? |
+| Hipertensao | Já teve diagnóstico de hipertensão | Algum médico já lhe deu o diagnóstico de hipertensão arterial (pressão alta)? |
+| InsRenCronica | Já teve diagnóstico de insuficiência renal crônica | Algum médico já lhe deu o diagnóstico de insuficiência renal crônica?  |
+| DoenCronPul | Já teve diagnóstico de doença crônica do pulmão | Algum médico já lhe deu o diagnóstico de alguma outra doença crônica no pulmão, tais como enfisema pulmonar, bronquite crônica ou DPOC (Doença Pulmonar Obstrutiva Crônica)? |
+| DiagDepressao | Já teve dianóstico de depressão | Algum médico ou profissional de saúde mental (como psiquiatra ou psicólogo) já lhe deu o diagnóstico de depressão? |
+| DiagTransBip | Já teve dianóstico de transtorno bipolar | Diagnóstico de Transtorno bipolar |
+| DiagTOC | Já teve diagnóstico de toc | Diagnóstico de TOC (Transtorno obsessivo compulsivo)  |
+| |
+| **Estilo de vida** |
+| Tabagismo | Se a pessoa fumava no momento da pesquisa | Variável derivada de: Atualmente, o(a) Sr(a) fuma algum produto do tabaco?  |
+| FreqAlcool1m | Frequência mensal de consumo de bebidas alcoólicas | Com que frequência o(a) Sr(a) costuma consumir alguma bebida alcoólica? |
+| Exercicio1s | Frequência de prática de atividade física | Variável derivada de: Quantos dias por semana o(a) Sr(a) costuma  (costumava)praticar exercício físico ou esporte? |
+
+***

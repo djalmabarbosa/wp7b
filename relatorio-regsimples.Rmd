@@ -1,0 +1,543 @@
+---
+title: " "
+---
+
+<br/><br/>
+
+### Notas - Regressões Simples
+
+- Todas regressões utilizam o modelo logit incorporando expansão da amostra
+- As variáveis foram dividas em blocos, seguindo literatura
+
+### Regressões Simples - Variáveis Demográficas
+
+<br/><br/> 
+
+### Sexo
+<br/>
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
+
+dadoswp7a <- readRDS("dadoswp7a.RDS")
+
+library(survey)
+
+logit <- (svyglm(FezMeditacao12m~Sexo, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit2 <- (svyglm(FezYoga12m~Sexo, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit3 <- (svyglm(FezTaix12m~Sexo, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+
+Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
+covlabels <- levels(dadoswp7a$variables$Sexo)[-1]
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[9], ";  Cagetoria de referência:",
+                    levels(dadoswp7a$variables$Sexo)[1])
+
+library(stargazer)
+stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
+          notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
+          single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
+
+```
+
+<br/><br/>  
+
+### Idade  
+
+<br/>
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
+
+logit <- (svyglm(FezMeditacao12m~Idade, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit2 <- (svyglm(FezYoga12m~Idade, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit3 <- (svyglm(FezTaix12m~Idade, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+
+Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
+covlabels <- levels(dadoswp7a$variables$Idade)[-1]
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[10], ";  Cagetoria de referência:",
+                    levels(dadoswp7a$variables$Idade)[1])
+
+stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
+          notes=Notes,notes.append=F,notes.label = noteslabel,
+          single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
+
+```
+
+<br/><br/>
+
+### Cor/Raca com três categorias
+<br/>
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
+
+logit <- (svyglm(FezMeditacao12m~CorRaca3, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit2 <- (svyglm(FezYoga12m~CorRaca3, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit3 <- (svyglm(FezTaix12m~CorRaca3, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+
+Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
+covlabels <- levels(dadoswp7a$variables$CorRaca3)[-1]
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[12], ";  Cagetoria de referência:",
+                    levels(dadoswp7a$variables$CorRaca3)[1])
+
+stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
+          notes=Notes,notes.append=F,notes.label = noteslabel,
+          single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
+
+```
+
+<br/><br/>
+
+### Em relacionamento (inclui aqueles que moram com companheiro, mas não são casados)
+<br/>
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
+
+logit <- (svyglm(FezMeditacao12m~EmRelacionamento, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit2 <- (svyglm(FezYoga12m~EmRelacionamento, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit3 <- (svyglm(FezTaix12m~EmRelacionamento, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+
+Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
+covlabels <- levels(dadoswp7a$variables$EmRelacionamento)[-1]
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[14], ";  Cagetoria de referência:",
+                    levels(dadoswp7a$variables$EmRelacionamento)[1])
+
+stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
+          notes=Notes,notes.append=F,notes.label = noteslabel,
+          single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
+```
+
+<br/><br/>
+
+### Região 
+<br/>
+```{r Regressões, eval=T, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
+
+#### Região
+#logit1 <- glm(FezMeditacao12m~Regiao, family=binomial, dadoswp7a$variables, na.action = na.omit)
+logit <- (svyglm(FezMeditacao12m~Regiao, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit2 <- (svyglm(FezYoga12m~Regiao, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit3 <- (svyglm(FezTaix12m~Regiao, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+
+Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
+covlabels <- levels(dadoswp7a$variables$Regiao)[-1]
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[8], ";  Cagetoria de referência:",
+                    levels(dadoswp7a$variables$Regiao)[1])
+
+stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
+          notes=Notes,notes.append=F,notes.label = noteslabel,
+          single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
+
+```
+
+<br/><br/>
+
+### Nível de instrução mais elevado alcançado
+<br/>
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
+
+logit <- (svyglm(FezMeditacao12m~NivelEducacional, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit2 <- (svyglm(FezYoga12m~NivelEducacional, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit3 <- (svyglm(FezTaix12m~NivelEducacional, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+
+Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
+covlabels <- levels(dadoswp7a$variables$NivelEducacional)[-1]
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[15], ";  Cagetoria de referência:",
+                    levels(dadoswp7a$variables$NivelEducacional)[1])
+
+stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
+          notes=Notes,notes.append=F,notes.label = noteslabel,
+          single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
+
+```
+
+<br/><br/>
+
+### Tercis de Renda Familiar *Per capita*
+<br/>
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
+
+logit <- (svyglm(FezMeditacao12m~RendaFamiliarPc, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit2 <- (svyglm(FezYoga12m~RendaFamiliarPc, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit3 <- (svyglm(FezTaix12m~RendaFamiliarPc, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+
+Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
+covlabels <- levels(dadoswp7a$variables$RendaFamiliarPc)[-1]
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[16], ";  Cagetoria de referência:",
+                    levels(dadoswp7a$variables$RendaFamiliarPc)[1])
+
+stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
+          notes=Notes,notes.append=F,notes.label = noteslabel,
+          single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
+
+```
+
+<br/><br/><br/><br/>
+
+## Regressões Simples - Serviços de saúde
+
+<br/><br/>
+
+#### Frequência de visita do Agente Comunitário
+<br/>
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
+
+logit <- (svyglm(FezMeditacao12m~VisitasDoAC12m, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit2 <- (svyglm(FezYoga12m~VisitasDoAC12m, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit3 <- (svyglm(FezTaix12m~VisitasDoAC12m, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+
+Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
+covlabels <- levels(dadoswp7a$variables$VisitasDoAC12m)[-1]
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[18], ";  Cagetoria de referência:",
+                    levels(dadoswp7a$variables$VisitasDoAC12m)[1])
+
+stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
+          notes=Notes,notes.append=F,notes.label = noteslabel,
+          single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
+
+```
+
+<br/><br/>
+
+#### Tem plano de saúde
+<br/>
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
+
+logit <- (svyglm(FezMeditacao12m~TemPlanoSaude, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit2 <- (svyglm(FezYoga12m~TemPlanoSaude, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit3 <- (svyglm(FezTaix12m~TemPlanoSaude, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+
+Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
+covlabels <- levels(dadoswp7a$variables$TemPlanoSaude)[-1]
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[19], ";  Cagetoria de referência:",
+                    levels(dadoswp7a$variables$TemPlanoSaude)[1])
+
+stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
+          notes=Notes,notes.append=F,notes.label = noteslabel,
+          single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
+
+```
+
+
+
+<br/><br/>
+
+<br/><br/><br/><br/>
+
+## Regressões Simples -  Estado de saúde
+
+<br/><br/>  
+
+### Número de doenças crônicas diagnosticadas
+<br/>
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
+
+logit <- (svyglm(FezMeditacao12m~DoencasCronicas, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit2 <- (svyglm(FezYoga12m~DoencasCronicas, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit3 <- (svyglm(FezTaix12m~DoencasCronicas, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+
+Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
+covlabels <- levels(dadoswp7a$variables$DoencasCronicas)[-1]
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[34], ";  Cagetoria de referência:",
+                    levels(dadoswp7a$variables$DoencasCronicas)[1])
+
+stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
+          notes=Notes,notes.append=F,notes.label = noteslabel,
+          single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
+
+```
+
+<br/><br/>
+
+### Diagnóstico de artrite ou reumatismo
+<br/>
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
+
+logit <- (svyglm(FezMeditacao12m~Artrite, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit2 <- (svyglm(FezYoga12m~Artrite, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit3 <- (svyglm(FezTaix12m~Artrite, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+
+Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
+covlabels <- levels(dadoswp7a$variables$Artrite)[-1]
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[26], ";  Cagetoria de referência:",
+                    levels(dadoswp7a$variables$Artrite)[1])
+
+stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
+          notes=Notes,notes.append=F,notes.label = noteslabel,
+          single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
+
+```
+
+<br/><br/>
+
+### Diagnóstico de asma ou bronquite asmática
+<br/>
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
+
+logit <- (svyglm(FezMeditacao12m~Asma, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit2 <- (svyglm(FezYoga12m~Asma, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit3 <- (svyglm(FezTaix12m~Asma, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+
+Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
+covlabels <- levels(dadoswp7a$variables$Asma)[-1]
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[27], ";  Cagetoria de referência:",
+                    levels(dadoswp7a$variables$Asma)[1])
+
+stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
+          notes=Notes,notes.append=F,notes.label = noteslabel,
+          single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
+```
+
+<br/><br/>
+
+### Diagnóstico de colesterol alto
+<br/>
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
+
+logit <- (svyglm(FezMeditacao12m~Hipercolesterol, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit2 <- (svyglm(FezYoga12m~Hipercolesterol, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit3 <- (svyglm(FezTaix12m~Hipercolesterol, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+
+Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
+covlabels <- levels(dadoswp7a$variables$Hipercolesterol)[-1]
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[28], ";  Cagetoria de referência:",
+                    levels(dadoswp7a$variables$Hipercolesterol)[1])
+
+stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
+          notes=Notes,notes.append=F,notes.label = noteslabel,
+          single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
+
+```
+
+<br/><br/>
+
+### Diagnóstico de diabetes
+<br/>
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
+
+logit <- (svyglm(FezMeditacao12m~Diabetes, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit2 <- (svyglm(FezYoga12m~Diabetes, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit3 <- (svyglm(FezTaix12m~Diabetes, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+
+Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
+covlabels <- levels(dadoswp7a$variables$Diabetes)[-1]
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[29], ";  Cagetoria de referência:",
+                    levels(dadoswp7a$variables$Diabetes)[1])
+
+stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
+          notes=Notes,notes.append=F,notes.label = noteslabel,
+          single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
+
+```
+
+<br/><br/>
+
+### Diagnóstico de DORT (Distúrbios Osteomusculares Relacionados ao Trabalho)
+<br/>
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
+
+logit <- (svyglm(FezMeditacao12m~DORT, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit2 <- (svyglm(FezYoga12m~DORT, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit3 <- (svyglm(FezTaix12m~DORT, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+
+Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
+covlabels <- levels(dadoswp7a$variables$DORT)[-1]
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[30], ";  Cagetoria de referência:",
+                    levels(dadoswp7a$variables$DORT)[1])
+
+stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
+          notes=Notes,notes.append=F,notes.label = noteslabel,
+          single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
+
+```
+
+<br/><br/>
+
+### Diagnóstico de hipertensão arterial
+<br/>
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
+
+logit <- (svyglm(FezMeditacao12m~Hipertensao, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit2 <- (svyglm(FezYoga12m~Hipertensao, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit3 <- (svyglm(FezTaix12m~Hipertensao, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+
+Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
+covlabels <- levels(dadoswp7a$variables$Hipertensao)[-1]
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[31], ";  Cagetoria de referência:",
+                    levels(dadoswp7a$variables$Hipertensao)[1])
+
+stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
+          notes=Notes,notes.append=F,notes.label = noteslabel,
+          single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
+
+```
+
+<br/><br/>
+
+### Diagnóstico de insuficiência renal crônica
+<br/>
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
+
+logit <- (svyglm(FezMeditacao12m~InsRenCronica, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit2 <- (svyglm(FezYoga12m~InsRenCronica, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit3 <- (svyglm(FezTaix12m~InsRenCronica, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+
+Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
+covlabels <- levels(dadoswp7a$variables$InsRenCronica)[-1]
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[32], ";  Cagetoria de referência:",
+                    levels(dadoswp7a$variables$InsRenCronica)[1])
+
+stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
+          notes=Notes,notes.append=F,notes.label = noteslabel,
+          single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
+
+```
+
+<br/><br/>
+
+### Diagnóstico de alguma doença crônica do pulmão
+<br/>
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
+
+logit <- (svyglm(FezMeditacao12m~DoenCronPul, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit2 <- (svyglm(FezYoga12m~DoenCronPul, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit3 <- (svyglm(FezTaix12m~DoenCronPul, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+
+Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
+covlabels <- levels(dadoswp7a$variables$DoenCronPul)[-1]
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[33], ";  Cagetoria de referência:",
+                    levels(dadoswp7a$variables$DoenCronPul)[1])
+
+stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
+          notes=Notes,notes.append=F,notes.label = noteslabel,
+          single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
+
+```
+
+<br/><br/>
+
+### Diagnóstico de depressão
+<br/>
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
+
+logit <- (svyglm(FezMeditacao12m~DiagDepressao, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit2 <- (svyglm(FezYoga12m~DiagDepressao, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit3 <- (svyglm(FezTaix12m~DiagDepressao, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+
+Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
+covlabels <- levels(dadoswp7a$variables$DiagDepressao)[-1]
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[35], ";  Cagetoria de referência:",
+                    levels(dadoswp7a$variables$DiagDepressao)[1])
+
+stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
+          notes=Notes,notes.append=F,notes.label = noteslabel,
+          single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
+
+```
+
+<br/><br/>
+
+### Diagnóstico de transtorno bipolar
+<br/>
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
+
+logit <- (svyglm(FezMeditacao12m~DiagTransBip, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit2 <- (svyglm(FezYoga12m~DiagTransBip, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit3 <- (svyglm(FezTaix12m~DiagTransBip, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+
+Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
+covlabels <- levels(dadoswp7a$variables$DiagTransBip)[-1]
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[36], ";  Cagetoria de referência:",
+                    levels(dadoswp7a$variables$DiagTransBip)[1])
+
+stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
+          notes=Notes,notes.append=F,notes.label = noteslabel,
+          single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
+
+```
+
+<br/><br/>
+
+### Diagnóstico de TOC (transtorno obsessivo compulsivo)
+<br/>
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
+
+logit <- (svyglm(FezMeditacao12m~DiagTOC, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit2 <- (svyglm(FezYoga12m~DiagTOC, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit3 <- (svyglm(FezTaix12m~DiagTOC, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+
+Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
+covlabels <- levels(dadoswp7a$variables$DiagTOC)[-1]
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[37], ";  Cagetoria de referência:",
+                    levels(dadoswp7a$variables$DiagTOC)[1])
+
+stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
+          notes=Notes,notes.append=F,notes.label = noteslabel,
+          single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
+
+```
+
+<br/><br/><br/><br/>
+
+## Regressões simples - Estilo de vida  
+
+<br/><br/>
+
+### Atualmente fuma algum produto do tabaco
+<br/>
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
+
+logit <- (svyglm(FezMeditacao12m~Tabagismo, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit2 <- (svyglm(FezYoga12m~Tabagismo, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit3 <- (svyglm(FezTaix12m~Tabagismo, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+
+Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
+covlabels <- levels(dadoswp7a$variables$Tabagismo)[-1]
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[38], ";  Cagetoria de referência:",
+                    levels(dadoswp7a$variables$Tabagismo)[1])
+
+stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
+          notes=Notes,notes.append=F,notes.label = noteslabel,
+          single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
+
+```
+
+<br/><br/>
+
+### Frequência em que consome bebida alcoólica
+<br/>
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
+
+logit <- (svyglm(FezMeditacao12m~FreqAlcool1m, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit2 <- (svyglm(FezYoga12m~FreqAlcool1m, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit3 <- (svyglm(FezTaix12m~FreqAlcool1m, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+
+Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
+covlabels <- levels(dadoswp7a$variables$FreqAlcool1m)[-1]
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[39], ";  Cagetoria de referência:",
+                    levels(dadoswp7a$variables$FreqAlcool1m)[1])
+
+stargazer(logit,logit2,logit3, type='html', header = F,ci=T,
+          notes=Notes,notes.append=F,notes.label = noteslabel,
+          single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
+
+```
+
+<br/><br/>
+
+### Frequência da prática de atividade física
+<br/>
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
+
+logit <- (svyglm(FezMeditacao12m~Exercicio1s, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit2 <- (svyglm(FezYoga12m~Exercicio1s, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit3 <- (svyglm(FezTaix12m~Exercicio1s, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+
+Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
+covlabels <- levels(dadoswp7a$variables$Exercicio1s)[-1]
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[41], ";  Cagetoria de referência:",
+                    levels(dadoswp7a$variables$Exercicio1s)[1])
+
+stargazer(logit,logit2,logit3,type='html', header = F,ci=T,
+          notes=Notes,notes.append=F,notes.label = noteslabel,
+          single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
+
+```
+
+
+
+
+

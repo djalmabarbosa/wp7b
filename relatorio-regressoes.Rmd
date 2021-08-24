@@ -1,0 +1,144 @@
+---
+title: " "
+---
+
+<br/><br/>
+
+```{r teste de sobredispersão, eval=F, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
+
+dadoswp7a <- readRDS("dadoswp7a.RDS")
+
+library(AER)
+
+dados <- as.data.frame(dadoswp7a$variables)
+
+rd <- glm(as.numeric(FezTaix12m) ~ ., data = dados, family = poisson)
+dispersiontest(rd,trafo=1)
+
+# Não rejeitou a hipótese nula de equidispersão.
+
+```
+
+
+### Preditores da Prática de Meditação 
+
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
+
+dadoswp7a <- readRDS("dadoswp7a.RDS")
+
+library(survey)
+
+logit1 <- (svyglm(FezMeditacao12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc,
+                  family=quasibinomial, design=dadoswp7a))
+
+logit2 <- (svyglm(FezMeditacao12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
+                 VisitasDoAC12m+TemPlanoSaude,
+                 family=quasibinomial, design=dadoswp7a))
+
+logit3 <- (svyglm(FezMeditacao12m~Regiao+Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
+                 VisitasDoAC12m+TemPlanoSaude+
+                 DoencasCronicas,
+                 family=quasibinomial, design=dadoswp7a))
+
+logit4 <- (svyglm(FezMeditacao12m~Regiao+Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
+                 VisitasDoAC12m+TemPlanoSaude+
+                 DoencasCronicas+
+                 Tabagismo+FreqAlcool1m+Exercicio1s,
+                 family=quasibinomial, design=dadoswp7a))
+
+Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
+
+library(stargazer)
+stargazer(logit1,logit2,logit3,logit4,
+          type='html', header = F,ci=T,
+          notes=Notes,notes.append=F,
+          column.labels = c("Demográficas","+Serv. de Saúde","+Est. de Saúde","+Est. de Vida"),
+          column.sep.width = "7pt",
+          single.row = F,dep.var.caption="Variável Dependente", star.char = "&#9768;"
+          )
+
+```
+
+<br/><br/>
+
+### Preditores da Prática de Yoga
+
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
+
+dadoswp7a <- readRDS("dadoswp7a.RDS")
+
+library(survey)
+
+logit1 <- (svyglm(FezYoga12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc,
+                  family=quasibinomial, design=dadoswp7a))
+
+logit2 <- (svyglm(FezYoga12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
+                 VisitasDoAC12m+TemPlanoSaude,
+                 family=quasibinomial, design=dadoswp7a))
+
+logit3 <- (svyglm(FezYoga12m~Regiao+Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
+                 VisitasDoAC12m+TemPlanoSaude+
+                 DoencasCronicas,
+                 family=quasibinomial, design=dadoswp7a))
+
+logit4 <- (svyglm(FezYoga12m~Regiao+Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
+                 VisitasDoAC12m+TemPlanoSaude+
+                 DoencasCronicas+
+                 Tabagismo+FreqAlcool1m+Exercicio1s,
+                 family=quasibinomial, design=dadoswp7a))
+
+
+Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
+
+library(stargazer)
+stargazer(logit1,logit2,logit3,logit4,
+          type='html', header = F,ci=T,
+          notes=Notes,notes.append=F,
+          single.row = F,dep.var.caption="Variável Dependente", star.char = "&#9768;",
+          column.labels = c("Demográficas","+Serv. de Saúde","+Est. de Saúde","+Est. de Vida"),
+          column.sep.width = "7pt"
+          )
+
+```
+
+<br/><br/>
+
+### Preditores da Prática de Tai chi chuan ou Lian gong ou Qi gong
+
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
+
+dadoswp7a <- readRDS("dadoswp7a.RDS")
+
+library(survey)
+
+logit1 <- (svyglm(FezTaix12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc,
+                  family=quasibinomial, design=dadoswp7a))
+
+logit2 <- (svyglm(FezTaix12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
+                 VisitasDoAC12m+TemPlanoSaude,
+                 family=quasibinomial, design=dadoswp7a))
+
+logit3 <- (svyglm(FezTaix12m~Regiao+Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
+                 VisitasDoAC12m+TemPlanoSaude+
+                 DoencasCronicas,
+                 family=quasibinomial, design=dadoswp7a))
+
+logit4 <- (svyglm(FezTaix12m~Regiao+Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
+                 VisitasDoAC12m+TemPlanoSaude+
+                 DoencasCronicas+
+                 Tabagismo+FreqAlcool1m+Exercicio1s,
+                 family=quasibinomial, design=dadoswp7a))
+
+Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
+
+library(stargazer)
+stargazer(logit1,logit2,logit3,logit4,
+          type='html', header = F,ci=T,
+          notes=Notes,notes.append=F,
+          single.row = F,dep.var.caption="Variável Dependente", star.char = "&#9768;",
+          column.labels = c("Demográficas","+Serv. de Saúde","+Est. de Saúde","+Est. de Vida"),
+          column.sep.width = "7pt"
+          )
+
+```
+

@@ -1,0 +1,38 @@
+---
+title: " "
+---
+<br/><br/>
+
+<p style="text-align: center;">
+Esta website contém resultados e outras informações da pesquisa.  
+</p>
+
+<br/>
+
+<p style="text-align: center;">
+A auditoria/crítica do código em R das análises pode ser feita no [github](https://github.com).
+</p>
+
+<br/>
+
+<p style="text-align: center;">
+O *dicionário de variáveis*, o *questionário* e o *manual de entrevistas* estão no [google drive](https://drive.google.com/drive/folders/1d0fHrs4dME9caG8IIHxD-pDJYJdI4PSy).  
+</p>
+
+<br/>
+
+<p style="text-align: center;">
+A lista de referências também está no [Zotero](https://www.zotero.org/).  
+</p>
+
+
+```{r recortes, eval=F, echo=F}
+  
+<p style="text-align: center;"> 
+<font size="3">
+*Djalma Barbosa*  
+*Professor de Métodos Quantitativos - UFR*  
+*Doutorando em Saúde Pública - USP* 
+</font>
+</p>
+```
