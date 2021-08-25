@@ -170,7 +170,7 @@ NivelEducacional = as.factor(ifelse(niveleducacional == "Sem instrução" | nive
                                     ifelse(niveleducacional == "Médio completo ou equivalente", "Médio completo","Superior incompleto ou mais")))
 )
 
-levels(dadoswp7$variables$RendaFamiliarPc) <- c("1o Tercil", "2o Tercil","3o Tercil")
+levels(dadoswp7$variables$RendaFamiliarPc) <- c("R$0-499,99", "R$500-1087,99 ","R$1088 ou mais")
 
 dadoswp7$variables$Exercicio1s <- factor(dadoswp7$variables$Exercicio1s,
                                               levels = c("Nenhum dia","De um a quatro dias na semana","Cinco ou mais dias na semana"))
