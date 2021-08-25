@@ -221,7 +221,7 @@ dadoswp7$variables <- dadoswp7$variables %>%
 dadoswp7$variables$TemPlanoSaude <- relevel(dadoswp7$variables$TemPlanoSaude, ref = "Não")
 dadoswp7$variables$Tabagismo <- relevel(dadoswp7$variables$Tabagismo, ref = "Não")
 dadoswp7$variables$Exercicio1s <- relevel(dadoswp7$variables$Exercicio1s, ref = "Nenhum dia")
-dadoswp7$variables$CorRaca3 <- relevel(dadoswp7$variables$CorRaca3, ref = "Branca")
+dadoswp7$variables$CorRaca3 <- relevel(dadoswp7$variables$CorRaca3, ref = "Preta ou Marrom")
 dadoswp7$variables$VisitasDoAC12m <- relevel(dadoswp7$variables$VisitasDoAC12m, ref = "Já recebeu")
 dadoswp7$variables$EmRelacionamento <- relevel(dadoswp7$variables$EmRelacionamento, ref = "Sim")
 
