@@ -170,7 +170,7 @@ NivelEducacional = as.factor(ifelse(niveleducacional == "Sem instrução" | nive
                                     ifelse(niveleducacional == "Médio completo ou equivalente", "Médio completo","Superior incompleto ou mais")))
 )
 
-levels(dadoswp7$variables$RendaFamiliarPc) <- c("R$0-499,99", "R$500-1087,99 ","R$1088 ou mais")
+levels(dadoswp7$variables$RendaFamiliarPc) <- c("0 a 499 reais per capita", "500 a 1087 reais per capita ","1088 reais per capita ou mais")
 
 dadoswp7$variables$Exercicio1s <- factor(dadoswp7$variables$Exercicio1s,
                                               levels = c("Nenhum dia","De um a quatro dias na semana","Cinco ou mais dias na semana"))
@@ -220,9 +220,10 @@ dadoswp7$variables <- dadoswp7$variables %>%
 
 dadoswp7$variables$TemPlanoSaude <- relevel(dadoswp7$variables$TemPlanoSaude, ref = "Não")
 dadoswp7$variables$Tabagismo <- relevel(dadoswp7$variables$Tabagismo, ref = "Não")
-dadoswp7$variables$VisitasDoAC12m <- relevel(dadoswp7$variables$VisitasDoAC12m, ref = "Nunca recebeu")
 dadoswp7$variables$Exercicio1s <- relevel(dadoswp7$variables$Exercicio1s, ref = "Nenhum dia")
-
+dadoswp7$variables$CorRaca3 <- relevel(dadoswp7$variables$CorRaca3, ref = "Branca")
+dadoswp7$variables$VisitasDoAC12m <- relevel(dadoswp7$variables$VisitasDoAC12m, ref = "Já recebeu")
+dadoswp7$variables$EmRelacionamento <- relevel(dadoswp7$variables$EmRelacionamento, ref = "Sim")
 
 
 saveRDS(dadoswp7,"dadoswp7a.RDS")

@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>teste.knit</title>
+
+<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Working Paper</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Apresentação</a>
+</li>
+<li>
+  <a href="dicionario.html">Dicionário de Variáveis</a>
+</li>
+<li>
+  <a href="descricao-amostra.html">Amostra</a>
+</li>
+<li>
+  <a href="relatorio-prevalencias.html">Prevalências</a>
+</li>
+<li>
+  <a href="comparacao-todas.html">Comparações</a>
+</li>
+<li>
+  <a href="relatorio-regsimples.html">Regressões Simples</a>
+</li>
+<li>
+  <a href="relatorio-regressoes.html">Regressões Múltiplas</a>
+</li>
+<li>
+  <a href="referencias.html">Referências</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+
+</div>
+
+
+<div id="preditores-da-prática-de-meditação" class="section level3">
+<h3>Preditores da Prática de Meditação</h3>
+<br/>
+<div align="center">
+<table style="text-align:center">
+<tr>
+<td colspan="5" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="4">
+Variável Dependente
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="4">
+FezMeditacao12m
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Demográficas
+</td>
+<td>
++Serv. de Saúde
+</td>
+<td>
++Est. de Saúde
+</td>
+<td>
++Est. de Vida
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+<td>
+(4)
+</td>
+</tr>
+<tr>
+<td colspan="5" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+SexoMulher
+</td>
+<td>
+1.912<sup>☨☨☨</sup>
+</td>
+<td>
+1.729<sup>☨☨☨</sup>
+</td>
+<td>
+1.679<sup>☨☨☨</sup>
+</td>
+<td>
+1.579<sup>☨</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.569, 2.255)
+</td>
+<td>
+(1.184, 2.275)
+</td>
+<td>
+(1.138, 2.221)
+</td>
+<td>
+(0.803, 2.355)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Idade30 a 39
+</td>
+<td>
+1.412<sup>☨☨☨</sup>
+</td>
+<td>
+1.314
+</td>
+<td>
+1.241
+</td>
+<td>
+1.458
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.043, 1.781)
+</td>
+<td>
+(0.693, 1.935)
+</td>
+<td>
+(0.659, 1.823)
+</td>
+<td>
+(0.519, 2.398)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Idade40 a 49
+</td>
+<td>
+1.346<sup>☨</sup>
+</td>
+<td>
+1.611<sup>☨☨</sup>
+</td>
+<td>
+1.446
+</td>
+<td>
+1.895<sup>☨</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.894, 1.799)
+</td>
+<td>
+(0.851, 2.371)
+</td>
+<td>
+(0.788, 2.104)
+</td>
+<td>
+(0.613, 3.176)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Idade50 a 64
+</td>
+<td>
+1.431<sup>☨☨</sup>
+</td>
+<td>
+1.371
+</td>
+<td>
+1.104
+</td>
+<td>
+0.965
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.962, 1.900)
+</td>
+<td>
+(0.711, 2.031)
+</td>
+<td>
+(0.566, 1.642)
+</td>
+<td>
+(0.312, 1.618)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+IdadeMaior que 64
+</td>
+<td>
+1.184
+</td>
+<td>
+1.119
+</td>
+<td>
+0.835
+</td>
+<td>
+0.623
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.633, 1.736)
+</td>
+<td>
+(0.451, 1.787)
+</td>
+<td>
+(0.305, 1.365)
+</td>
+<td>
+(0.088, 1.159)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+CorRaca3Preta ou Marrom
+</td>
+<td>
+0.699<sup>☨☨☨</sup>
+</td>
+<td>
+0.975
+</td>
+<td>
+0.971
+</td>
+<td>
+0.898
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.549, 0.849)
+</td>
+<td>
+(0.624, 1.327)
+</td>
+<td>
+(0.621, 1.322)
+</td>
+<td>
+(0.501, 1.296)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+CorRaca3Leste Asiático ou Indígena
+</td>
+<td>
+1.423
+</td>
+<td>
+0.173<sup>☨☨☨</sup>
+</td>
+<td>
+0.175<sup>☨☨☨</sup>
+</td>
+<td>
+0.238<sup>☨</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.237, 2.609)
+</td>
+<td>
+(-0.037, 0.384)
+</td>
+<td>
+(-0.037, 0.387)
+</td>
+<td>
+(-0.116, 0.593)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+EmRelacionamentoSim
+</td>
+<td>
+0.727<sup>☨☨☨</sup>
+</td>
+<td>
+0.621<sup>☨☨☨</sup>
+</td>
+<td>
+0.647<sup>☨☨☨</sup>
+</td>
+<td>
+0.441<sup>☨☨☨</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.571, 0.884)
+</td>
+<td>
+(0.418, 0.824)
+</td>
+<td>
+(0.441, 0.853)
+</td>
+<td>
+(0.244, 0.638)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+RegiaoNordeste
+</td>
+<td>
+1.604<sup>☨☨</sup>
+</td>
+<td>
+1.256
+</td>
+<td>
+1.247
+</td>
+<td>
+0.828
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.955, 2.254)
+</td>
+<td>
+(0.435, 2.078)
+</td>
+<td>
+(0.431, 2.063)
+</td>
+<td>
+(0.170, 1.485)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+RegiaoCentro-Oeste
+</td>
+<td>
+2.002<sup>☨☨☨</sup>
+</td>
+<td>
+2.286<sup>☨☨</sup>
+</td>
+<td>
+2.240<sup>☨☨</sup>
+</td>
+<td>
+1.212
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.150, 2.855)
+</td>
+<td>
+(0.746, 3.826)
+</td>
+<td>
+(0.731, 3.749)
+</td>
+<td>
+(0.113, 2.311)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+RegiaoSudeste
+</td>
+<td>
+2.281<sup>☨☨☨</sup>
+</td>
+<td>
+2.140<sup>☨☨</sup>
+</td>
+<td>
+2.102<sup>☨☨</sup>
+</td>
+<td>
+1.359
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.380, 3.181)
+</td>
+<td>
+(0.749, 3.531)
+</td>
+<td>
+(0.737, 3.467)
+</td>
+<td>
+(0.345, 2.373)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+RegiaoSul
+</td>
+<td>
+2.628<sup>☨☨☨</sup>
+</td>
+<td>
+3.972<sup>☨☨☨</sup>
+</td>
+<td>
+3.828<sup>☨☨☨</sup>
+</td>
+<td>
+2.460<sup>☨☨</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.569, 3.686)
+</td>
+<td>
+(1.352, 6.593)
+</td>
+<td>
+(1.307, 6.350)
+</td>
+<td>
+(0.627, 4.292)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+NivelEducacionalMédio completo
+</td>
+<td>
+3.454<sup>☨☨☨</sup>
+</td>
+<td>
+3.426<sup>☨☨☨</sup>
+</td>
+<td>
+3.488<sup>☨☨☨</sup>
+</td>
+<td>
+2.438<sup>☨☨</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.972, 4.935)
+</td>
+<td>
+(1.589, 5.264)
+</td>
+<td>
+(1.617, 5.360)
+</td>
+<td>
+(0.600, 4.276)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+NivelEducacionalSuperior incompleto ou mais
+</td>
+<td>
+18.631<sup>☨☨☨</sup>
+</td>
+<td>
+12.836<sup>☨☨☨</sup>
+</td>
+<td>
+13.113<sup>☨☨☨</sup>
+</td>
+<td>
+8.991<sup>☨☨☨</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(10.424, 26.838)
+</td>
+<td>
+(6.223, 19.448)
+</td>
+<td>
+(6.386, 19.840)
+</td>
+<td>
+(2.555, 15.426)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+500 - 1087
+</td>
+<td>
+1.276
+</td>
+<td>
+1.334
+</td>
+<td>
+1.350
+</td>
+<td>
+1.593
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.571, 1.982)
+</td>
+<td>
+(0.412, 2.256)
+</td>
+<td>
+(0.418, 2.282)
+</td>
+<td>
+(0.228, 2.959)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+1088 ou mais
+</td>
+<td>
+2.843<sup>☨☨☨</sup>
+</td>
+<td>
+1.860<sup>☨</sup>
+</td>
+<td>
+1.905<sup>☨</sup>
+</td>
+<td>
+2.246<sup>☨</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1.317, 4.368)
+</td>
+<td>
+(0.582, 3.138)
+</td>
+<td>
+(0.600, 3.210)
+</td>
+<td>
+(0.258, 4.234)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+VisitasDoAC12mNunca recebeu
+</td>
+<td>
+</td>
+<td>
+1.494<sup>☨☨</sup>
+</td>
+<td>
+1.470<sup>☨☨</sup>
+</td>
+<td>
+1.261
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(1.009, 1.979)
+</td>
+<td>
+(0.990, 1.950)
+</td>
+<td>
+(0.759, 1.762)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+TemPlanoSaudeSim
+</td>
+<td>
+</td>
+<td>
+1.417<sup>☨☨</sup>
+</td>
+<td>
+1.396<sup>☨</sup>
+</td>
+<td>
+1.381
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(0.924, 1.910)
+</td>
+<td>
+(0.914, 1.878)
+</td>
+<td>
+(0.781, 1.981)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+DoencasCronicasUma
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+1.558<sup>☨☨</sup>
+</td>
+<td>
+1.626<sup>☨</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+(0.904, 2.212)
+</td>
+<td>
+(0.791, 2.461)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+DoencasCronicasDuas
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+2.024<sup>☨☨☨</sup>
+</td>
+<td>
+2.276<sup>☨☨☨</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+(1.065, 2.983)
+</td>
+<td>
+(1.029, 3.523)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+DoencasCronicasTrês ou mais
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+2.251<sup>☨☨☨</sup>
+</td>
+<td>
+3.083<sup>☨☨☨</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+(0.863, 3.639)
+</td>
+<td>
+(0.963, 5.202)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+TabagismoSim
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+1.622
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+(0.582, 2.662)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+FreqAlcool1mMenos de uma vez por mês
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+1.575<sup>☨</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+(0.775, 2.376)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+FreqAlcool1mUma vez ou mais por mês
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+1.852<sup>☨☨☨</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+(1.029, 2.675)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Exercicio1sDe um a quatro dias na semana
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+1.955<sup>☨☨☨</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+(1.116, 2.795)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Exercicio1sCinco ou mais dias na semana
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+3.021<sup>☨☨☨</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+(1.338, 4.704)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+0.0002<sup>☨☨☨</sup>
+</td>
+<td>
+0.0001<sup>☨☨☨</sup>
+</td>
+<td>
+0.0001<sup>☨☨☨</sup>
+</td>
+<td>
+0.0001<sup>☨☨☨</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.00005, 0.0003)
+</td>
+<td>
+(-0.00000, 0.0003)
+</td>
+<td>
+(-0.00000, 0.0002)
+</td>
+<td>
+(-0.0001, 0.0003)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="5" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+207,689
+</td>
+<td>
+134,050
+</td>
+<td>
+134,050
+</td>
+<td>
+55,956
+</td>
+</tr>
+<tr>
+<td colspan="5" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="4" style="text-align:right">
+<span>☨☨☨</span>: p&lt;0.01; <span>☨☨</span>: p&lt;0.05; <span>☨</span>: p&lt;0.1
+</td>
+</tr>
+</table>
+</div>
+<p><br/><br/></p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

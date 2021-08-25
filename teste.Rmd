@@ -1,0 +1,62 @@
+---
+title: " "
+---
+
+### Preditores da Prática de Meditação 
+<br/>
+<div align="center">
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
+dadoswp7a <- readRDS("dadoswp7a.RDS")
+
+library(survey)
+
+logit1 <- (svyglm(FezMeditacao12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc,
+                  family=quasibinomial, design=dadoswp7a))
+
+logit2 <- (svyglm(FezMeditacao12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
+                 VisitasDoAC12m+TemPlanoSaude,
+                 family=quasibinomial, design=dadoswp7a))
+
+logit3 <- (svyglm(FezMeditacao12m~Regiao+Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
+                 VisitasDoAC12m+TemPlanoSaude+
+                 DoencasCronicas,
+                 family=quasibinomial, design=dadoswp7a))
+
+logit4 <- (svyglm(FezMeditacao12m~Regiao+Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
+                 VisitasDoAC12m+TemPlanoSaude+
+                 DoencasCronicas+
+                 Tabagismo+FreqAlcool1m+Exercicio1s,
+                 family=quasibinomial, design=dadoswp7a))
+
+se.coef <- function(logit1){sqrt(diag(vcov(logit1)))}
+OR1 <- exp(coef(logit1))
+Std.Error.OR1 <-  OR1*se.coef(logit1)
+
+se.coef <- function(logit1){sqrt(diag(vcov(logit1)))}
+OR2 <- exp(coef(logit2))
+Std.Error.OR2 <-  OR2*se.coef(logit2)
+
+se.coef <- function(logit3){sqrt(diag(vcov(logit3)))}
+OR3 <- exp(coef(logit3))
+Std.Error.OR3 <-  OR3*se.coef(logit3)
+
+se.coef <- function(logit4){sqrt(diag(vcov(logit4)))}
+OR4 <- exp(coef(logit4))
+Std.Error.OR4 <-  OR4*se.coef(logit4)
+
+Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
+
+library(stargazer)
+stargazer(logit1,logit2,logit3,logit4,
+          coef=list(OR1,OR2,OR3,OR4), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3,Std.Error.OR4), t.auto=F, p.auto=F,
+          type='html', header = F,ci=T,
+          notes=Notes,notes.append=F,
+          column.labels = c("Demográficas","+Serv. de Saúde","+Est. de Saúde","+Est. de Vida"),
+          column.sep.width = "7pt",
+          single.row = F,dep.var.caption="Variável Dependente", star.char = "&#9768;"
+          )
+
+
+```
+</div>
+<br/><br/>
