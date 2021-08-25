@@ -14,4 +14,23 @@ td {
   border-width:3px
 }
 
+#nav li {
+    display: inline-block;
+    text-align: center;
+}
 
+#nav li a {
+    display: block;
+    padding: 8px 15px;
+    text-decoration: none;
+    font-weight: 700;
+    text-align: center;
+    color: #069;
+    border-right: 1px solid #ccc;
+}
+
+#nav li a:hover {
+    color: #c00;
+    text-align: center;
+    background-color: #fff;
+}
