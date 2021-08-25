@@ -46,7 +46,7 @@ OR3 <- exp(coef(logit3))
 Std.Error.OR3 <-  OR3*se.coef3(logit3)
 
 library(stargazer)
-stargazer(logit,logit2,logit3, type='html', 
+stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), t.auto=F, p.auto=F,
           header = F,ci=T,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
@@ -83,7 +83,7 @@ OR3 <- exp(coef(logit3))
 Std.Error.OR3 <-  OR3*se.coef3(logit3)
 
 library(stargazer)
-stargazer(logit,logit2,logit3, type='html', 
+stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), t.auto=F, p.auto=F,
           header = F,ci=T,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
@@ -120,7 +120,7 @@ OR3 <- exp(coef(logit3))
 Std.Error.OR3 <-  OR3*se.coef3(logit3)
 
 library(stargazer)
-stargazer(logit,logit2,logit3, type='html', 
+stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), t.auto=F, p.auto=F,
           header = F,ci=T,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
@@ -155,7 +155,7 @@ OR3 <- exp(coef(logit3))
 Std.Error.OR3 <-  OR3*se.coef3(logit3)
 
 library(stargazer)
-stargazer(logit,logit2,logit3, type='html', 
+stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), t.auto=F, p.auto=F,
           header = F,ci=T,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
@@ -193,7 +193,7 @@ OR3 <- exp(coef(logit3))
 Std.Error.OR3 <-  OR3*se.coef3(logit3)
 
 library(stargazer)
-stargazer(logit,logit2,logit3, type='html', 
+stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), t.auto=F, p.auto=F,
           header = F,ci=T,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
@@ -230,7 +230,7 @@ OR3 <- exp(coef(logit3))
 Std.Error.OR3 <-  OR3*se.coef3(logit3)
 
 library(stargazer)
-stargazer(logit,logit2,logit3, type='html', 
+stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), t.auto=F, p.auto=F,
           header = F,ci=T,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
@@ -266,7 +266,7 @@ OR3 <- exp(coef(logit3))
 Std.Error.OR3 <-  OR3*se.coef3(logit3)
 
 library(stargazer)
-stargazer(logit,logit2,logit3, type='html', 
+stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), t.auto=F, p.auto=F,
           header = F,ci=T,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
@@ -306,7 +306,7 @@ OR3 <- exp(coef(logit3))
 Std.Error.OR3 <-  OR3*se.coef3(logit3)
 
 library(stargazer)
-stargazer(logit,logit2,logit3, type='html', 
+stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), t.auto=F, p.auto=F,
           header = F,ci=T,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
@@ -342,7 +342,7 @@ OR3 <- exp(coef(logit3))
 Std.Error.OR3 <-  OR3*se.coef3(logit3)
 
 library(stargazer)
-stargazer(logit,logit2,logit3, type='html', 
+stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), t.auto=F, p.auto=F,
           header = F,ci=T,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
@@ -385,7 +385,7 @@ OR3 <- exp(coef(logit3))
 Std.Error.OR3 <-  OR3*se.coef3(logit3)
 
 library(stargazer)
-stargazer(logit,logit2,logit3, type='html', 
+stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), t.auto=F, p.auto=F,
           header = F,ci=T,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
@@ -421,7 +421,7 @@ OR3 <- exp(coef(logit3))
 Std.Error.OR3 <-  OR3*se.coef3(logit3)
 
 library(stargazer)
-stargazer(logit,logit2,logit3, type='html', 
+stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), t.auto=F, p.auto=F,
           header = F,ci=T,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
@@ -457,7 +457,7 @@ OR3 <- exp(coef(logit3))
 Std.Error.OR3 <-  OR3*se.coef3(logit3)
 
 library(stargazer)
-stargazer(logit,logit2,logit3, type='html', 
+stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), t.auto=F, p.auto=F,
           header = F,ci=T,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
@@ -493,7 +493,7 @@ OR3 <- exp(coef(logit3))
 Std.Error.OR3 <-  OR3*se.coef3(logit3)
 
 library(stargazer)
-stargazer(logit,logit2,logit3, type='html', 
+stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), t.auto=F, p.auto=F,
           header = F,ci=T,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
@@ -529,7 +529,7 @@ OR3 <- exp(coef(logit3))
 Std.Error.OR3 <-  OR3*se.coef3(logit3)
 
 library(stargazer)
-stargazer(logit,logit2,logit3, type='html', 
+stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), t.auto=F, p.auto=F,
           header = F,ci=T,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
@@ -566,7 +566,7 @@ OR3 <- exp(coef(logit3))
 Std.Error.OR3 <-  OR3*se.coef3(logit3)
 
 library(stargazer)
-stargazer(logit,logit2,logit3, type='html', 
+stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), t.auto=F, p.auto=F,
           header = F,ci=T,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
@@ -603,7 +603,7 @@ OR3 <- exp(coef(logit3))
 Std.Error.OR3 <-  OR3*se.coef3(logit3)
 
 library(stargazer)
-stargazer(logit,logit2,logit3, type='html', 
+stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), t.auto=F, p.auto=F,
           header = F,ci=T,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
@@ -640,7 +640,7 @@ OR3 <- exp(coef(logit3))
 Std.Error.OR3 <-  OR3*se.coef3(logit3)
 
 library(stargazer)
-stargazer(logit,logit2,logit3, type='html', 
+stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), t.auto=F, p.auto=F,
           header = F,ci=T,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
@@ -677,7 +677,7 @@ OR3 <- exp(coef(logit3))
 Std.Error.OR3 <-  OR3*se.coef3(logit3)
 
 library(stargazer)
-stargazer(logit,logit2,logit3, type='html', 
+stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), t.auto=F, p.auto=F,
           header = F,ci=T,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
@@ -714,7 +714,7 @@ OR3 <- exp(coef(logit3))
 Std.Error.OR3 <-  OR3*se.coef3(logit3)
 
 library(stargazer)
-stargazer(logit,logit2,logit3, type='html', 
+stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), t.auto=F, p.auto=F,
           header = F,ci=T,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
@@ -751,7 +751,7 @@ OR3 <- exp(coef(logit3))
 Std.Error.OR3 <-  OR3*se.coef3(logit3)
 
 library(stargazer)
-stargazer(logit,logit2,logit3, type='html', 
+stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), t.auto=F, p.auto=F,
           header = F,ci=T,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
@@ -788,7 +788,7 @@ OR3 <- exp(coef(logit3))
 Std.Error.OR3 <-  OR3*se.coef3(logit3)
 
 library(stargazer)
-stargazer(logit,logit2,logit3, type='html', 
+stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), t.auto=F, p.auto=F,
           header = F,ci=T,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
@@ -829,7 +829,7 @@ OR3 <- exp(coef(logit3))
 Std.Error.OR3 <-  OR3*se.coef3(logit3)
 
 library(stargazer)
-stargazer(logit,logit2,logit3, type='html', 
+stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), t.auto=F, p.auto=F,
           header = F,ci=T,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
@@ -866,7 +866,7 @@ OR3 <- exp(coef(logit3))
 Std.Error.OR3 <-  OR3*se.coef3(logit3)
 
 library(stargazer)
-stargazer(logit,logit2,logit3, type='html', 
+stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), t.auto=F, p.auto=F,
           header = F,ci=T,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
@@ -903,7 +903,7 @@ OR3 <- exp(coef(logit3))
 Std.Error.OR3 <-  OR3*se.coef3(logit3)
 
 library(stargazer)
-stargazer(logit,logit2,logit3, type='html', 
+stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), t.auto=F, p.auto=F,
           header = F,ci=T,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
