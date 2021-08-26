@@ -34,25 +34,28 @@ covlabels <- levels(dadoswp7a$variables$Sexo)[-1]
 noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[5], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$Sexo)[1])
 
-se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
-OR1 <- exp(coef(logit1))
-Std.Error.OR1 <-  OR1*se.coef1(logit1)
+OR1.vector <- exp(logit1$coef)
+CI1.vector <- exp(confint(logit1))
 
-se.coef2 <- function(logit2){sqrt(diag(vcov(logit2)))}
-OR2 <- exp(coef(logit2))
-Std.Error.OR2 <-  OR2*se.coef2(logit2)
+OR2.vector <- exp(logit2$coef)
+CI2.vector <- exp(confint(logit2))
 
-se.coef3 <- function(logit3){sqrt(diag(vcov(logit3)))}
-OR3 <- exp(coef(logit3))
-Std.Error.OR3 <-  OR3*se.coef3(logit3)
+OR3.vector <- exp(logit3$coef)
+CI3.vector <- exp(confint(logit3))
+
+p.values1 <- summary(logit1)$coefficients[, 4]
+p.values2 <- summary(logit2)$coefficients[, 4]
+p.values3 <- summary(logit3)$coefficients[, 4]
 
 library(stargazer)
-stargazer(logit1,logit2,logit3, type='html', 
-          coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
+stargazer(logit1,logit2,logit3, 
+          coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
+          ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
+          p = list(p.values1,p.values2,p.values3),
+          type='html', header = F,ci=T,omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
-
+          
 ```
 </div>
 <br/><br/>  
@@ -71,26 +74,31 @@ Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span
 covlabels <- levels(dadoswp7a$variables$Idade)[-1]
 noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[6], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$Idade)[1])
-se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
-OR1 <- exp(coef(logit1))
-Std.Error.OR1 <-  OR1*se.coef1(logit1)
 
-se.coef2 <- function(logit2){sqrt(diag(vcov(logit2)))}
-OR2 <- exp(coef(logit2))
-Std.Error.OR2 <-  OR2*se.coef2(logit2)
+OR1.vector <- exp(logit1$coef)
+CI1.vector <- exp(confint(logit1))
 
-se.coef3 <- function(logit3){sqrt(diag(vcov(logit3)))}
-OR3 <- exp(coef(logit3))
-Std.Error.OR3 <-  OR3*se.coef3(logit3)
+OR2.vector <- exp(logit2$coef)
+CI2.vector <- exp(confint(logit2))
+
+OR3.vector <- exp(logit3$coef)
+CI3.vector <- exp(confint(logit3))
+
+p.values1 <- summary(logit1)$coefficients[, 4]
+p.values2 <- summary(logit2)$coefficients[, 4]
+p.values3 <- summary(logit3)$coefficients[, 4]
 
 library(stargazer)
-stargazer(logit1,logit2,logit3, type='html', 
-          coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
+stargazer(logit1,logit2,logit3, 
+          coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
+          ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
+          p = list(p.values1,p.values2,p.values3),
+          type='html', header = F,ci=T,omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
-
+          
 ```
+
 </div>
 <br/><br/>
 
@@ -108,22 +116,25 @@ covlabels <- levels(dadoswp7a$variables$CorRaca3)[-1]
 noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[7], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$CorRaca3)[1])
 
-se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
-OR1 <- exp(coef(logit1))
-Std.Error.OR1 <-  OR1*se.coef1(logit1)
+OR1.vector <- exp(logit1$coef)
+CI1.vector <- exp(confint(logit1))
 
-se.coef2 <- function(logit2){sqrt(diag(vcov(logit2)))}
-OR2 <- exp(coef(logit2))
-Std.Error.OR2 <-  OR2*se.coef2(logit2)
+OR2.vector <- exp(logit2$coef)
+CI2.vector <- exp(confint(logit2))
 
-se.coef3 <- function(logit3){sqrt(diag(vcov(logit3)))}
-OR3 <- exp(coef(logit3))
-Std.Error.OR3 <-  OR3*se.coef3(logit3)
+OR3.vector <- exp(logit3$coef)
+CI3.vector <- exp(confint(logit3))
+
+p.values1 <- summary(logit1)$coefficients[, 4]
+p.values2 <- summary(logit2)$coefficients[, 4]
+p.values3 <- summary(logit3)$coefficients[, 4]
 
 library(stargazer)
-stargazer(logit1,logit2,logit3, type='html', 
-          coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
+stargazer(logit1,logit2,logit3, 
+          coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
+          ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
+          p = list(p.values1,p.values2,p.values3),
+          type='html', header = F,ci=T,omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -143,22 +154,26 @@ Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span
 covlabels <- levels(dadoswp7a$variables$EmRelacionamento)[-1]
 noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[8], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$EmRelacionamento)[1])
-se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
-OR1 <- exp(coef(logit1))
-Std.Error.OR1 <-  OR1*se.coef1(logit1)
 
-se.coef2 <- function(logit2){sqrt(diag(vcov(logit2)))}
-OR2 <- exp(coef(logit2))
-Std.Error.OR2 <-  OR2*se.coef2(logit2)
+OR1.vector <- exp(logit1$coef)
+CI1.vector <- exp(confint(logit1))
 
-se.coef3 <- function(logit3){sqrt(diag(vcov(logit3)))}
-OR3 <- exp(coef(logit3))
-Std.Error.OR3 <-  OR3*se.coef3(logit3)
+OR2.vector <- exp(logit2$coef)
+CI2.vector <- exp(confint(logit2))
+
+OR3.vector <- exp(logit3$coef)
+CI3.vector <- exp(confint(logit3))
+
+p.values1 <- summary(logit1)$coefficients[, 4]
+p.values2 <- summary(logit2)$coefficients[, 4]
+p.values3 <- summary(logit3)$coefficients[, 4]
 
 library(stargazer)
-stargazer(logit1,logit2,logit3, type='html', 
-          coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
+stargazer(logit1,logit2,logit3, 
+          coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
+          ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
+          p = list(p.values1,p.values2,p.values3),
+          type='html', header = F,ci=T,omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -181,22 +196,25 @@ covlabels <- levels(dadoswp7a$variables$Regiao)[-1]
 noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[9], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$Regiao)[1])
 
-se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
-OR1 <- exp(coef(logit1))
-Std.Error.OR1 <-  OR1*se.coef1(logit1)
+OR1.vector <- exp(logit1$coef)
+CI1.vector <- exp(confint(logit1))
 
-se.coef2 <- function(logit2){sqrt(diag(vcov(logit2)))}
-OR2 <- exp(coef(logit2))
-Std.Error.OR2 <-  OR2*se.coef2(logit2)
+OR2.vector <- exp(logit2$coef)
+CI2.vector <- exp(confint(logit2))
 
-se.coef3 <- function(logit3){sqrt(diag(vcov(logit3)))}
-OR3 <- exp(coef(logit3))
-Std.Error.OR3 <-  OR3*se.coef3(logit3)
+OR3.vector <- exp(logit3$coef)
+CI3.vector <- exp(confint(logit3))
+
+p.values1 <- summary(logit1)$coefficients[, 4]
+p.values2 <- summary(logit2)$coefficients[, 4]
+p.values3 <- summary(logit3)$coefficients[, 4]
 
 library(stargazer)
-stargazer(logit1,logit2,logit3, type='html', 
-          coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
+stargazer(logit1,logit2,logit3, 
+          coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
+          ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
+          p = list(p.values1,p.values2,p.values3),
+          type='html', header = F,ci=T,omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -218,22 +236,25 @@ covlabels <- levels(dadoswp7a$variables$NivelEducacional)[-1]
 noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[10], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$NivelEducacional)[1])
 
-se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
-OR1 <- exp(coef(logit1))
-Std.Error.OR1 <-  OR1*se.coef1(logit1)
+OR1.vector <- exp(logit1$coef)
+CI1.vector <- exp(confint(logit1))
 
-se.coef2 <- function(logit2){sqrt(diag(vcov(logit2)))}
-OR2 <- exp(coef(logit2))
-Std.Error.OR2 <-  OR2*se.coef2(logit2)
+OR2.vector <- exp(logit2$coef)
+CI2.vector <- exp(confint(logit2))
 
-se.coef3 <- function(logit3){sqrt(diag(vcov(logit3)))}
-OR3 <- exp(coef(logit3))
-Std.Error.OR3 <-  OR3*se.coef3(logit3)
+OR3.vector <- exp(logit3$coef)
+CI3.vector <- exp(confint(logit3))
+
+p.values1 <- summary(logit1)$coefficients[, 4]
+p.values2 <- summary(logit2)$coefficients[, 4]
+p.values3 <- summary(logit3)$coefficients[, 4]
 
 library(stargazer)
-stargazer(logit1,logit2,logit3, type='html', 
-          coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
+stargazer(logit1,logit2,logit3, 
+          coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
+          ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
+          p = list(p.values1,p.values2,p.values3),
+          type='html', header = F,ci=T,omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -254,22 +275,25 @@ covlabels <- levels(dadoswp7a$variables$RendaFamiliarPc)[-1]
 noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[11], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$RendaFamiliarPc)[1])
 
-se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
-OR1 <- exp(coef(logit1))
-Std.Error.OR1 <-  OR1*se.coef1(logit1)
+OR1.vector <- exp(logit1$coef)
+CI1.vector <- exp(confint(logit1))
 
-se.coef2 <- function(logit2){sqrt(diag(vcov(logit2)))}
-OR2 <- exp(coef(logit2))
-Std.Error.OR2 <-  OR2*se.coef2(logit2)
+OR2.vector <- exp(logit2$coef)
+CI2.vector <- exp(confint(logit2))
 
-se.coef3 <- function(logit3){sqrt(diag(vcov(logit3)))}
-OR3 <- exp(coef(logit3))
-Std.Error.OR3 <-  OR3*se.coef3(logit3)
+OR3.vector <- exp(logit3$coef)
+CI3.vector <- exp(confint(logit3))
+
+p.values1 <- summary(logit1)$coefficients[, 4]
+p.values2 <- summary(logit2)$coefficients[, 4]
+p.values3 <- summary(logit3)$coefficients[, 4]
 
 library(stargazer)
-stargazer(logit1,logit2,logit3, type='html', 
-          coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
+stargazer(logit1,logit2,logit3, 
+          coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
+          ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
+          p = list(p.values1,p.values2,p.values3),
+          type='html', header = F,ci=T,omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -294,22 +318,25 @@ covlabels <- levels(dadoswp7a$variables$VisitasDoAC12m)[-1]
 noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[12], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$VisitasDoAC12m)[1])
 
-se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
-OR1 <- exp(coef(logit1))
-Std.Error.OR1 <-  OR1*se.coef1(logit1)
+OR1.vector <- exp(logit1$coef)
+CI1.vector <- exp(confint(logit1))
 
-se.coef2 <- function(logit2){sqrt(diag(vcov(logit2)))}
-OR2 <- exp(coef(logit2))
-Std.Error.OR2 <-  OR2*se.coef2(logit2)
+OR2.vector <- exp(logit2$coef)
+CI2.vector <- exp(confint(logit2))
 
-se.coef3 <- function(logit3){sqrt(diag(vcov(logit3)))}
-OR3 <- exp(coef(logit3))
-Std.Error.OR3 <-  OR3*se.coef3(logit3)
+OR3.vector <- exp(logit3$coef)
+CI3.vector <- exp(confint(logit3))
+
+p.values1 <- summary(logit1)$coefficients[, 4]
+p.values2 <- summary(logit2)$coefficients[, 4]
+p.values3 <- summary(logit3)$coefficients[, 4]
 
 library(stargazer)
-stargazer(logit1,logit2,logit3, type='html', 
-          coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
+stargazer(logit1,logit2,logit3, 
+          coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
+          ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
+          p = list(p.values1,p.values2,p.values3),
+          type='html', header = F,ci=T,omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -330,22 +357,25 @@ covlabels <- levels(dadoswp7a$variables$TemPlanoSaude)[-1]
 noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[13], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$TemPlanoSaude)[1])
 
-se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
-OR1 <- exp(coef(logit1))
-Std.Error.OR1 <-  OR1*se.coef1(logit1)
+OR1.vector <- exp(logit1$coef)
+CI1.vector <- exp(confint(logit1))
 
-se.coef2 <- function(logit2){sqrt(diag(vcov(logit2)))}
-OR2 <- exp(coef(logit2))
-Std.Error.OR2 <-  OR2*se.coef2(logit2)
+OR2.vector <- exp(logit2$coef)
+CI2.vector <- exp(confint(logit2))
 
-se.coef3 <- function(logit3){sqrt(diag(vcov(logit3)))}
-OR3 <- exp(coef(logit3))
-Std.Error.OR3 <-  OR3*se.coef3(logit3)
+OR3.vector <- exp(logit3$coef)
+CI3.vector <- exp(confint(logit3))
+
+p.values1 <- summary(logit1)$coefficients[, 4]
+p.values2 <- summary(logit2)$coefficients[, 4]
+p.values3 <- summary(logit3)$coefficients[, 4]
 
 library(stargazer)
-stargazer(logit1,logit2,logit3, type='html', 
-          coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
+stargazer(logit1,logit2,logit3, 
+          coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
+          ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
+          p = list(p.values1,p.values2,p.values3),
+          type='html', header = F,ci=T,omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -373,22 +403,25 @@ covlabels <- levels(dadoswp7a$variables$DoencasCronicas)[-1]
 noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[14], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$DoencasCronicas)[1])
 
-se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
-OR1 <- exp(coef(logit1))
-Std.Error.OR1 <-  OR1*se.coef1(logit1)
+OR1.vector <- exp(logit1$coef)
+CI1.vector <- exp(confint(logit1))
 
-se.coef2 <- function(logit2){sqrt(diag(vcov(logit2)))}
-OR2 <- exp(coef(logit2))
-Std.Error.OR2 <-  OR2*se.coef2(logit2)
+OR2.vector <- exp(logit2$coef)
+CI2.vector <- exp(confint(logit2))
 
-se.coef3 <- function(logit3){sqrt(diag(vcov(logit3)))}
-OR3 <- exp(coef(logit3))
-Std.Error.OR3 <-  OR3*se.coef3(logit3)
+OR3.vector <- exp(logit3$coef)
+CI3.vector <- exp(confint(logit3))
+
+p.values1 <- summary(logit1)$coefficients[, 4]
+p.values2 <- summary(logit2)$coefficients[, 4]
+p.values3 <- summary(logit3)$coefficients[, 4]
 
 library(stargazer)
-stargazer(logit1,logit2,logit3, type='html', 
-          coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
+stargazer(logit1,logit2,logit3, 
+          coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
+          ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
+          p = list(p.values1,p.values2,p.values3),
+          type='html', header = F,ci=T,omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -409,22 +442,25 @@ covlabels <- levels(dadoswp7a$variables$Artrite)[-1]
 noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[15], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$Artrite)[1])
 
-se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
-OR1 <- exp(coef(logit1))
-Std.Error.OR1 <-  OR1*se.coef1(logit1)
+OR1.vector <- exp(logit1$coef)
+CI1.vector <- exp(confint(logit1))
 
-se.coef2 <- function(logit2){sqrt(diag(vcov(logit2)))}
-OR2 <- exp(coef(logit2))
-Std.Error.OR2 <-  OR2*se.coef2(logit2)
+OR2.vector <- exp(logit2$coef)
+CI2.vector <- exp(confint(logit2))
 
-se.coef3 <- function(logit3){sqrt(diag(vcov(logit3)))}
-OR3 <- exp(coef(logit3))
-Std.Error.OR3 <-  OR3*se.coef3(logit3)
+OR3.vector <- exp(logit3$coef)
+CI3.vector <- exp(confint(logit3))
+
+p.values1 <- summary(logit1)$coefficients[, 4]
+p.values2 <- summary(logit2)$coefficients[, 4]
+p.values3 <- summary(logit3)$coefficients[, 4]
 
 library(stargazer)
-stargazer(logit1,logit2,logit3, type='html', 
-          coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
+stargazer(logit1,logit2,logit3, 
+          coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
+          ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
+          p = list(p.values1,p.values2,p.values3),
+          type='html', header = F,ci=T,omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -445,22 +481,25 @@ covlabels <- levels(dadoswp7a$variables$Asma)[-1]
 noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[16], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$Asma)[1])
 
-se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
-OR1 <- exp(coef(logit1))
-Std.Error.OR1 <-  OR1*se.coef1(logit1)
+OR1.vector <- exp(logit1$coef)
+CI1.vector <- exp(confint(logit1))
 
-se.coef2 <- function(logit2){sqrt(diag(vcov(logit2)))}
-OR2 <- exp(coef(logit2))
-Std.Error.OR2 <-  OR2*se.coef2(logit2)
+OR2.vector <- exp(logit2$coef)
+CI2.vector <- exp(confint(logit2))
 
-se.coef3 <- function(logit3){sqrt(diag(vcov(logit3)))}
-OR3 <- exp(coef(logit3))
-Std.Error.OR3 <-  OR3*se.coef3(logit3)
+OR3.vector <- exp(logit3$coef)
+CI3.vector <- exp(confint(logit3))
+
+p.values1 <- summary(logit1)$coefficients[, 4]
+p.values2 <- summary(logit2)$coefficients[, 4]
+p.values3 <- summary(logit3)$coefficients[, 4]
 
 library(stargazer)
-stargazer(logit1,logit2,logit3, type='html', 
-          coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
+stargazer(logit1,logit2,logit3, 
+          coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
+          ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
+          p = list(p.values1,p.values2,p.values3),
+          type='html', header = F,ci=T,omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -481,22 +520,25 @@ covlabels <- levels(dadoswp7a$variables$Hipercolesterol)[-1]
 noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[17], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$Hipercolesterol)[1])
 
-se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
-OR1 <- exp(coef(logit1))
-Std.Error.OR1 <-  OR1*se.coef1(logit1)
+OR1.vector <- exp(logit1$coef)
+CI1.vector <- exp(confint(logit1))
 
-se.coef2 <- function(logit2){sqrt(diag(vcov(logit2)))}
-OR2 <- exp(coef(logit2))
-Std.Error.OR2 <-  OR2*se.coef2(logit2)
+OR2.vector <- exp(logit2$coef)
+CI2.vector <- exp(confint(logit2))
 
-se.coef3 <- function(logit3){sqrt(diag(vcov(logit3)))}
-OR3 <- exp(coef(logit3))
-Std.Error.OR3 <-  OR3*se.coef3(logit3)
+OR3.vector <- exp(logit3$coef)
+CI3.vector <- exp(confint(logit3))
+
+p.values1 <- summary(logit1)$coefficients[, 4]
+p.values2 <- summary(logit2)$coefficients[, 4]
+p.values3 <- summary(logit3)$coefficients[, 4]
 
 library(stargazer)
-stargazer(logit1,logit2,logit3, type='html', 
-          coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
+stargazer(logit1,logit2,logit3, 
+          coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
+          ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
+          p = list(p.values1,p.values2,p.values3),
+          type='html', header = F,ci=T,omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -517,22 +559,25 @@ covlabels <- levels(dadoswp7a$variables$Diabetes)[-1]
 noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[18], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$Diabetes)[1])
 
-se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
-OR1 <- exp(coef(logit1))
-Std.Error.OR1 <-  OR1*se.coef1(logit1)
+OR1.vector <- exp(logit1$coef)
+CI1.vector <- exp(confint(logit1))
 
-se.coef2 <- function(logit2){sqrt(diag(vcov(logit2)))}
-OR2 <- exp(coef(logit2))
-Std.Error.OR2 <-  OR2*se.coef2(logit2)
+OR2.vector <- exp(logit2$coef)
+CI2.vector <- exp(confint(logit2))
 
-se.coef3 <- function(logit3){sqrt(diag(vcov(logit3)))}
-OR3 <- exp(coef(logit3))
-Std.Error.OR3 <-  OR3*se.coef3(logit3)
+OR3.vector <- exp(logit3$coef)
+CI3.vector <- exp(confint(logit3))
+
+p.values1 <- summary(logit1)$coefficients[, 4]
+p.values2 <- summary(logit2)$coefficients[, 4]
+p.values3 <- summary(logit3)$coefficients[, 4]
 
 library(stargazer)
-stargazer(logit1,logit2,logit3, type='html', 
-          coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
+stargazer(logit1,logit2,logit3, 
+          coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
+          ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
+          p = list(p.values1,p.values2,p.values3),
+          type='html', header = F,ci=T,omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -554,22 +599,25 @@ covlabels <- levels(dadoswp7a$variables$DORT)[-1]
 noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[19], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$DORT)[1])
 
-se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
-OR1 <- exp(coef(logit1))
-Std.Error.OR1 <-  OR1*se.coef1(logit1)
+OR1.vector <- exp(logit1$coef)
+CI1.vector <- exp(confint(logit1))
 
-se.coef2 <- function(logit2){sqrt(diag(vcov(logit2)))}
-OR2 <- exp(coef(logit2))
-Std.Error.OR2 <-  OR2*se.coef2(logit2)
+OR2.vector <- exp(logit2$coef)
+CI2.vector <- exp(confint(logit2))
 
-se.coef3 <- function(logit3){sqrt(diag(vcov(logit3)))}
-OR3 <- exp(coef(logit3))
-Std.Error.OR3 <-  OR3*se.coef3(logit3)
+OR3.vector <- exp(logit3$coef)
+CI3.vector <- exp(confint(logit3))
+
+p.values1 <- summary(logit1)$coefficients[, 4]
+p.values2 <- summary(logit2)$coefficients[, 4]
+p.values3 <- summary(logit3)$coefficients[, 4]
 
 library(stargazer)
-stargazer(logit1,logit2,logit3, type='html', 
-          coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
+stargazer(logit1,logit2,logit3, 
+          coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
+          ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
+          p = list(p.values1,p.values2,p.values3),
+          type='html', header = F,ci=T,omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -591,22 +639,25 @@ covlabels <- levels(dadoswp7a$variables$Hipertensao)[-1]
 noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[20], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$Hipertensao)[1])
 
-se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
-OR1 <- exp(coef(logit1))
-Std.Error.OR1 <-  OR1*se.coef1(logit1)
+OR1.vector <- exp(logit1$coef)
+CI1.vector <- exp(confint(logit1))
 
-se.coef2 <- function(logit2){sqrt(diag(vcov(logit2)))}
-OR2 <- exp(coef(logit2))
-Std.Error.OR2 <-  OR2*se.coef2(logit2)
+OR2.vector <- exp(logit2$coef)
+CI2.vector <- exp(confint(logit2))
 
-se.coef3 <- function(logit3){sqrt(diag(vcov(logit3)))}
-OR3 <- exp(coef(logit3))
-Std.Error.OR3 <-  OR3*se.coef3(logit3)
+OR3.vector <- exp(logit3$coef)
+CI3.vector <- exp(confint(logit3))
+
+p.values1 <- summary(logit1)$coefficients[, 4]
+p.values2 <- summary(logit2)$coefficients[, 4]
+p.values3 <- summary(logit3)$coefficients[, 4]
 
 library(stargazer)
-stargazer(logit1,logit2,logit3, type='html', 
-          coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
+stargazer(logit1,logit2,logit3, 
+          coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
+          ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
+          p = list(p.values1,p.values2,p.values3),
+          type='html', header = F,ci=T,omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -628,22 +679,25 @@ covlabels <- levels(dadoswp7a$variables$InsRenCronica)[-1]
 noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[21], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$InsRenCronica)[1])
 
-se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
-OR1 <- exp(coef(logit1))
-Std.Error.OR1 <-  OR1*se.coef1(logit1)
+OR1.vector <- exp(logit1$coef)
+CI1.vector <- exp(confint(logit1))
 
-se.coef2 <- function(logit2){sqrt(diag(vcov(logit2)))}
-OR2 <- exp(coef(logit2))
-Std.Error.OR2 <-  OR2*se.coef2(logit2)
+OR2.vector <- exp(logit2$coef)
+CI2.vector <- exp(confint(logit2))
 
-se.coef3 <- function(logit3){sqrt(diag(vcov(logit3)))}
-OR3 <- exp(coef(logit3))
-Std.Error.OR3 <-  OR3*se.coef3(logit3)
+OR3.vector <- exp(logit3$coef)
+CI3.vector <- exp(confint(logit3))
+
+p.values1 <- summary(logit1)$coefficients[, 4]
+p.values2 <- summary(logit2)$coefficients[, 4]
+p.values3 <- summary(logit3)$coefficients[, 4]
 
 library(stargazer)
-stargazer(logit1,logit2,logit3, type='html', 
-          coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
+stargazer(logit1,logit2,logit3, 
+          coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
+          ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
+          p = list(p.values1,p.values2,p.values3),
+          type='html', header = F,ci=T,omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -665,22 +719,25 @@ covlabels <- levels(dadoswp7a$variables$DoenCronPul)[-1]
 noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[22], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$DoenCronPul)[1])
 
-se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
-OR1 <- exp(coef(logit1))
-Std.Error.OR1 <-  OR1*se.coef1(logit1)
+OR1.vector <- exp(logit1$coef)
+CI1.vector <- exp(confint(logit1))
 
-se.coef2 <- function(logit2){sqrt(diag(vcov(logit2)))}
-OR2 <- exp(coef(logit2))
-Std.Error.OR2 <-  OR2*se.coef2(logit2)
+OR2.vector <- exp(logit2$coef)
+CI2.vector <- exp(confint(logit2))
 
-se.coef3 <- function(logit3){sqrt(diag(vcov(logit3)))}
-OR3 <- exp(coef(logit3))
-Std.Error.OR3 <-  OR3*se.coef3(logit3)
+OR3.vector <- exp(logit3$coef)
+CI3.vector <- exp(confint(logit3))
+
+p.values1 <- summary(logit1)$coefficients[, 4]
+p.values2 <- summary(logit2)$coefficients[, 4]
+p.values3 <- summary(logit3)$coefficients[, 4]
 
 library(stargazer)
-stargazer(logit1,logit2,logit3, type='html', 
-          coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
+stargazer(logit1,logit2,logit3, 
+          coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
+          ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
+          p = list(p.values1,p.values2,p.values3),
+          type='html', header = F,ci=T,omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -702,22 +759,25 @@ covlabels <- levels(dadoswp7a$variables$DiagDepressao)[-1]
 noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[23], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$DiagDepressao)[1])
 
-se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
-OR1 <- exp(coef(logit1))
-Std.Error.OR1 <-  OR1*se.coef1(logit1)
+OR1.vector <- exp(logit1$coef)
+CI1.vector <- exp(confint(logit1))
 
-se.coef2 <- function(logit2){sqrt(diag(vcov(logit2)))}
-OR2 <- exp(coef(logit2))
-Std.Error.OR2 <-  OR2*se.coef2(logit2)
+OR2.vector <- exp(logit2$coef)
+CI2.vector <- exp(confint(logit2))
 
-se.coef3 <- function(logit3){sqrt(diag(vcov(logit3)))}
-OR3 <- exp(coef(logit3))
-Std.Error.OR3 <-  OR3*se.coef3(logit3)
+OR3.vector <- exp(logit3$coef)
+CI3.vector <- exp(confint(logit3))
+
+p.values1 <- summary(logit1)$coefficients[, 4]
+p.values2 <- summary(logit2)$coefficients[, 4]
+p.values3 <- summary(logit3)$coefficients[, 4]
 
 library(stargazer)
-stargazer(logit1,logit2,logit3, type='html', 
-          coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
+stargazer(logit1,logit2,logit3, 
+          coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
+          ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
+          p = list(p.values1,p.values2,p.values3),
+          type='html', header = F,ci=T,omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -739,22 +799,25 @@ covlabels <- levels(dadoswp7a$variables$DiagTransBip)[-1]
 noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[24], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$DiagTransBip)[1])
 
-se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
-OR1 <- exp(coef(logit1))
-Std.Error.OR1 <-  OR1*se.coef1(logit1)
+OR1.vector <- exp(logit1$coef)
+CI1.vector <- exp(confint(logit1))
 
-se.coef2 <- function(logit2){sqrt(diag(vcov(logit2)))}
-OR2 <- exp(coef(logit2))
-Std.Error.OR2 <-  OR2*se.coef2(logit2)
+OR2.vector <- exp(logit2$coef)
+CI2.vector <- exp(confint(logit2))
 
-se.coef3 <- function(logit3){sqrt(diag(vcov(logit3)))}
-OR3 <- exp(coef(logit3))
-Std.Error.OR3 <-  OR3*se.coef3(logit3)
+OR3.vector <- exp(logit3$coef)
+CI3.vector <- exp(confint(logit3))
+
+p.values1 <- summary(logit1)$coefficients[, 4]
+p.values2 <- summary(logit2)$coefficients[, 4]
+p.values3 <- summary(logit3)$coefficients[, 4]
 
 library(stargazer)
-stargazer(logit1,logit2,logit3, type='html', 
-          coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
+stargazer(logit1,logit2,logit3, 
+          coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
+          ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
+          p = list(p.values1,p.values2,p.values3),
+          type='html', header = F,ci=T,omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -776,22 +839,25 @@ covlabels <- levels(dadoswp7a$variables$DiagTOC)[-1]
 noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[25], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$DiagTOC)[1])
 
-se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
-OR1 <- exp(coef(logit1))
-Std.Error.OR1 <-  OR1*se.coef1(logit1)
+OR1.vector <- exp(logit1$coef)
+CI1.vector <- exp(confint(logit1))
 
-se.coef2 <- function(logit2){sqrt(diag(vcov(logit2)))}
-OR2 <- exp(coef(logit2))
-Std.Error.OR2 <-  OR2*se.coef2(logit2)
+OR2.vector <- exp(logit2$coef)
+CI2.vector <- exp(confint(logit2))
 
-se.coef3 <- function(logit3){sqrt(diag(vcov(logit3)))}
-OR3 <- exp(coef(logit3))
-Std.Error.OR3 <-  OR3*se.coef3(logit3)
+OR3.vector <- exp(logit3$coef)
+CI3.vector <- exp(confint(logit3))
+
+p.values1 <- summary(logit1)$coefficients[, 4]
+p.values2 <- summary(logit2)$coefficients[, 4]
+p.values3 <- summary(logit3)$coefficients[, 4]
 
 library(stargazer)
-stargazer(logit1,logit2,logit3, type='html', 
-          coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
+stargazer(logit1,logit2,logit3, 
+          coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
+          ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
+          p = list(p.values1,p.values2,p.values3),
+          type='html', header = F,ci=T,omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -812,27 +878,25 @@ logit1 <- (svyglm(FezMeditacao12m~Tabagismo, family=quasibinomial, design=dadosw
 logit2 <- (svyglm(FezYoga12m~Tabagismo, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
 logit3 <- (svyglm(FezTaix12m~Tabagismo, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
 
-Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
-covlabels <- levels(dadoswp7a$variables$Tabagismo)[-1]
-noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[26], ";  Cagetoria de referência:",
-                    levels(dadoswp7a$variables$Tabagismo)[1])
+OR1.vector <- exp(logit1$coef)
+CI1.vector <- exp(confint(logit1))
 
-se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
-OR1 <- exp(coef(logit1))
-Std.Error.OR1 <-  OR1*se.coef1(logit1)
+OR2.vector <- exp(logit2$coef)
+CI2.vector <- exp(confint(logit2))
 
-se.coef2 <- function(logit2){sqrt(diag(vcov(logit2)))}
-OR2 <- exp(coef(logit2))
-Std.Error.OR2 <-  OR2*se.coef2(logit2)
+OR3.vector <- exp(logit3$coef)
+CI3.vector <- exp(confint(logit3))
 
-se.coef3 <- function(logit3){sqrt(diag(vcov(logit3)))}
-OR3 <- exp(coef(logit3))
-Std.Error.OR3 <-  OR3*se.coef3(logit3)
+p.values1 <- summary(logit1)$coefficients[, 4]
+p.values2 <- summary(logit2)$coefficients[, 4]
+p.values3 <- summary(logit3)$coefficients[, 4]
 
 library(stargazer)
-stargazer(logit1,logit2,logit3, type='html', 
-          coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
+stargazer(logit1,logit2,logit3, 
+          coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
+          ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
+          p = list(p.values1,p.values2,p.values3),
+          type='html', header = F,ci=T,omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -854,22 +918,25 @@ covlabels <- levels(dadoswp7a$variables$FreqAlcool1m)[-1]
 noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[27], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$FreqAlcool1m)[1])
 
-se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
-OR1 <- exp(coef(logit1))
-Std.Error.OR1 <-  OR1*se.coef1(logit1)
+OR1.vector <- exp(logit1$coef)
+CI1.vector <- exp(confint(logit1))
 
-se.coef2 <- function(logit2){sqrt(diag(vcov(logit2)))}
-OR2 <- exp(coef(logit2))
-Std.Error.OR2 <-  OR2*se.coef2(logit2)
+OR2.vector <- exp(logit2$coef)
+CI2.vector <- exp(confint(logit2))
 
-se.coef3 <- function(logit3){sqrt(diag(vcov(logit3)))}
-OR3 <- exp(coef(logit3))
-Std.Error.OR3 <-  OR3*se.coef3(logit3)
+OR3.vector <- exp(logit3$coef)
+CI3.vector <- exp(confint(logit3))
+
+p.values1 <- summary(logit1)$coefficients[, 4]
+p.values2 <- summary(logit2)$coefficients[, 4]
+p.values3 <- summary(logit3)$coefficients[, 4]
 
 library(stargazer)
-stargazer(logit1,logit2,logit3, type='html', 
-          coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
+stargazer(logit1,logit2,logit3, 
+          coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
+          ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
+          p = list(p.values1,p.values2,p.values3),
+          type='html', header = F,ci=T,omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -891,22 +958,25 @@ covlabels <- levels(dadoswp7a$variables$Exercicio1s)[-1]
 noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[28], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$Exercicio1s)[1])
 
-se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
-OR1 <- exp(coef(logit1))
-Std.Error.OR1 <-  OR1*se.coef1(logit1)
+OR1.vector <- exp(logit1$coef)
+CI1.vector <- exp(confint(logit1))
 
-se.coef2 <- function(logit2){sqrt(diag(vcov(logit2)))}
-OR2 <- exp(coef(logit2))
-Std.Error.OR2 <-  OR2*se.coef2(logit2)
+OR2.vector <- exp(logit2$coef)
+CI2.vector <- exp(confint(logit2))
 
-se.coef3 <- function(logit3){sqrt(diag(vcov(logit3)))}
-OR3 <- exp(coef(logit3))
-Std.Error.OR3 <-  OR3*se.coef3(logit3)
+OR3.vector <- exp(logit3$coef)
+CI3.vector <- exp(confint(logit3))
+
+p.values1 <- summary(logit1)$coefficients[, 4]
+p.values2 <- summary(logit2)$coefficients[, 4]
+p.values3 <- summary(logit3)$coefficients[, 4]
 
 library(stargazer)
-stargazer(logit1,logit2,logit3, type='html', 
-          coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
+stargazer(logit1,logit2,logit3, 
+          coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
+          ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
+          p = list(p.values1,p.values2,p.values3),
+          type='html', header = F,ci=T,omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 

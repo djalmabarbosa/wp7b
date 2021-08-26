@@ -21,8 +21,9 @@ dispersiontest(rd,trafo=1)
 
 ### Preditores da Prática de Meditação 
 <br/>
+
 <div align="center">
-```{r eval=T, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
+```{r eval=F, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
 
 dadoswp7a <- readRDS("dadoswp7a.RDS")
 
@@ -46,35 +47,37 @@ logit4 <- (svyglm(FezMeditacao12m~Regiao+Sexo+Idade+CorRaca3+EmRelacionamento+Re
                  Tabagismo+FreqAlcool1m+Exercicio1s,
                  family=quasibinomial, design=dadoswp7a))
 
-se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
-OR1 <- exp(coef(logit1))
-Std.Error.OR1 <-  OR1*se.coef1(logit1)
+OR1.vector <- exp(logit1$coef)
+CI1.vector <- exp(confint(logit1))
 
-se.coef2 <- function(logit2){sqrt(diag(vcov(logit2)))}
-OR2 <- exp(coef(logit2))
-Std.Error.OR2 <-  OR2*se.coef2(logit2)
+OR2.vector <- exp(logit2$coef)
+CI2.vector <- exp(confint(logit2))
 
-se.coef3 <- function(logit3){sqrt(diag(vcov(logit3)))}
-OR3 <- exp(coef(logit3))
-Std.Error.OR3 <-  OR3*se.coef3(logit3)
+OR3.vector <- exp(logit3$coef)
+CI3.vector <- exp(confint(logit3))
 
-se.coef4 <- function(logit4){sqrt(diag(vcov(logit4)))}
-OR4 <- exp(coef(logit4))
-Std.Error.OR4 <-  OR4*se.coef4(logit4)
+OR4.vector <- exp(logit4$coef)
+CI4.vector <- exp(confint(logit4))
+
+p.values1 <- summary(logit1)$coefficients[, 4]
+p.values2 <- summary(logit2)$coefficients[, 4]
+p.values3 <- summary(logit3)$coefficients[, 4]
+p.values4 <- summary(logit4)$coefficients[, 4]
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
 
 library(stargazer)
 stargazer(logit1,logit2,logit3,logit4,
-          coef=list(OR1,OR2,OR3,OR4), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3,Std.Error.OR4), 
-          type='html', header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
+          coef = list(OR1.vector,OR2.vector,OR3.vector,OR4.vector), ci = T, 
+          ci.custom = list(CI1.vector,CI2.vector,CI3.vector,CI4.vector),
+          p = list(p.values1,p.values2,p.values3,p.values4),
+          type='html', header = F,omit=c("Constant"), 
           notes=Notes,notes.append=F,
           notes.label = "Nota: coeficientes expressam Odds Ratio",
           column.labels = c("Demográficas","+Serv. de Saúde","+Est. de Saúde","+Est. de Vida"),
           column.sep.width = "7pt",
           single.row = F,dep.var.caption="Variável Dependente", star.char = "&#9768;"
           )
-
 ```
 </div>
 <br/><br/>
@@ -82,7 +85,7 @@ stargazer(logit1,logit2,logit3,logit4,
 ### Preditores da Prática de Yoga
 <br/>
 <div align="center">
-```{r eval=T, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
+```{r eval=F, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
 
 dadoswp7a <- readRDS("dadoswp7a.RDS")
 
@@ -107,35 +110,37 @@ logit4 <- (svyglm(FezYoga12m~Regiao+Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+
                  family=quasibinomial, design=dadoswp7a))
 
 
-se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
-OR1 <- exp(coef(logit1))
-Std.Error.OR1 <-  OR1*se.coef1(logit1)
+OR1.vector <- exp(logit1$coef)
+CI1.vector <- exp(confint(logit1))
 
-se.coef2 <- function(logit2){sqrt(diag(vcov(logit2)))}
-OR2 <- exp(coef(logit2))
-Std.Error.OR2 <-  OR2*se.coef2(logit2)
+OR2.vector <- exp(logit2$coef)
+CI2.vector <- exp(confint(logit2))
 
-se.coef3 <- function(logit3){sqrt(diag(vcov(logit3)))}
-OR3 <- exp(coef(logit3))
-Std.Error.OR3 <-  OR3*se.coef3(logit3)
+OR3.vector <- exp(logit3$coef)
+CI3.vector <- exp(confint(logit3))
 
-se.coef4 <- function(logit4){sqrt(diag(vcov(logit4)))}
-OR4 <- exp(coef(logit4))
-Std.Error.OR4 <-  OR4*se.coef4(logit4)
+OR4.vector <- exp(logit4$coef)
+CI4.vector <- exp(confint(logit4))
+
+p.values1 <- summary(logit1)$coefficients[, 4]
+p.values2 <- summary(logit2)$coefficients[, 4]
+p.values3 <- summary(logit3)$coefficients[, 4]
+p.values4 <- summary(logit4)$coefficients[, 4]
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
 
 library(stargazer)
 stargazer(logit1,logit2,logit3,logit4,
-          coef=list(OR1,OR2,OR3,OR4), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3,Std.Error.OR4), 
-          type='html', header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
+          coef = list(OR1.vector,OR2.vector,OR3.vector,OR4.vector), ci = T, 
+          ci.custom = list(CI1.vector,CI2.vector,CI3.vector,CI4.vector),
+          p = list(p.values1,p.values2,p.values3,p.values4),
+          type='html', header = F,omit=c("Constant"), 
           notes=Notes,notes.append=F,
           notes.label = "Nota: coeficientes expressam Odds Ratio",
           column.labels = c("Demográficas","+Serv. de Saúde","+Est. de Saúde","+Est. de Vida"),
           column.sep.width = "7pt",
           single.row = F,dep.var.caption="Variável Dependente", star.char = "&#9768;"
           )
-
 ```
 </div>
 <br/><br/>
@@ -143,7 +148,7 @@ stargazer(logit1,logit2,logit3,logit4,
 ### Preditores da Prática de Tai chi chuan ou Lian gong ou Qi gong
 <br/>
 <div align="center">
-```{r eval=T, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
+```{r eval=F, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
 
 dadoswp7a <- readRDS("dadoswp7a.RDS")
 
@@ -167,28 +172,31 @@ logit4 <- (svyglm(FezTaix12m~Regiao+Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+
                  Tabagismo+FreqAlcool1m+Exercicio1s,
                  family=quasibinomial, design=dadoswp7a))
 
-se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
-OR1 <- exp(coef(logit1))
-Std.Error.OR1 <-  OR1*se.coef1(logit1)
+OR1.vector <- exp(logit1$coef)
+CI1.vector <- exp(confint(logit1))
 
-se.coef2 <- function(logit2){sqrt(diag(vcov(logit2)))}
-OR2 <- exp(coef(logit2))
-Std.Error.OR2 <-  OR2*se.coef2(logit2)
+OR2.vector <- exp(logit2$coef)
+CI2.vector <- exp(confint(logit2))
 
-se.coef3 <- function(logit3){sqrt(diag(vcov(logit3)))}
-OR3 <- exp(coef(logit3))
-Std.Error.OR3 <-  OR3*se.coef3(logit3)
+OR3.vector <- exp(logit3$coef)
+CI3.vector <- exp(confint(logit3))
 
-se.coef4 <- function(logit4){sqrt(diag(vcov(logit4)))}
-OR4 <- exp(coef(logit4))
-Std.Error.OR4 <-  OR4*se.coef4(logit4)
+OR4.vector <- exp(logit4$coef)
+CI4.vector <- exp(confint(logit4))
+
+p.values1 <- summary(logit1)$coefficients[, 4]
+p.values2 <- summary(logit2)$coefficients[, 4]
+p.values3 <- summary(logit3)$coefficients[, 4]
+p.values4 <- summary(logit4)$coefficients[, 4]
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
 
 library(stargazer)
 stargazer(logit1,logit2,logit3,logit4,
-          coef=list(OR1,OR2,OR3,OR4), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3,Std.Error.OR4), 
-          type='html', header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
+          coef = list(OR1.vector,OR2.vector,OR3.vector,OR4.vector), ci = T, 
+          ci.custom = list(CI1.vector,CI2.vector,CI3.vector,CI4.vector),
+          p = list(p.values1,p.values2,p.values3,p.values4),
+          type='html', header = F,omit=c("Constant"), 
           notes=Notes,notes.append=F,
           notes.label = "Nota: coeficientes expressam Odds Ratio",
           column.labels = c("Demográficas","+Serv. de Saúde","+Est. de Saúde","+Est. de Vida"),
