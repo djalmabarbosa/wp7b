@@ -8,6 +8,7 @@ title: " "
 
 - Todas regressões utilizam o modelo logit incorporando expansão da amostra
 - As variáveis foram dividas em blocos, seguindo literatura
+- Coeficientes expressam Odds Ratio
 
 <br/><br/>  
 
