@@ -30,7 +30,7 @@ logit3 <- (svyglm(FezTaix12m~Sexo, family=quasibinomial, design=dadoswp7a, na.ac
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
 covlabels <- levels(dadoswp7a$variables$Sexo)[-1]
-noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[9], ";  Cagetoria de referência:",
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[5], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$Sexo)[1])
 
 se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
@@ -48,7 +48,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,intercept.bottom=F,
+          header = F,ci=T,intercept.bottom=F,intercept.top = F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -68,7 +68,7 @@ logit3 <- (svyglm(FezTaix12m~Idade, family=quasibinomial, design=dadoswp7a, na.a
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
 covlabels <- levels(dadoswp7a$variables$Idade)[-1]
-noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[10], ";  Cagetoria de referência:",
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[6], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$Idade)[1])
 se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
 OR1 <- exp(coef(logit1))
@@ -85,7 +85,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,intercept.bottom=F,
+          header = F,ci=T,intercept.bottom=F,intercept.top = F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -104,7 +104,7 @@ logit3 <- (svyglm(FezTaix12m~CorRaca3, family=quasibinomial, design=dadoswp7a, n
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
 covlabels <- levels(dadoswp7a$variables$CorRaca3)[-1]
-noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[12], ";  Cagetoria de referência:",
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[7], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$CorRaca3)[1])
 
 se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
@@ -122,7 +122,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,intercept.bottom=F,
+          header = F,ci=T,intercept.bottom=F,intercept.top = F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -140,7 +140,7 @@ logit3 <- (svyglm(FezTaix12m~EmRelacionamento, family=quasibinomial, design=dado
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
 covlabels <- levels(dadoswp7a$variables$EmRelacionamento)[-1]
-noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[14], ";  Cagetoria de referência:",
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[8], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$EmRelacionamento)[1])
 se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
 OR1 <- exp(coef(logit1))
@@ -157,7 +157,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,intercept.bottom=F,
+          header = F,ci=T,intercept.bottom=F,intercept.top = F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -177,7 +177,7 @@ logit3 <- (svyglm(FezTaix12m~Regiao, family=quasibinomial, design=dadoswp7a, na.
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
 covlabels <- levels(dadoswp7a$variables$Regiao)[-1]
-noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[8], ";  Cagetoria de referência:",
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[9], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$Regiao)[1])
 
 se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
@@ -195,7 +195,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,intercept.bottom=F,
+          header = F,ci=T,intercept.bottom=F,intercept.top = F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -214,7 +214,7 @@ logit3 <- (svyglm(FezTaix12m~NivelEducacional, family=quasibinomial, design=dado
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
 covlabels <- levels(dadoswp7a$variables$NivelEducacional)[-1]
-noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[15], ";  Cagetoria de referência:",
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[10], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$NivelEducacional)[1])
 
 se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
@@ -232,7 +232,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,intercept.bottom=F,
+          header = F,ci=T,intercept.bottom=F,intercept.top = F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -250,7 +250,7 @@ logit3 <- (svyglm(FezTaix12m~RendaFamiliarPc, family=quasibinomial, design=dados
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
 covlabels <- levels(dadoswp7a$variables$RendaFamiliarPc)[-1]
-noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[16], ";  Cagetoria de referência:",
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[11], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$RendaFamiliarPc)[1])
 
 se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
@@ -268,7 +268,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,intercept.bottom=F,
+          header = F,ci=T,intercept.bottom=F,intercept.top = F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -290,7 +290,7 @@ logit3 <- (svyglm(FezTaix12m~VisitasDoAC12m, family=quasibinomial, design=dadosw
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
 covlabels <- levels(dadoswp7a$variables$VisitasDoAC12m)[-1]
-noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[18], ";  Cagetoria de referência:",
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[12], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$VisitasDoAC12m)[1])
 
 se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
@@ -308,7 +308,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,intercept.bottom=F,
+          header = F,ci=T,intercept.bottom=F,intercept.top = F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -326,7 +326,7 @@ logit3 <- (svyglm(FezTaix12m~TemPlanoSaude, family=quasibinomial, design=dadoswp
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
 covlabels <- levels(dadoswp7a$variables$TemPlanoSaude)[-1]
-noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[19], ";  Cagetoria de referência:",
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[13], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$TemPlanoSaude)[1])
 
 se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
@@ -344,7 +344,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,intercept.bottom=F,
+          header = F,ci=T,intercept.bottom=F,intercept.top = F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -369,7 +369,7 @@ logit3 <- (svyglm(FezTaix12m~DoencasCronicas, family=quasibinomial, design=dados
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
 covlabels <- levels(dadoswp7a$variables$DoencasCronicas)[-1]
-noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[34], ";  Cagetoria de referência:",
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[14], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$DoencasCronicas)[1])
 
 se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
@@ -387,7 +387,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,intercept.bottom=F,
+          header = F,ci=T,intercept.bottom=F,intercept.top = F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -405,7 +405,7 @@ logit3 <- (svyglm(FezTaix12m~Artrite, family=quasibinomial, design=dadoswp7a, na
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
 covlabels <- levels(dadoswp7a$variables$Artrite)[-1]
-noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[26], ";  Cagetoria de referência:",
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[15], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$Artrite)[1])
 
 se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
@@ -423,7 +423,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,intercept.bottom=F,
+          header = F,ci=T,intercept.bottom=F,intercept.top = F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -441,7 +441,7 @@ logit3 <- (svyglm(FezTaix12m~Asma, family=quasibinomial, design=dadoswp7a, na.ac
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
 covlabels <- levels(dadoswp7a$variables$Asma)[-1]
-noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[27], ";  Cagetoria de referência:",
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[16], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$Asma)[1])
 
 se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
@@ -459,7 +459,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,intercept.bottom=F,
+          header = F,ci=T,intercept.bottom=F,intercept.top = F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -477,7 +477,7 @@ logit3 <- (svyglm(FezTaix12m~Hipercolesterol, family=quasibinomial, design=dados
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
 covlabels <- levels(dadoswp7a$variables$Hipercolesterol)[-1]
-noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[28], ";  Cagetoria de referência:",
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[17], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$Hipercolesterol)[1])
 
 se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
@@ -495,7 +495,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,intercept.bottom=F,
+          header = F,ci=T,intercept.bottom=F,intercept.top = F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -513,7 +513,7 @@ logit3 <- (svyglm(FezTaix12m~Diabetes, family=quasibinomial, design=dadoswp7a, n
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
 covlabels <- levels(dadoswp7a$variables$Diabetes)[-1]
-noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[29], ";  Cagetoria de referência:",
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[18], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$Diabetes)[1])
 
 se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
@@ -531,7 +531,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,intercept.bottom=F,
+          header = F,ci=T,intercept.bottom=F,intercept.top = F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -550,7 +550,7 @@ logit3 <- (svyglm(FezTaix12m~DORT, family=quasibinomial, design=dadoswp7a, na.ac
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
 covlabels <- levels(dadoswp7a$variables$DORT)[-1]
-noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[30], ";  Cagetoria de referência:",
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[19], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$DORT)[1])
 
 se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
@@ -568,7 +568,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,intercept.bottom=F,
+          header = F,ci=T,intercept.bottom=F,intercept.top = F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -587,7 +587,7 @@ logit3 <- (svyglm(FezTaix12m~Hipertensao, family=quasibinomial, design=dadoswp7a
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
 covlabels <- levels(dadoswp7a$variables$Hipertensao)[-1]
-noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[31], ";  Cagetoria de referência:",
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[20], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$Hipertensao)[1])
 
 se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
@@ -605,7 +605,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,intercept.bottom=F,
+          header = F,ci=T,intercept.bottom=F,intercept.top = F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -624,7 +624,7 @@ logit3 <- (svyglm(FezTaix12m~InsRenCronica, family=quasibinomial, design=dadoswp
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
 covlabels <- levels(dadoswp7a$variables$InsRenCronica)[-1]
-noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[32], ";  Cagetoria de referência:",
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[21], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$InsRenCronica)[1])
 
 se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
@@ -642,7 +642,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,intercept.bottom=F,
+          header = F,ci=T,intercept.bottom=F,intercept.top = F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -661,7 +661,7 @@ logit3 <- (svyglm(FezTaix12m~DoenCronPul, family=quasibinomial, design=dadoswp7a
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
 covlabels <- levels(dadoswp7a$variables$DoenCronPul)[-1]
-noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[33], ";  Cagetoria de referência:",
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[22], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$DoenCronPul)[1])
 
 se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
@@ -679,7 +679,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,intercept.bottom=F,
+          header = F,ci=T,intercept.bottom=F,intercept.top = F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -698,7 +698,7 @@ logit3 <- (svyglm(FezTaix12m~DiagDepressao, family=quasibinomial, design=dadoswp
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
 covlabels <- levels(dadoswp7a$variables$DiagDepressao)[-1]
-noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[35], ";  Cagetoria de referência:",
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[23], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$DiagDepressao)[1])
 
 se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
@@ -716,7 +716,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,intercept.bottom=F,
+          header = F,ci=T,intercept.bottom=F,intercept.top = F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -735,7 +735,7 @@ logit3 <- (svyglm(FezTaix12m~DiagTransBip, family=quasibinomial, design=dadoswp7
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
 covlabels <- levels(dadoswp7a$variables$DiagTransBip)[-1]
-noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[36], ";  Cagetoria de referência:",
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[24], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$DiagTransBip)[1])
 
 se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
@@ -753,7 +753,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,intercept.bottom=F,
+          header = F,ci=T,intercept.bottom=F,intercept.top = F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -772,7 +772,7 @@ logit3 <- (svyglm(FezTaix12m~DiagTOC, family=quasibinomial, design=dadoswp7a, na
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
 covlabels <- levels(dadoswp7a$variables$DiagTOC)[-1]
-noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[37], ";  Cagetoria de referência:",
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[25], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$DiagTOC)[1])
 
 se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
@@ -790,7 +790,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,intercept.bottom=F,
+          header = F,ci=T,intercept.bottom=F,intercept.top = F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -813,7 +813,7 @@ logit3 <- (svyglm(FezTaix12m~Tabagismo, family=quasibinomial, design=dadoswp7a, 
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
 covlabels <- levels(dadoswp7a$variables$Tabagismo)[-1]
-noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[38], ";  Cagetoria de referência:",
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[26], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$Tabagismo)[1])
 
 se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
@@ -831,7 +831,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,intercept.bottom=F,
+          header = F,ci=T,intercept.bottom=F,intercept.top = F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -850,7 +850,7 @@ logit3 <- (svyglm(FezTaix12m~FreqAlcool1m, family=quasibinomial, design=dadoswp7
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
 covlabels <- levels(dadoswp7a$variables$FreqAlcool1m)[-1]
-noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[39], ";  Cagetoria de referência:",
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[27], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$FreqAlcool1m)[1])
 
 se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
@@ -868,7 +868,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,intercept.bottom=F,
+          header = F,ci=T,intercept.bottom=F,intercept.top = F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -887,7 +887,7 @@ logit3 <- (svyglm(FezTaix12m~Exercicio1s, family=quasibinomial, design=dadoswp7a
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
 covlabels <- levels(dadoswp7a$variables$Exercicio1s)[-1]
-noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[41], ";  Cagetoria de referência:",
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[28], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$Exercicio1s)[1])
 
 se.coef1 <- function(logit1){sqrt(diag(vcov(logit1)))}
@@ -905,7 +905,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,intercept.bottom=F,
+          header = F,ci=T,intercept.bottom=F,intercept.top = F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
