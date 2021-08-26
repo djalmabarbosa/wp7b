@@ -52,7 +52,7 @@ stargazer(logit1,logit2,logit3,
           coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
           ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
           p = list(p.values1,p.values2,p.values3),
-          type='html', header = F,ci=T,omit=c("Constant"),
+          type='html', header = F, omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
           
@@ -93,7 +93,7 @@ stargazer(logit1,logit2,logit3,
           coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
           ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
           p = list(p.values1,p.values2,p.values3),
-          type='html', header = F,ci=T,omit=c("Constant"),
+          type='html', header = F, omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
           
@@ -134,7 +134,7 @@ stargazer(logit1,logit2,logit3,
           coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
           ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
           p = list(p.values1,p.values2,p.values3),
-          type='html', header = F,ci=T,omit=c("Constant"),
+          type='html', header = F, omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -173,7 +173,7 @@ stargazer(logit1,logit2,logit3,
           coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
           ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
           p = list(p.values1,p.values2,p.values3),
-          type='html', header = F,ci=T,omit=c("Constant"),
+          type='html', header = F, omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -214,7 +214,7 @@ stargazer(logit1,logit2,logit3,
           coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
           ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
           p = list(p.values1,p.values2,p.values3),
-          type='html', header = F,ci=T,omit=c("Constant"),
+          type='html', header = F, omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -254,7 +254,7 @@ stargazer(logit1,logit2,logit3,
           coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
           ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
           p = list(p.values1,p.values2,p.values3),
-          type='html', header = F,ci=T,omit=c("Constant"),
+          type='html', header = F, omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -293,7 +293,7 @@ stargazer(logit1,logit2,logit3,
           coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
           ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
           p = list(p.values1,p.values2,p.values3),
-          type='html', header = F,ci=T,omit=c("Constant"),
+          type='html', header = F, omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -336,7 +336,7 @@ stargazer(logit1,logit2,logit3,
           coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
           ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
           p = list(p.values1,p.values2,p.values3),
-          type='html', header = F,ci=T,omit=c("Constant"),
+          type='html', header = F, omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -375,7 +375,7 @@ stargazer(logit1,logit2,logit3,
           coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
           ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
           p = list(p.values1,p.values2,p.values3),
-          type='html', header = F,ci=T,omit=c("Constant"),
+          type='html', header = F, omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -421,7 +421,7 @@ stargazer(logit1,logit2,logit3,
           coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
           ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
           p = list(p.values1,p.values2,p.values3),
-          type='html', header = F,ci=T,omit=c("Constant"),
+          type='html', header = F, omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -460,7 +460,7 @@ stargazer(logit1,logit2,logit3,
           coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
           ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
           p = list(p.values1,p.values2,p.values3),
-          type='html', header = F,ci=T,omit=c("Constant"),
+          type='html', header = F, omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -499,7 +499,7 @@ stargazer(logit1,logit2,logit3,
           coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
           ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
           p = list(p.values1,p.values2,p.values3),
-          type='html', header = F,ci=T,omit=c("Constant"),
+          type='html', header = F, omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -538,7 +538,7 @@ stargazer(logit1,logit2,logit3,
           coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
           ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
           p = list(p.values1,p.values2,p.values3),
-          type='html', header = F,ci=T,omit=c("Constant"),
+          type='html', header = F, omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -577,7 +577,7 @@ stargazer(logit1,logit2,logit3,
           coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
           ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
           p = list(p.values1,p.values2,p.values3),
-          type='html', header = F,ci=T,omit=c("Constant"),
+          type='html', header = F, omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -617,7 +617,7 @@ stargazer(logit1,logit2,logit3,
           coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
           ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
           p = list(p.values1,p.values2,p.values3),
-          type='html', header = F,ci=T,omit=c("Constant"),
+          type='html', header = F, omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -657,7 +657,7 @@ stargazer(logit1,logit2,logit3,
           coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
           ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
           p = list(p.values1,p.values2,p.values3),
-          type='html', header = F,ci=T,omit=c("Constant"),
+          type='html', header = F, omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -697,7 +697,7 @@ stargazer(logit1,logit2,logit3,
           coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
           ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
           p = list(p.values1,p.values2,p.values3),
-          type='html', header = F,ci=T,omit=c("Constant"),
+          type='html', header = F, omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -737,7 +737,7 @@ stargazer(logit1,logit2,logit3,
           coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
           ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
           p = list(p.values1,p.values2,p.values3),
-          type='html', header = F,ci=T,omit=c("Constant"),
+          type='html', header = F, omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -777,7 +777,7 @@ stargazer(logit1,logit2,logit3,
           coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
           ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
           p = list(p.values1,p.values2,p.values3),
-          type='html', header = F,ci=T,omit=c("Constant"),
+          type='html', header = F, omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -817,7 +817,7 @@ stargazer(logit1,logit2,logit3,
           coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
           ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
           p = list(p.values1,p.values2,p.values3),
-          type='html', header = F,ci=T,omit=c("Constant"),
+          type='html', header = F, omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -857,7 +857,7 @@ stargazer(logit1,logit2,logit3,
           coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
           ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
           p = list(p.values1,p.values2,p.values3),
-          type='html', header = F,ci=T,omit=c("Constant"),
+          type='html', header = F, omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -896,7 +896,7 @@ stargazer(logit1,logit2,logit3,
           coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
           ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
           p = list(p.values1,p.values2,p.values3),
-          type='html', header = F,ci=T,omit=c("Constant"),
+          type='html', header = F, omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -936,7 +936,7 @@ stargazer(logit1,logit2,logit3,
           coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
           ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
           p = list(p.values1,p.values2,p.values3),
-          type='html', header = F,ci=T,omit=c("Constant"),
+          type='html', header = F, omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -976,7 +976,7 @@ stargazer(logit1,logit2,logit3,
           coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
           ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
           p = list(p.values1,p.values2,p.values3),
-          type='html', header = F,ci=T,omit=c("Constant"),
+          type='html', header = F, omit=c("Constant"),
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 

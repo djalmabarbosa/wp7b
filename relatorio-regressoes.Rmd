@@ -23,7 +23,7 @@ dispersiontest(rd,trafo=1)
 <br/>
 
 <div align="center">
-```{r eval=F, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
 
 dadoswp7a <- readRDS("dadoswp7a.RDS")
 
@@ -85,7 +85,7 @@ stargazer(logit1,logit2,logit3,logit4,
 ### Preditores da Prática de Yoga
 <br/>
 <div align="center">
-```{r eval=F, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
 
 dadoswp7a <- readRDS("dadoswp7a.RDS")
 
@@ -148,7 +148,7 @@ stargazer(logit1,logit2,logit3,logit4,
 ### Preditores da Prática de Tai chi chuan ou Lian gong ou Qi gong
 <br/>
 <div align="center">
-```{r eval=F, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
 
 dadoswp7a <- readRDS("dadoswp7a.RDS")
 
