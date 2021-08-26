@@ -49,7 +49,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"),
+          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -86,7 +86,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"),
+          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -123,7 +123,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"),
+          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -158,7 +158,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"),
+          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -196,7 +196,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"),
+          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -233,7 +233,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"),
+          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -269,7 +269,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"),
+          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -309,7 +309,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"),
+          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -345,7 +345,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"),
+          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -388,7 +388,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"),
+          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -424,7 +424,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"),
+          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -460,7 +460,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"),
+          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -496,7 +496,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"),
+          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 ```
@@ -532,7 +532,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"),
+          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -569,7 +569,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"),
+          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -606,7 +606,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"),
+          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -643,7 +643,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"),
+          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -680,7 +680,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"),
+          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -717,7 +717,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"),
+          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -754,7 +754,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"),
+          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -791,7 +791,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"),
+          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -832,7 +832,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"),
+          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -869,7 +869,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"),
+          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 
@@ -906,7 +906,7 @@ Std.Error.OR3 <-  OR3*se.coef3(logit3)
 library(stargazer)
 stargazer(logit1,logit2,logit3, type='html', 
           coef=list(OR1,OR2,OR3), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3), 
-          header = F,ci=T,omit=c("Constant"),
+          header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
           notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
           single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
 

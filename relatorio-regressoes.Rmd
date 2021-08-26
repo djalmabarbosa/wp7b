@@ -67,7 +67,7 @@ Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span
 library(stargazer)
 stargazer(logit1,logit2,logit3,logit4,
           coef=list(OR1,OR2,OR3,OR4), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3,Std.Error.OR4), 
-          type='html', header = F,ci=T,omit=c("Constant"),
+          type='html', header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
           notes=Notes,notes.append=F,
           notes.label = "Nota: coeficientes expressam Odds Ratio",
           column.labels = c("Demográficas","+Serv. de Saúde","+Est. de Saúde","+Est. de Vida"),
@@ -128,7 +128,7 @@ Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span
 library(stargazer)
 stargazer(logit1,logit2,logit3,logit4,
           coef=list(OR1,OR2,OR3,OR4), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3,Std.Error.OR4), 
-          type='html', header = F,ci=T,omit=c("Constant"),
+          type='html', header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
           notes=Notes,notes.append=F,
           notes.label = "Nota: coeficientes expressam Odds Ratio",
           column.labels = c("Demográficas","+Serv. de Saúde","+Est. de Saúde","+Est. de Vida"),
@@ -188,7 +188,7 @@ Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span
 library(stargazer)
 stargazer(logit1,logit2,logit3,logit4,
           coef=list(OR1,OR2,OR3,OR4), se = list(Std.Error.OR1,Std.Error.OR2,Std.Error.OR3,Std.Error.OR4), 
-          type='html', header = F,ci=T,omit=c("Constant"),
+          type='html', header = F,ci=T,omit=c("Constant"), t.auto=F, p.auto=F,
           notes=Notes,notes.append=F,
           notes.label = "Nota: coeficientes expressam Odds Ratio",
           column.labels = c("Demográficas","+Serv. de Saúde","+Est. de Saúde","+Est. de Vida"),
