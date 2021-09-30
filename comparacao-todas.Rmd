@@ -9,7 +9,7 @@ title: " "
 
 ```{r eval=TRUE, echo=FALSE, message=F, warning=F}
 
-dadoswp7a <- readRDS("dadoswp7a.RDS")
+dadoswp7a <- readRDS("dadoswp7a.rds")
 
 #levels(dadoswp7a$variables$FezMeditacao12m) = c("Não Meditou (%)","Meditou (%)")
 #dadoswp7a$variables$FezMeditacao12m <- as.numeric(as.character(dadoswp7a$variables$FezMeditacao12m))
@@ -71,8 +71,6 @@ tbl_svysummary(dadoswp7a,by = FezYoga12m,
 <br/>
 
 ```{r eval=TRUE, echo=FALSE, message=F, warning=F}
-
-dadoswp7a <- readRDS("dadoswp7a.RDS")
 
 #levels(dadoswp7a$variables$FezMeditacao12m) = c("Não Meditou (%)","Meditou (%)")
 #dadoswp7a$variables$FezMeditacao12m <- as.numeric(as.character(dadoswp7a$variables$FezMeditacao12m))
