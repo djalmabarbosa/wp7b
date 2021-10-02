@@ -119,9 +119,9 @@ dadoswp7$variables$DORT[is.na(dadoswp7$variables$DORT)] = "Não"
 dadoswp7$variables$hipertensao[is.na(dadoswp7$variables$hipertensao)] = "Não"
 dadoswp7$variables$insrencronica[is.na(dadoswp7$variables$insrencronica)] = "Não"
 dadoswp7$variables$doencronpul[is.na(dadoswp7$variables$doencronpul)] = "Não"
-dadoswp7$variables$DiagDepressao[is.na(dadoswp7$variables$depressao)] = "Não"
-dadoswp7$variables$DiagTransBip[is.na(dadoswp7$variables$transbip)] = "Não"
-dadoswp7$variables$DiagTOC[is.na(dadoswp7$variables$toc)] = "Não"
+dadoswp7$variables$depressao[is.na(dadoswp7$variables$depressao)] = "Não"
+dadoswp7$variables$transbip[is.na(dadoswp7$variables$transbip)] = "Não"
+dadoswp7$variables$toc[is.na(dadoswp7$variables$toc)] = "Não"
 
 dadoswp7$variables <- dadoswp7$variables %>% mutate (
 CorRaca3 = as.factor(ifelse(CorRaca == "Branca","Branca",
