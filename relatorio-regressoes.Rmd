@@ -31,19 +31,19 @@ library(survey)
 
 logit1 <- (svyglm(FezMeditacao12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
                  TemPlanoSaude+
-                 DoencasCronicas+TranstornoMental+
+                 DoencasCronicas+TranstornosMentais+
                  Tabagismo+FreqAlcool1m+Exercicio1s,
                  family=quasibinomial, design=dadoswp7a))
 
 logit2 <- (svyglm(FezYoga12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
                  TemPlanoSaude+
-                 DoencasCronicas+TranstornoMental+
+                 DoencasCronicas+TranstornosMentais+
                  Tabagismo+FreqAlcool1m+Exercicio1s,
                  family=quasibinomial, design=dadoswp7a))
 
 logit3 <- (svyglm(FezTaix12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
                  TemPlanoSaude+
-                 DoencasCronicas+TranstornoMental+
+                 DoencasCronicas+TranstornosMentais+
                  Tabagismo+FreqAlcool1m+Exercicio1s,
                  family=quasibinomial, design=dadoswp7a))
 
@@ -98,7 +98,7 @@ logit3 <- (svyglm(FezMeditacao12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+Ni
 
 logit4 <- (svyglm(FezMeditacao12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
                  TemPlanoSaude+
-                 DoencasCronicas+TranstornoMental
+                 DoencasCronicas+TranstornosMentais
                  Tabagismo+FreqAlcool1m+Exercicio1s,
                  family=quasibinomial, design=dadoswp7a))
 
@@ -155,7 +155,7 @@ logit3 <- (svyglm(FezYoga12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEd
 
 logit4 <- (svyglm(FezYoga12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
                  TemPlanoSaude+
-                 DoencasCronicas+TranstornoMental
+                 DoencasCronicas+TranstornosMentais
                  Tabagismo+FreqAlcool1m+Exercicio1s,
                  family=quasibinomial, design=dadoswp7a))
 
@@ -213,7 +213,7 @@ logit3 <- (svyglm(FezTaix12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEd
 
 logit4 <- (svyglm(FezTaix12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
                  TemPlanoSaude+
-                 DoencasCronicas+TranstornoMental
+                 DoencasCronicas+TranstornosMentais
                  Tabagismo+FreqAlcool1m+Exercicio1s,
                  family=quasibinomial, design=dadoswp7a))
 

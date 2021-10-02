@@ -433,14 +433,14 @@ stargazer(logit1,logit2,logit3,
 <div align="center">
 ```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
 
-logit1 <- (svyglm(FezMeditacao12m~TranstornoMental, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
-logit2 <- (svyglm(FezYoga12m~TranstornoMental, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
-logit3 <- (svyglm(FezTaix12m~TranstornoMental, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit1 <- (svyglm(FezMeditacao12m~TranstornosMentais, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit2 <- (svyglm(FezYoga12m~TranstornosMentais, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit3 <- (svyglm(FezTaix12m~TranstornosMentais, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
-covlabels <- levels(dadoswp7a$variables$TranstornoMental)[-1]
+covlabels <- levels(dadoswp7a$variables$TranstornosMentais)[-1]
 noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[15], ";  Cagetoria de referência:",
-                    levels(dadoswp7a$variables$TranstornoMental)[1])
+                    levels(dadoswp7a$variables$TranstornosMentais)[1])
 
 OR1.vector <- exp(logit1$coef)
 CI1.vector <- exp(confint(logit1))

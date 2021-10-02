@@ -165,10 +165,10 @@ DoencasCronicas = ifelse(cronicasx == 0, "Nenhuma",
                          ifelse(cronicasx == 1, "Uma",
                                 ifelse(cronicasx == 2, "Duas","Três ou mais"))),
 
-transtornomentalx = Depressao+TOC+TransBip,
-TranstornoMental = ifelse(transtornomentalx == 0, "Nenhuma",
-                         ifelse(transtornomentalx == 1, "Uma",
-                                ifelse(transtornomentalx == 2, "Duas","Três"))),
+TranstornosMentaisx = Depressao+TOC+TransBip,
+TranstornosMentais = as.factor(ifelse(TranstornosMentaisx == 0, "Nenhum",
+                         ifelse(TranstornosMentaisx == 1, "Um",
+                                ifelse(TranstornosMentaisx == 2, "Dois","Três")))),
 ConsomeFrutas = as.factor(ifelse(consomeFrutas == 0, "Nunca",
                          ifelse(consomeFrutas == 1| consomeFrutas == 2, "Uma a duas vezes por semana",
                                 ifelse(consomeFrutas == 3|consomeFrutas == 4, "Três a quatro vezes por semana","Cinco ou mais vezes por semana")))),
@@ -222,7 +222,7 @@ dadoswp7$variables <- dadoswp7$variables %>%
   select(FezMeditacao12m,FezYoga12m,FezTaix12m,QualquerTipoMedit,
          Sexo,Idade,CorRaca3,EmRelacionamento,Regiao,NivelEducacional,RendaFamiliarPc,
          VisitasDoAC12m,TemPlanoSaude,
-         DoencasCronicas,TranstornoMental,
+         DoencasCronicas,TranstornosMentais,
          Artrite,Asma,Hipercolesterol,Diabetes,DORT,Hipertensao,InsRenCronica,DoenCronPul,
          Depressao,TransBip,TOC,
          Tabagismo,FreqAlcool1m,Exercicio1s)
@@ -233,6 +233,7 @@ dadoswp7$variables$Exercicio1s <- relevel(dadoswp7$variables$Exercicio1s, ref = 
 dadoswp7$variables$CorRaca3 <- relevel(dadoswp7$variables$CorRaca3, ref = "Preta ou Marrom")
 dadoswp7$variables$VisitasDoAC12m <- relevel(dadoswp7$variables$VisitasDoAC12m, ref = "Já recebeu")
 dadoswp7$variables$EmRelacionamento <- relevel(dadoswp7$variables$EmRelacionamento, ref = "Sim")
+dadoswp7$variables$TranstornosMentais <- relevel(dadoswp7$variables$TranstornosMentais, ref = "Nenhum")
 
 
 saveRDS(dadoswp7,"dadoswp7a.rds")
@@ -250,7 +251,7 @@ library(gtsummary)
 tbl_svysummary(dadoswp7, include=c(FezMeditacao12m,FezYoga12m,FezTaix12m,QualquerTipoMedit,
                Regiao,Sexo,Idade,CorRaca3,EmRelacionamento,NivelEducacional,RendaFamiliarPc,
                VisitasDoAC12m,TemPlanoSaude,
-               DoencasCronicas,TranstornoMental,
+               DoencasCronicas,TranstornosMentais,
                Artrite,Asma,Hipercolesterol,Diabetes,DORT,Hipertensao,InsRenCronica,DoenCronPul,
                Depressao,TransBip,TOC,
                Tabagismo,FreqAlcool1m,Exercicio1s),
