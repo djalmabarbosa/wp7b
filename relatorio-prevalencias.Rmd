@@ -91,9 +91,9 @@ colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q09010")] <- "D
 colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q00201")] <- "hipertensao"
 colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q124")] <- "insrencronica"
 colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q11604")] <- "doencronpul"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q092")] <- "DiagDepressao"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q11008")] <- "DiagTransBip"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q11009")] <- "DiagTOC"
+colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q092")] <- "depressao"
+colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q11008")] <- "transbip"
+colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q11009")] <- "toc"
 
 colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "VDD004A")] <- "niveleducacional"
 colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "VDF003")] <- "rendafamiliarpc"
@@ -119,9 +119,9 @@ dadoswp7$variables$DORT[is.na(dadoswp7$variables$DORT)] = "Não"
 dadoswp7$variables$hipertensao[is.na(dadoswp7$variables$hipertensao)] = "Não"
 dadoswp7$variables$insrencronica[is.na(dadoswp7$variables$insrencronica)] = "Não"
 dadoswp7$variables$doencronpul[is.na(dadoswp7$variables$doencronpul)] = "Não"
-dadoswp7$variables$DiagDepressao[is.na(dadoswp7$variables$DiagDepressao)] = "Não"
-dadoswp7$variables$DiagTransBip[is.na(dadoswp7$variables$DiagTransBip)] = "Não"
-dadoswp7$variables$DiagTOC[is.na(dadoswp7$variables$DiagTOC)] = "Não"
+dadoswp7$variables$DiagDepressao[is.na(dadoswp7$variables$depressao)] = "Não"
+dadoswp7$variables$DiagTransBip[is.na(dadoswp7$variables$transbip)] = "Não"
+dadoswp7$variables$DiagTOC[is.na(dadoswp7$variables$toc)] = "Não"
 
 dadoswp7$variables <- dadoswp7$variables %>% mutate (
 CorRaca3 = as.factor(ifelse(CorRaca == "Branca","Branca",
@@ -157,11 +157,18 @@ Diabetes = ifelse(diabetes == "Sim",1,0),
 Hipertensao = ifelse(hipertensao == "Sim",1,0),
 InsRenCronica = ifelse(insrencronica == "Sim",1,0),
 DoenCronPul = ifelse(doencronpul == "Sim",1,0),
-DiagDepressao2 = ifelse(DiagDepressao == "Sim",1,0),
-cronicasx = Artrite+Asma+Hipercolesterol+Diabetes+Hipertensao+InsRenCronica+DoenCronPul+DiagDepressao2,
+Depressao = ifelse(depressao == "Sim",1,0),
+TOC = ifelse(toc == "Sim",1,0),
+TransBip = ifelse(transbip == "Sim",1,0),
+cronicasx = Artrite+Asma+Hipercolesterol+Diabetes+Hipertensao+InsRenCronica+DoenCronPul,
 DoencasCronicas = ifelse(cronicasx == 0, "Nenhuma",
                          ifelse(cronicasx == 1, "Uma",
                                 ifelse(cronicasx == 2, "Duas","Três ou mais"))),
+
+transtornomentalx = Depressao+TOC+TransBip,
+TranstornoMental = ifelse(transtornomentalx == 0, "Nenhuma",
+                         ifelse(transtornomentalx == 1, "Uma",
+                                ifelse(transtornomentalx == 2, "Duas","Três"))),
 ConsomeFrutas = as.factor(ifelse(consomeFrutas == 0, "Nunca",
                          ifelse(consomeFrutas == 1| consomeFrutas == 2, "Uma a duas vezes por semana",
                                 ifelse(consomeFrutas == 3|consomeFrutas == 4, "Três a quatro vezes por semana","Cinco ou mais vezes por semana")))),
@@ -181,12 +188,6 @@ dadoswp7$variables$DoencasCronicas <- factor(dadoswp7$variables$DoencasCronicas,
 dadoswp7$variables$Regiao <- factor(dadoswp7$variables$Regiao,
                                               levels = c("Norte", "Nordeste","Centro-Oeste","Sudeste","Sul"))
 dadoswp7$variables$DORT <- factor(dadoswp7$variables$DORT,
-                                              levels = c("Não", "Sim"))
-dadoswp7$variables$DiagDepressao <- factor(dadoswp7$variables$DiagDepressao,
-                                              levels = c("Não", "Sim"))
-dadoswp7$variables$DiagTransBip <- factor(dadoswp7$variables$DiagTransBip,
-                                              levels = c("Não", "Sim"))
-dadoswp7$variables$DiagTOC <- factor(dadoswp7$variables$DiagTOC,
                                               levels = c("Não", "Sim"))
 dadoswp7$variables$Tabagismo <- factor(dadoswp7$variables$Tabagismo,
                                               levels = c("Não", "Sim"))
@@ -210,14 +211,20 @@ dadoswp7$variables$InsRenCronica  <- as.factor(dadoswp7$variables$InsRenCronica)
 levels(dadoswp7$variables$InsRenCronica) <- c("Não","Sim")
 dadoswp7$variables$DoenCronPul <- as.factor(dadoswp7$variables$DoenCronPul)
 levels(dadoswp7$variables$DoenCronPul) <- c("Não","Sim")
+dadoswp7$variables$Depressao <- as.factor(dadoswp7$variables$Depressao)
+levels(dadoswp7$variables$Depressao) <- c("Não","Sim")
+dadoswp7$variables$TransBip <- as.factor(dadoswp7$variables$TransBip)
+levels(dadoswp7$variables$TransBip) <- c("Não","Sim")
+dadoswp7$variables$TOC <- as.factor(dadoswp7$variables$TOC)
+levels(dadoswp7$variables$TOC) <- c("Não","Sim")
 
 dadoswp7$variables <- dadoswp7$variables %>% 
   select(FezMeditacao12m,FezYoga12m,FezTaix12m,QualquerTipoMedit,
          Sexo,Idade,CorRaca3,EmRelacionamento,Regiao,NivelEducacional,RendaFamiliarPc,
          VisitasDoAC12m,TemPlanoSaude,
-         DoencasCronicas,
+         DoencasCronicas,TranstornoMental,
          Artrite,Asma,Hipercolesterol,Diabetes,DORT,Hipertensao,InsRenCronica,DoenCronPul,
-         DiagDepressao,DiagTransBip,DiagTOC,
+         Depressao,TransBip,TOC,
          Tabagismo,FreqAlcool1m,Exercicio1s)
 
 dadoswp7$variables$TemPlanoSaude <- relevel(dadoswp7$variables$TemPlanoSaude, ref = "Não")
@@ -243,9 +250,9 @@ library(gtsummary)
 tbl_svysummary(dadoswp7, include=c(FezMeditacao12m,FezYoga12m,FezTaix12m,QualquerTipoMedit,
                Regiao,Sexo,Idade,CorRaca3,EmRelacionamento,NivelEducacional,RendaFamiliarPc,
                VisitasDoAC12m,TemPlanoSaude,
-               DoencasCronicas,
+               DoencasCronicas,TranstornoMental,
                Artrite,Asma,Hipercolesterol,Diabetes,DORT,Hipertensao,InsRenCronica,DoenCronPul,
-               DiagDepressao,DiagTransBip,DiagTOC,
+               Depressao,TransBip,TOC,
                Tabagismo,FreqAlcool1m,Exercicio1s),
                digits = list(all_categorical() ~ c(2)),
                missing = 'no')

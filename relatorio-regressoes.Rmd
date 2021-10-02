@@ -30,20 +30,20 @@ dadoswp7a <- readRDS("dadoswp7a.rds")
 library(survey)
 
 logit1 <- (svyglm(FezMeditacao12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
-                 VisitasDoAC12m+TemPlanoSaude+
-                 DoencasCronicas+
+                 TemPlanoSaude+
+                 DoencasCronicas+TranstornoMental+
                  Tabagismo+FreqAlcool1m+Exercicio1s,
                  family=quasibinomial, design=dadoswp7a))
 
 logit2 <- (svyglm(FezYoga12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
-                 VisitasDoAC12m+TemPlanoSaude+
-                 DoencasCronicas+
+                 TemPlanoSaude+
+                 DoencasCronicas+TranstornoMental+
                  Tabagismo+FreqAlcool1m+Exercicio1s,
                  family=quasibinomial, design=dadoswp7a))
 
 logit3 <- (svyglm(FezTaix12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
-                 VisitasDoAC12m+TemPlanoSaude+
-                 DoencasCronicas+
+                 TemPlanoSaude+
+                 DoencasCronicas+TranstornoMental+
                  Tabagismo+FreqAlcool1m+Exercicio1s,
                  family=quasibinomial, design=dadoswp7a))
 
@@ -82,23 +82,23 @@ stargazer(logit1,logit2,logit3,
 <br/>
 
 <div align="center">
-```{r eval=T, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
+```{r eval=F, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
 
 logit1 <- (svyglm(FezMeditacao12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc,
                   family=quasibinomial, design=dadoswp7a))
 
 logit2 <- (svyglm(FezMeditacao12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
-                 VisitasDoAC12m+TemPlanoSaude,
+                 TemPlanoSaude,
                  family=quasibinomial, design=dadoswp7a))
 
 logit3 <- (svyglm(FezMeditacao12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
-                 VisitasDoAC12m+TemPlanoSaude+
+                 TemPlanoSaude+
                  DoencasCronicas,
                  family=quasibinomial, design=dadoswp7a))
 
 logit4 <- (svyglm(FezMeditacao12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
-                 VisitasDoAC12m+TemPlanoSaude+
-                 DoencasCronicas+
+                 TemPlanoSaude+
+                 DoencasCronicas+TranstornoMental
                  Tabagismo+FreqAlcool1m+Exercicio1s,
                  family=quasibinomial, design=dadoswp7a))
 
@@ -139,23 +139,23 @@ stargazer(logit1,logit2,logit3,logit4,
 ### Preditores da Prática de Yoga
 <br/>
 <div align="center">
-```{r eval=T, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
+```{r eval=F, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
 
 logit1 <- (svyglm(FezYoga12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc,
                   family=quasibinomial, design=dadoswp7a))
 
 logit2 <- (svyglm(FezYoga12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
-                 VisitasDoAC12m+TemPlanoSaude,
+                 TemPlanoSaude,
                  family=quasibinomial, design=dadoswp7a))
 
 logit3 <- (svyglm(FezYoga12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
-                 VisitasDoAC12m+TemPlanoSaude+
+                 TemPlanoSaude+
                  DoencasCronicas,
                  family=quasibinomial, design=dadoswp7a))
 
 logit4 <- (svyglm(FezYoga12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
-                 VisitasDoAC12m+TemPlanoSaude+
-                 DoencasCronicas+
+                 TemPlanoSaude+
+                 DoencasCronicas+TranstornoMental
                  Tabagismo+FreqAlcool1m+Exercicio1s,
                  family=quasibinomial, design=dadoswp7a))
 
@@ -197,23 +197,23 @@ stargazer(logit1,logit2,logit3,logit4,
 ### Preditores da Prática de Tai chi chuan ou Lian gong ou Qi gong
 <br/>
 <div align="center">
-```{r eval=T, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
+```{r eval=F, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
 
 logit1 <- (svyglm(FezTaix12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc,
                   family=quasibinomial, design=dadoswp7a))
 
 logit2 <- (svyglm(FezTaix12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
-                 VisitasDoAC12m+TemPlanoSaude,
+                 TemPlanoSaude,
                  family=quasibinomial, design=dadoswp7a))
 
 logit3 <- (svyglm(FezTaix12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
-                 VisitasDoAC12m+TemPlanoSaude+
+                 TemPlanoSaude+
                  DoencasCronicas,
                  family=quasibinomial, design=dadoswp7a))
 
 logit4 <- (svyglm(FezTaix12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
-                 VisitasDoAC12m+TemPlanoSaude+
-                 DoencasCronicas+
+                 TemPlanoSaude+
+                 DoencasCronicas+TranstornoMental
                  Tabagismo+FreqAlcool1m+Exercicio1s,
                  family=quasibinomial, design=dadoswp7a))
 

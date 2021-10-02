@@ -42,9 +42,10 @@ title: " "
 | Hipertensao | Já teve diagnóstico de hipertensão | Algum médico já lhe deu o diagnóstico de hipertensão arterial (pressão alta)? |
 | InsRenCronica | Já teve diagnóstico de insuficiência renal crônica | Algum médico já lhe deu o diagnóstico de insuficiência renal crônica?  |
 | DoenCronPul | Já teve diagnóstico de doença crônica do pulmão | Algum médico já lhe deu o diagnóstico de alguma outra doença crônica no pulmão, tais como enfisema pulmonar, bronquite crônica ou DPOC (Doença Pulmonar Obstrutiva Crônica)? |
-| DiagDepressao | Já teve dianóstico de depressão | Algum médico ou profissional de saúde mental (como psiquiatra ou psicólogo) já lhe deu o diagnóstico de depressão? |
-| DiagTransBip | Já teve dianóstico de transtorno bipolar | Diagnóstico de Transtorno bipolar |
-| DiagTOC | Já teve diagnóstico de toc | Diagnóstico de TOC (Transtorno obsessivo compulsivo)  |
+| TranstornoMental | Soma dos diagnósticos de transtornos mentais | Variável derivada |
+| Depressao | Já teve dianóstico de depressão | Algum médico ou profissional de saúde mental (como psiquiatra ou psicólogo) já lhe deu o diagnóstico de depressão? |
+| TransBip | Já teve dianóstico de transtorno bipolar | Diagnóstico de Transtorno bipolar |
+| TOC | Já teve diagnóstico de toc | Diagnóstico de TOC (Transtorno obsessivo compulsivo)  |
 | |
 | **Estilo de vida** |
 | Tabagismo | Se a pessoa fumava no momento da pesquisa | Variável derivada de: Atualmente, o(a) Sr(a) fuma algum produto do tabaco?  |
