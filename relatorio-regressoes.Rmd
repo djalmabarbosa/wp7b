@@ -19,7 +19,67 @@ dispersiontest(rd,trafo=1)
 
 ```
 
+
 ### Comparação entre meditação, Yoga e TLQ
+<br/>
+
+<div align="center">
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
+
+dadoswp7a <- readRDS("dadoswp7a.rds")
+
+library(survey)
+
+logit1 <- (svyglm(FezMeditacao12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
+                 TemPlanoSaude+
+                 DoencasCronicas+
+                 Tabagismo+FreqAlcool1m+Exercicio1s,
+                 family=quasibinomial, design=dadoswp7a))
+
+logit2 <- (svyglm(FezYoga12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
+                 TemPlanoSaude+
+                 DoencasCronicas+
+                 Tabagismo+FreqAlcool1m+Exercicio1s,
+                 family=quasibinomial, design=dadoswp7a))
+
+logit3 <- (svyglm(FezTaix12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
+                 TemPlanoSaude+
+                 DoencasCronicas+
+                 Tabagismo+FreqAlcool1m+Exercicio1s,
+                 family=quasibinomial, design=dadoswp7a))
+
+OR1.vector <- exp(logit1$coef)
+CI1.vector <- exp(confint(logit1))
+
+OR2.vector <- exp(logit2$coef)
+CI2.vector <- exp(confint(logit2))
+
+OR3.vector <- exp(logit3$coef)
+CI3.vector <- exp(confint(logit3))
+
+p.values1 <- summary(logit1)$coefficients[, 4]
+p.values2 <- summary(logit2)$coefficients[, 4]
+p.values3 <- summary(logit3)$coefficients[, 4]
+
+Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
+
+library(stargazer)
+stargazer(logit1,logit2,logit3,
+          coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
+          ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
+          p = list(p.values1,p.values2,p.values3),
+          type='html', header = F,omit=c("Constant"), 
+          notes=Notes,notes.append=F,
+          notes.label = "Nota: coeficientes expressam Odds Ratio",
+          column.labels = c("Meditação","Yoga","TLQ"),
+          column.sep.width = "7pt",
+          single.row = F,dep.var.caption="Variável Dependente", star.char = "&#9768;"
+          )
+```
+</div>
+<br/><br/>
+
+### Comparação entre meditação, Yoga e TLQ (Depressao)
 <br/>
 
 <div align="center">
@@ -78,11 +138,70 @@ stargazer(logit1,logit2,logit3,
 </div>
 <br/><br/>
 
-### Comparação entre meditação, Yoga e TLQ (incluindo Visita do AC)
+### Comparação entre meditação, Yoga e TLQ (TranstornoMental)
 <br/>
 
 <div align="center">
 ```{r eval=T, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
+
+dadoswp7a <- readRDS("dadoswp7a.rds")
+
+library(survey)
+
+logit1 <- (svyglm(FezMeditacao12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
+                 TemPlanoSaude+
+                 DoencasCronicas+TranstornosMentais+
+                 Tabagismo+FreqAlcool1m+Exercicio1s,
+                 family=quasibinomial, design=dadoswp7a))
+
+logit2 <- (svyglm(FezYoga12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
+                 TemPlanoSaude+
+                 DoencasCronicas+TranstornosMentais+
+                 Tabagismo+FreqAlcool1m+Exercicio1s,
+                 family=quasibinomial, design=dadoswp7a))
+
+logit3 <- (svyglm(FezTaix12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
+                 TemPlanoSaude+
+                 DoencasCronicas+TranstornosMentais+
+                 Tabagismo+FreqAlcool1m+Exercicio1s,
+                 family=quasibinomial, design=dadoswp7a))
+
+OR1.vector <- exp(logit1$coef)
+CI1.vector <- exp(confint(logit1))
+
+OR2.vector <- exp(logit2$coef)
+CI2.vector <- exp(confint(logit2))
+
+OR3.vector <- exp(logit3$coef)
+CI3.vector <- exp(confint(logit3))
+
+p.values1 <- summary(logit1)$coefficients[, 4]
+p.values2 <- summary(logit2)$coefficients[, 4]
+p.values3 <- summary(logit3)$coefficients[, 4]
+
+Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
+
+library(stargazer)
+stargazer(logit1,logit2,logit3,
+          coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
+          ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
+          p = list(p.values1,p.values2,p.values3),
+          type='html', header = F,omit=c("Constant"), 
+          notes=Notes,notes.append=F,
+          notes.label = "Nota: coeficientes expressam Odds Ratio",
+          column.labels = c("Meditação","Yoga","TLQ"),
+          column.sep.width = "7pt",
+          single.row = F,dep.var.caption="Variável Dependente", star.char = "&#9768;"
+          )
+```
+</div>
+<br/><br/>
+
+### Comparação entre meditação, Yoga e TLQ (incluindo Visita do AC)
+<br/>
+
+<div align="center">
+```{r eval=F, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
 
 dadoswp7a <- readRDS("dadoswp7a.rds")
 

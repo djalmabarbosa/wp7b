@@ -100,7 +100,7 @@ colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "VDF003")] <- "r
 
 dadoswp7$variables <- droplevels(dadoswp7$variables)
 
-dadoswp7$variables[is.na(dadoswp7$variables$visitasdoac12m),"visitasdoac12m"] <- "Nunca recebeu"
+#dadoswp7$variables[is.na(dadoswp7$variables$visitasdoac12m),"visitasdoac12m"] <- "Nunca recebeu"
 
 # Criando e modificando variáveis
 library(dplyr)
