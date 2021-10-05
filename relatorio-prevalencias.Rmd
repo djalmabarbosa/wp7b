@@ -127,7 +127,7 @@ dadoswp7$variables <- dadoswp7$variables %>% mutate (
 CorRaca3 = as.factor(ifelse(CorRaca == "Branca","Branca",
                    ifelse(CorRaca =="Preta"|CorRaca=="Parda","Preta ou Marrom","Leste Asiático ou Indígena"))),
 EmRelacionamento = as.factor(ifelse(C01001 == "Sim" | C013 == "Sim","Sim","Não")),
-Idade = as.factor(ifelse(idade<18,NA,
+Idade = as.factor(ifelse(idade<18,"Menor de 18",
                          ifelse(idade >= 18 & idade <= 29,"18 a 29",
                                 ifelse(idade >= 30 & idade <= 39, "30 a 39",
                                       ifelse(idade >= 40 & idade <= 49,"40 a 49",
@@ -240,12 +240,12 @@ saveRDS(dadoswp7,"dadoswp7a.rds")
 
 ```
 
-### Descrição das Prevalências  
+### Características da amostra
 
 <br/>
 
 
-```{r Prevalências, eval=TRUE, echo=FALSE, message=F, warning=F}
+```{r Características da amostra, eval=T, echo=FALSE, message=F, warning=F}
 
 library(gtsummary)
 tbl_svysummary(dadoswp7, include=c(FezMeditacao12m,FezYoga12m,FezTaix12m,QualquerTipoMedit,
@@ -258,9 +258,126 @@ tbl_svysummary(dadoswp7, include=c(FezMeditacao12m,FezYoga12m,FezTaix12m,Qualque
                digits = list(all_categorical() ~ c(2)),
                missing = 'no')
 
+
+
 #Retirados: ProcServSaude2sMotivo,ProcServSaude2sOnde,,ProcServSaude2sQua
 
 ```
 
 <br/><br/>
 
+### Características dos que utilizaram práticas mente-corpo: total  
+
+<br/>  
+
+```{r Caracteristicas - geral, eval=T, echo=FALSE, message=F, warning=F}
+
+tbl_svysummary(dadoswp7,by = QualquerTipoMedit, 
+               include=c(Regiao,Sexo,Idade,CorRaca3,EmRelacionamento,NivelEducacional,RendaFamiliarPc,
+               VisitasDoAC12m,TemPlanoSaude,
+               DoencasCronicas,TranstornosMentais,
+               Artrite,Asma,Hipercolesterol,Diabetes,DORT,Hipertensao,InsRenCronica,DoenCronPul,
+               Depressao,TransBip,TOC,
+               Tabagismo,FreqAlcool1m,Exercicio1s),
+               digits = list(all_categorical() ~ c(2)),
+               missing = 'no')
+
+#tbl %>%
+#  modify_table_header(
+#    column = stat_1,
+#    hide = TRUE
+#  )
+
+#print(tbl)
+
+```
+
+<br/><br/>
+
+### Características dos que utilizaram práticas mente-corpo: meditação
+
+<br/>  
+
+```{r Características - meditação, eval=T, echo=FALSE, message=F, warning=F}
+
+tbl_svysummary(dadoswp7,by = FezMeditacao12m, 
+               include=c(Regiao,Sexo,Idade,CorRaca3,EmRelacionamento,NivelEducacional,RendaFamiliarPc,
+               VisitasDoAC12m,TemPlanoSaude,
+               DoencasCronicas,TranstornosMentais,
+               Artrite,Asma,Hipercolesterol,Diabetes,DORT,Hipertensao,InsRenCronica,DoenCronPul,
+               Depressao,TransBip,TOC,
+               Tabagismo,FreqAlcool1m,Exercicio1s),
+               digits = list(all_categorical() ~ c(2)),
+               missing = 'no')
+
+#tbl %>%
+#  modify_table_header(
+#    column = stat_1,
+#    hide = TRUE
+#  )
+
+#print(tbl)
+
+```
+
+```{r Características - meditação 2, eval=F, echo=FALSE, message=F, warning=F}
+
+svyby(~I(Regiao),~FezMeditacao12m,design=dadoswp7, svymean,vartype="se",method="me",df=degf(dadoswp7))
+
+```
+
+<br/><br/>
+
+### Características dos que utilizaram práticas mente-corpo: yoga
+
+<br/>  
+
+```{r Características yoga, eval=T, echo=FALSE, message=F, warning=F}
+
+tbl_svysummary(dadoswp7,by = FezYoga12m, 
+               include=c(Regiao,Sexo,Idade,CorRaca3,EmRelacionamento,NivelEducacional,RendaFamiliarPc,
+               VisitasDoAC12m,TemPlanoSaude,
+               DoencasCronicas,TranstornosMentais,
+               Artrite,Asma,Hipercolesterol,Diabetes,DORT,Hipertensao,InsRenCronica,DoenCronPul,
+               Depressao,TransBip,TOC,
+               Tabagismo,FreqAlcool1m,Exercicio1s),
+               digits = list(all_categorical() ~ c(2)),
+               missing = 'no')
+
+#tbl %>%
+#  modify_table_header(
+#    column = stat_1,
+#    hide = TRUE
+#  )
+
+#print(tbl)
+
+```
+
+<br/><br/>
+
+### Características dos que utilizaram práticas mente-corpo: Tai chi/ lian gong/ qigong
+
+<br/>  
+
+```{r Características - taix, eval=T, echo=FALSE, message=F, warning=F}
+
+tbl_svysummary(dadoswp7,by = FezTaix12m, 
+               include=c(Regiao,Sexo,Idade,CorRaca3,EmRelacionamento,NivelEducacional,RendaFamiliarPc,
+               VisitasDoAC12m,TemPlanoSaude,
+               DoencasCronicas,TranstornosMentais,
+               Artrite,Asma,Hipercolesterol,Diabetes,DORT,Hipertensao,InsRenCronica,DoenCronPul,
+               Depressao,TransBip,TOC,
+               Tabagismo,FreqAlcool1m,Exercicio1s),
+               digits = list(all_categorical() ~ c(2)),
+               missing = 'no')
+
+#tbl %>%
+#  modify_table_header(
+#    column = stat_1,
+#    hide = TRUE
+#  )
+
+#print(tbl)
+
+```

@@ -32,19 +32,19 @@ library(survey)
 
 logit1 <- (svyglm(FezMeditacao12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
                  TemPlanoSaude+
-                 DoencasCronicas+
+                 DoencasCronicas+Depressao+
                  Tabagismo+FreqAlcool1m+Exercicio1s,
                  family=quasibinomial, design=dadoswp7a))
 
 logit2 <- (svyglm(FezYoga12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
                  TemPlanoSaude+
-                 DoencasCronicas+
+                 DoencasCronicas+Depressao+
                  Tabagismo+FreqAlcool1m+Exercicio1s,
                  family=quasibinomial, design=dadoswp7a))
 
 logit3 <- (svyglm(FezTaix12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
                  TemPlanoSaude+
-                 DoencasCronicas+
+                 DoencasCronicas+Depressao+
                  Tabagismo+FreqAlcool1m+Exercicio1s,
                  family=quasibinomial, design=dadoswp7a))
 
@@ -79,11 +79,11 @@ stargazer(logit1,logit2,logit3,
 </div>
 <br/><br/>
 
+<br/>
+
+<div align="center">
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
 ### Comparação entre meditação, Yoga e TLQ (Depressao)
-<br/>
-
-<div align="center">
-```{r eval=T, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
 
 dadoswp7a <- readRDS("dadoswp7a.rds")
 
@@ -138,11 +138,11 @@ stargazer(logit1,logit2,logit3,
 </div>
 <br/><br/>
 
+<br/>
+
+<div align="center">
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
 ### Comparação entre meditação, Yoga e TLQ (TranstornoMental)
-<br/>
-
-<div align="center">
-```{r eval=T, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
 
 dadoswp7a <- readRDS("dadoswp7a.rds")
 
@@ -197,11 +197,12 @@ stargazer(logit1,logit2,logit3,
 </div>
 <br/><br/>
 
-### Comparação entre meditação, Yoga e TLQ (incluindo Visita do AC)
+
 <br/>
 
 <div align="center">
 ```{r eval=F, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
+### Comparação entre meditação, Yoga e TLQ (incluindo Visita do AC)
 
 dadoswp7a <- readRDS("dadoswp7a.rds")
 
