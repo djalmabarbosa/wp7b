@@ -18,11 +18,11 @@ library(gtsummary)
 library(dplyr)
 
 tbl_svysummary(dadoswp7a,by = FezMeditacao12m,
-               include=c(Sexo,Idade,CorRaca3,EmRelacionamento,NivelEducacional,Regiao,RendaFamiliarPc,
-                         VisitasDoAC12m,TemPlanoSaude,
-                         DoencasCronicas,TranstornosMentais,
-                         Artrite,Asma,Hipercolesterol,Diabetes,DORT,Hipertensao,InsRenCronica,DoenCronPul,
-                         Depressao,TransBip,TOC,
+               include=c(Sexo,Idade,CorRaca3,EmRelacionamento,Regiao,NivelEducacional,RendaFamiliarPc,
+                         TemPlanoSaude,
+                         DoencasCronicas,Artrite,Asma,Hipercolesterol,Diabetes,Hipertensao,InsRenCronica,DoenCronPul,
+                         Dor_Cron_Col,DORT,
+                         Depressao,
                          Tabagismo,FreqAlcool1m,Exercicio1s),
                statistic = list(all_categorical() ~ "{p}"),
                digits = list(all_categorical() ~ c(2)),
@@ -30,8 +30,8 @@ tbl_svysummary(dadoswp7a,by = FezMeditacao12m,
                ) %>%
                   bold_labels() %>%
                   modify_header(label = "**Variáveis**") %>%
-                  modify_header(update = stat_1 ~ "**Não meditaram (99.47%)**") %>%
-                  modify_header(update = stat_2 ~ "**Meditaram (0.53%)**") %>%
+                  modify_header(update = stat_1 ~ "**Não meditaram (99.48%)**") %>%
+                  modify_header(update = stat_2 ~ "**Meditaram (0.52%)**") %>%
                   add_p(pvalue_fun = ~style_pvalue(.x,digits = 3))
 
 ```
@@ -46,11 +46,11 @@ tbl_svysummary(dadoswp7a,by = FezMeditacao12m,
 ```{r eval=TRUE, echo=FALSE, message=F, warning=F}
 
 tbl_svysummary(dadoswp7a,by = FezYoga12m,
-               include=c(Sexo,Idade,CorRaca3,EmRelacionamento,NivelEducacional,Regiao,RendaFamiliarPc,
-                         VisitasDoAC12m,TemPlanoSaude,
-                         DoencasCronicas,TranstornosMentais,
-                         Artrite,Asma,Hipercolesterol,Diabetes,DORT,Hipertensao,InsRenCronica,DoenCronPul,
-                         Depressao,TransBip,TOC,
+               include=c(Sexo,Idade,CorRaca3,EmRelacionamento,Regiao,NivelEducacional,RendaFamiliarPc,
+                         TemPlanoSaude,
+                         DoencasCronicas,Artrite,Asma,Hipercolesterol,Diabetes,Hipertensao,InsRenCronica,DoenCronPul,
+                         Dor_Cron_Col,DORT,
+                         Depressao,
                          Tabagismo,FreqAlcool1m,Exercicio1s),
                statistic = list(all_categorical() ~ "{p}"),
                digits = list(all_categorical() ~ c(2)),
@@ -58,8 +58,8 @@ tbl_svysummary(dadoswp7a,by = FezYoga12m,
                ) %>%
                   bold_labels() %>%
                   modify_header(label = "**Variáveis**") %>%
-                  modify_header(update = stat_1 ~ "**Não praticaram Yoga (99.64%)**") %>%
-                  modify_header(update = stat_2 ~ "**Praticaram Yoga (0.36%)**") %>%
+                  modify_header(update = stat_1 ~ "**Não praticaram Yoga (99.65%)**") %>%
+                  modify_header(update = stat_2 ~ "**Praticaram Yoga (0.35%)**") %>%
                   add_p(pvalue_fun = ~style_pvalue(.x,digits = 3))
 
 ```
@@ -72,18 +72,12 @@ tbl_svysummary(dadoswp7a,by = FezYoga12m,
 
 ```{r eval=TRUE, echo=FALSE, message=F, warning=F}
 
-#levels(dadoswp7a$variables$FezMeditacao12m) = c("Não Meditou (%)","Meditou (%)")
-#dadoswp7a$variables$FezMeditacao12m <- as.numeric(as.character(dadoswp7a$variables$FezMeditacao12m))
-
-library(gtsummary)
-library(dplyr)
-
 tbl_svysummary(dadoswp7a,by = FezTaix12m,
-               include=c(Sexo,Idade,CorRaca3,EmRelacionamento,NivelEducacional,Regiao,RendaFamiliarPc,
-                         VisitasDoAC12m,TemPlanoSaude,
-                         DoencasCronicas,TranstornosMentais,
-                         Artrite,Asma,Hipercolesterol,Diabetes,DORT,Hipertensao,InsRenCronica,DoenCronPul,
-                         Depressao,TransBip,TOC,
+               include=c(Sexo,Idade,CorRaca3,EmRelacionamento,Regiao,NivelEducacional,RendaFamiliarPc,
+                         TemPlanoSaude,
+                         DoencasCronicas,Artrite,Asma,Hipercolesterol,Diabetes,Hipertensao,InsRenCronica,DoenCronPul,
+                         Dor_Cron_Col,DORT,
+                         Depressao,
                          Tabagismo,FreqAlcool1m,Exercicio1s),
                statistic = list(all_categorical() ~ "{p}"),
                digits = list(all_categorical() ~ c(2)),
@@ -93,6 +87,32 @@ tbl_svysummary(dadoswp7a,by = FezTaix12m,
                   modify_header(label = "**Variáveis**") %>%
                   modify_header(update = stat_1 ~ "**Não praticaram taix (99.96%)**") %>%
                   modify_header(update = stat_2 ~ "**Praticaram taix (0.04%)**") %>%
+                  add_p(pvalue_fun = ~style_pvalue(.x,digits = 3))
+
+```
+
+<br/><br/>
+
+### Comparações entre grupos - Qualquer prática mente-corpo
+<br/>
+
+```{r eval=TRUE, echo=FALSE, message=F, warning=F}
+
+tbl_svysummary(dadoswp7a,by = QualquerTipoMedit,
+               include=c(Sexo,Idade,CorRaca3,EmRelacionamento,Regiao,NivelEducacional,RendaFamiliarPc,
+                         TemPlanoSaude,
+                         DoencasCronicas,Artrite,Asma,Hipercolesterol,Diabetes,Hipertensao,InsRenCronica,DoenCronPul,
+                         Dor_Cron_Col,DORT,
+                         Depressao,
+                         Tabagismo,FreqAlcool1m,Exercicio1s),
+               statistic = list(all_categorical() ~ "{p}"),
+               digits = list(all_categorical() ~ c(2)),
+               missing = 'no',
+               ) %>%
+                  bold_labels() %>%
+                  modify_header(label = "**Variáveis**") %>%
+                  modify_header(update = stat_1 ~ "**Não realiaram práticas mente-corpo (99.29%)**") %>%
+                  modify_header(update = stat_2 ~ "**Realizaram práticas mente-corpo (0.71%)**") %>%
                   add_p(pvalue_fun = ~style_pvalue(.x,digits = 3))
 
 ```

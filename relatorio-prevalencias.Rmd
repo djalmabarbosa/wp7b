@@ -225,20 +225,17 @@ levels(dadoswp7$variables$Dor_Cron_Col) <- c("Não","Sim")
 dadoswp7$variables <- dadoswp7$variables %>% 
   select(FezMeditacao12m,FezYoga12m,FezTaix12m,QualquerTipoMedit,
          Sexo,Idade,CorRaca3,EmRelacionamento,Regiao,NivelEducacional,RendaFamiliarPc,
-         VisitasDoAC12m,TemPlanoSaude,
-         DoencasCronicas,Dor_Cron_Col, TranstornosMentais,
-         Artrite,Asma,Hipercolesterol,Diabetes,DORT,Hipertensao,InsRenCronica,DoenCronPul,
-         Depressao,TransBip,TOC,
+         TemPlanoSaude,
+         DoencasCronicas,Artrite,Asma,Hipercolesterol,Diabetes,Hipertensao,InsRenCronica,DoenCronPul,
+         Dor_Cron_Col,DORT,
+         Depressao,
          Tabagismo,FreqAlcool1m,Exercicio1s)
 
 dadoswp7$variables$TemPlanoSaude <- relevel(dadoswp7$variables$TemPlanoSaude, ref = "Não")
 dadoswp7$variables$Tabagismo <- relevel(dadoswp7$variables$Tabagismo, ref = "Não")
 dadoswp7$variables$Exercicio1s <- relevel(dadoswp7$variables$Exercicio1s, ref = "Nenhum dia")
 dadoswp7$variables$CorRaca3 <- relevel(dadoswp7$variables$CorRaca3, ref = "Preta ou Marrom")
-dadoswp7$variables$VisitasDoAC12m <- relevel(dadoswp7$variables$VisitasDoAC12m, ref = "Já recebeu")
 dadoswp7$variables$EmRelacionamento <- relevel(dadoswp7$variables$EmRelacionamento, ref = "Sim")
-dadoswp7$variables$TranstornosMentais <- relevel(dadoswp7$variables$TranstornosMentais, ref = "Nenhum")
-
 
 saveRDS(dadoswp7,"dadoswp7a.rds")
 
@@ -247,7 +244,6 @@ saveRDS(dadoswp7,"dadoswp7a.rds")
 ### Características da amostra
 
 <br/>
-
 
 ```{r Características da amostra, eval=T, echo=FALSE, message=F, warning=F}
 
@@ -307,12 +303,12 @@ tbl_svysummary(dadoswp7a,by = QualquerTipoMedit,
 ```{r Características - meditação, eval=T, echo=FALSE, message=F, warning=F}
 
 tbl_svysummary(dadoswp7a,by = FezMeditacao12m, 
-               include=c(Regiao,Sexo,Idade,CorRaca3,EmRelacionamento,NivelEducacional,RendaFamiliarPc,
-               VisitasDoAC12m,TemPlanoSaude,
-               DoencasCronicas,TranstornosMentais,
-               Artrite,Asma,Hipercolesterol,Diabetes,DORT,Hipertensao,InsRenCronica,DoenCronPul,
-               Depressao,TransBip,TOC,
-               Tabagismo,FreqAlcool1m,Exercicio1s),
+               include=c(Sexo,Idade,CorRaca3,EmRelacionamento,Regiao,NivelEducacional,RendaFamiliarPc,
+                         TemPlanoSaude,
+                         DoencasCronicas,Artrite,Asma,Hipercolesterol,Diabetes,Hipertensao,InsRenCronica,DoenCronPul,
+                         Dor_Cron_Col,DORT,
+                         Depressao,
+                         Tabagismo,FreqAlcool1m,Exercicio1s),
                digits = list(all_categorical() ~ c(2)),
                missing = 'no')
 
@@ -335,12 +331,12 @@ tbl_svysummary(dadoswp7a,by = FezMeditacao12m,
 ```{r Características yoga, eval=T, echo=FALSE, message=F, warning=F}
 
 tbl_svysummary(dadoswp7a,by = FezYoga12m, 
-               include=c(Regiao,Sexo,Idade,CorRaca3,EmRelacionamento,NivelEducacional,RendaFamiliarPc,
-               VisitasDoAC12m,TemPlanoSaude,
-               DoencasCronicas,TranstornosMentais,
-               Artrite,Asma,Hipercolesterol,Diabetes,DORT,Hipertensao,InsRenCronica,DoenCronPul,
-               Depressao,TransBip,TOC,
-               Tabagismo,FreqAlcool1m,Exercicio1s),
+               include=c(Sexo,Idade,CorRaca3,EmRelacionamento,Regiao,NivelEducacional,RendaFamiliarPc,
+                         TemPlanoSaude,
+                         DoencasCronicas,Artrite,Asma,Hipercolesterol,Diabetes,Hipertensao,InsRenCronica,DoenCronPul,
+                         Dor_Cron_Col,DORT,
+                         Depressao,
+                         Tabagismo,FreqAlcool1m,Exercicio1s),
                digits = list(all_categorical() ~ c(2)),
                missing = 'no')
 
@@ -363,12 +359,12 @@ tbl_svysummary(dadoswp7a,by = FezYoga12m,
 ```{r Características - taix, eval=T, echo=FALSE, message=F, warning=F}
 
 tbl_svysummary(dadoswp7a,by = FezTaix12m, 
-               include=c(Regiao,Sexo,Idade,CorRaca3,EmRelacionamento,NivelEducacional,RendaFamiliarPc,
-               VisitasDoAC12m,TemPlanoSaude,
-               DoencasCronicas,TranstornosMentais,
-               Artrite,Asma,Hipercolesterol,Diabetes,DORT,Hipertensao,InsRenCronica,DoenCronPul,
-               Depressao,TransBip,TOC,
-               Tabagismo,FreqAlcool1m,Exercicio1s),
+               include=c(Sexo,Idade,CorRaca3,EmRelacionamento,Regiao,NivelEducacional,RendaFamiliarPc,
+                         TemPlanoSaude,
+                         DoencasCronicas,Artrite,Asma,Hipercolesterol,Diabetes,Hipertensao,InsRenCronica,DoenCronPul,
+                         Dor_Cron_Col,DORT,
+                         Depressao,
+                         Tabagismo,FreqAlcool1m,Exercicio1s),
                digits = list(all_categorical() ~ c(2)),
                missing = 'no')
 
@@ -381,6 +377,18 @@ tbl_svysummary(dadoswp7a,by = FezTaix12m,
 #print(tbl)
 
 ```
+
+```{r Prevalências totais, eval=F, echo=FALSE, message=F, warning=F}
+
+dadoswp7a <- readRDS("dadoswp7a.rds")
+
+library(survey)
+
+svymean(~FezMeditacao12m, design=dadoswp7a, na.rm=TRUE)
+
+
+```
+
 
 ```{r Características - tabela final, eval=F, echo=FALSE, message=F, warning=F}
 

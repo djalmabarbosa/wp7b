@@ -31,22 +31,28 @@ dadoswp7a <- readRDS("dadoswp7a.rds")
 library(survey)
 
 logit1 <- (svyglm(FezMeditacao12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
-                 TemPlanoSaude+
-                 DoencasCronicas+Depressao+
-                 Tabagismo+FreqAlcool1m+Exercicio1s,
-                 family=quasibinomial, design=dadoswp7a))
+                  TemPlanoSaude+
+                  DoencasCronicas+
+                  Dor_Cron_Col+DORT+
+                  Depressao+
+                  Tabagismo+FreqAlcool1m+Exercicio1s,
+                  family=quasibinomial, design=dadoswp7a))
 
 logit2 <- (svyglm(FezYoga12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
-                 TemPlanoSaude+
-                 DoencasCronicas+Depressao+
-                 Tabagismo+FreqAlcool1m+Exercicio1s,
-                 family=quasibinomial, design=dadoswp7a))
+                  TemPlanoSaude+
+                  DoencasCronicas+
+                  Dor_Cron_Col+DORT+
+                  Depressao+
+                  Tabagismo+FreqAlcool1m+Exercicio1s,
+                  family=quasibinomial, design=dadoswp7a))
 
 logit3 <- (svyglm(FezTaix12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
-                 TemPlanoSaude+
-                 DoencasCronicas+Depressao+
-                 Tabagismo+FreqAlcool1m+Exercicio1s,
-                 family=quasibinomial, design=dadoswp7a))
+                  TemPlanoSaude+
+                  DoencasCronicas+
+                  Dor_Cron_Col+DORT+
+                  Depressao+
+                  Tabagismo+FreqAlcool1m+Exercicio1s,
+                  family=quasibinomial, design=dadoswp7a))
 
 OR1.vector <- exp(logit1$coef)
 CI1.vector <- exp(confint(logit1))
@@ -82,7 +88,7 @@ stargazer(logit1,logit2,logit3,
 <br/>
 
 <div align="center">
-```{r eval=T, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
+```{r eval=F, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
 ### Comparação entre meditação, Yoga e TLQ (Depressao)
 
 dadoswp7a <- readRDS("dadoswp7a.rds")
@@ -141,7 +147,7 @@ stargazer(logit1,logit2,logit3,
 <br/>
 
 <div align="center">
-```{r eval=T, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
+```{r eval=F, echo=FALSE, warning=F, message=F,results='asis', fig.align='center'}
 ### Comparação entre meditação, Yoga e TLQ (TranstornoMental)
 
 dadoswp7a <- readRDS("dadoswp7a.rds")
