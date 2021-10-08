@@ -6,128 +6,129 @@ title: " "
 
 ```{r Organização dos Dados, eval=T, echo=F, message=F}
 
-dadoswp7 <- readRDS("dadoswp7.rds")
+dadoswp7 <- readRDS("pns19IBGE.rds")
+  
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "V0001")] <- "UF"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "V0024")] <- "estrato"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "V0015")] <- "tipoentrevista"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "V0026")] <- "sitsensitaria"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "V0031")] <- "tipoarea"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018011")] <- "tv"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018012")] <- "tvn"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018013")] <- "geladeira"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018014")] <- "geladeiran"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018015")] <- "maqroupa"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018016")] <- "maqroupan"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018017")] <- "telefone"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018018")] <- "telefonen"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018019")] <- "celular"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018020")] <- "celularn"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018021")] <- "microondas"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018022")] <- "microondasn"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018023")] <- "computador"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018024")] <- "computadorn"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018025")] <- "motocicleta"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018026")] <- "motocicletan"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018027")] <- "carro"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018028")] <- "carron"
+  
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "B001")] <- "CadastroNaUSF"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "B003")] <- "visitasdoac12m"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "B004")] <- "visitaAE"
+  
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "C004")] <- "condicaodom"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "C006")] <- "Sexo"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "C008")] <- "idade"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "C00701")] <- "DiaNascimento"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "C00702")] <- "MesNascimento"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "C00703")] <- "AnoNascimento"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "C009")] <- "CorRaca"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "C011")] <- "EstadoCivil"
+  
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "I00102")] <- "TemPlanoSaude"
+  
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J001")] <- "EstadoDeSaudeA"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J00101")] <- "EstadoDeSaudeB"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J002")] <- "RestricaoPorSaude2s"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J005")] <- "Acamado2s"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J007")] <- "DiagCronicas"
+  
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J012")] <- "NumeroConsultas12m"
+  
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J014")] <- "ProcServSaude2s"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J01502")] <- "ProcServSaude2sMotivo"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J01602")] <- "ProcServSaude2sOnde"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J023")] <- "ProcServSaude2sRede"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J026")] <- "ProcServSaude2sSUS"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J02702")] <- "ProcServSaude2sQual"
+  
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J05301")] <- "UsouIntegrativa12m"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J05406")] <- "fezmeditacao12m"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J05407")] <- "fezyoga12m"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J05408")] <- "feztaix12m"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J056")] <- "PagouPeloTratamento"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J057")] <- "TratamentoPeloSUS"
+  
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "P018")] <- "consomeFrutas"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "P050")] <- "fumanopresente"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "P027")] <- "FreqAlcool1m"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "P034")] <- "exercicio3m"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "P035")] <- "exerciciodias"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "P03701")] <- "exerciciohor"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "P03702")] <- "exerciciomin"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "P04501")] <- "TempoNaTV1d"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "P07004")] <- "FonteInformacaoJornRevis30d"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "P07005")] <- "FonteInformacaoTV30d"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "P07006")] <- "FonteInformacaoRadio30d"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "P07007")] <- "FonteInformacaoInternet30d"
+  
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q079")] <- "artrite"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q074")] <- "asma"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q060")] <- "hipercolesterol"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q03001")] <- "diabetes"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q09010")] <- "DORT"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q00201")] <- "hipertensao"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q124")] <- "insrencronica"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q11604")] <- "doencronpul"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q092")] <- "depressao"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q11008")] <- "transbip"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q11009")] <- "toc"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q084")] <- "dor_cron_col"
+  
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "VDD004A")] <- "niveleducacional"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "VDF003")] <- "rendafamiliarpc"
+  
+  dadoswp7$variables <- droplevels(dadoswp7$variables)
+  
+  #dadoswp7$variables[is.na(dadoswp7$variables$visitasdoac12m),"visitasdoac12m"] <- "Nunca recebeu"
+  
+  # Criando e modificando variáveis
+  library(dplyr)
+  library(tidyr)
+  
+  dadoswp7$variables$exercicio3m = ifelse(dadoswp7$variables$exercicio3m == "Sim",1,0)
+  dadoswp7$variables$exerciciodiasB = ifelse(is.na(dadoswp7$variables$exerciciodias),1,dadoswp7$variables$exerciciodias)
+  dadoswp7$variables$exerciciodiasC = dadoswp7$variables$exercicio3m + dadoswp7$variables$exerciciodiasB
+  dadoswp7$variables$exerciciodiasD = dadoswp7$variables$exerciciodiasC-1
+  
+  dadoswp7$variables$artrite[is.na(dadoswp7$variables$artrite)] = "Não"
+  dadoswp7$variables$asma[is.na(dadoswp7$variables$asma)] = "Não"
+  dadoswp7$variables$hipercolesterol[is.na(dadoswp7$variables$hipercolesterol)] = "Não"
+  dadoswp7$variables$diabetes[is.na(dadoswp7$variables$diabetes)] = "Não"
+  dadoswp7$variables$DORT[is.na(dadoswp7$variables$DORT)] = "Não"
+  dadoswp7$variables$hipertensao[is.na(dadoswp7$variables$hipertensao)] = "Não"
+  dadoswp7$variables$insrencronica[is.na(dadoswp7$variables$insrencronica)] = "Não"
+  dadoswp7$variables$doencronpul[is.na(dadoswp7$variables$doencronpul)] = "Não"
+  dadoswp7$variables$depressao[is.na(dadoswp7$variables$depressao)] = "Não"
+  dadoswp7$variables$dor_cron_col[is.na(dadoswp7$variables$dor_cron_col)] = "Não"
+  
 
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "V0001")] <- "UF"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "V0024")] <- "estrato"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "V0015")] <- "tipoentrevista"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "V0026")] <- "sitsensitaria"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "V0031")] <- "tipoarea"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018011")] <- "tv"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018012")] <- "tvn"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018013")] <- "geladeira"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018014")] <- "geladeiran"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018015")] <- "maqroupa"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018016")] <- "maqroupan"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018017")] <- "telefone"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018018")] <- "telefonen"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018019")] <- "celular"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018020")] <- "celularn"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018021")] <- "microondas"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018022")] <- "microondasn"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018023")] <- "computador"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018024")] <- "computadorn"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018025")] <- "motocicleta"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018026")] <- "motocicletan"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018027")] <- "carro"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "A018028")] <- "carron"
-
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "B001")] <- "CadastroNaUSF"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "B003")] <- "visitasdoac12m"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "B004")] <- "visitaAE"
-
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "C004")] <- "condicaodom"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "C006")] <- "Sexo"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "C008")] <- "idade"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "C00701")] <- "DiaNascimento"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "C00702")] <- "MesNascimento"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "C00703")] <- "AnoNascimento"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "C009")] <- "CorRaca"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "C011")] <- "EstadoCivil"
-
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "I00102")] <- "TemPlanoSaude"
-
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J001")] <- "EstadoDeSaudeA"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J00101")] <- "EstadoDeSaudeB"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J002")] <- "RestricaoPorSaude2s"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J005")] <- "Acamado2s"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J007")] <- "DiagCronicas"
-
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J012")] <- "NumeroConsultas12m"
-
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J014")] <- "ProcServSaude2s"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J01502")] <- "ProcServSaude2sMotivo"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J01602")] <- "ProcServSaude2sOnde"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J023")] <- "ProcServSaude2sRede"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J026")] <- "ProcServSaude2sSUS"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J02702")] <- "ProcServSaude2sQual"
-
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J05301")] <- "UsouIntegrativa12m"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J05406")] <- "fezmeditacao12m"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J05407")] <- "fezyoga12m"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J05408")] <- "feztaix12m"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J056")] <- "PagouPeloTratamento"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "J057")] <- "TratamentoPeloSUS"
-
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "P018")] <- "consomeFrutas"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "P050")] <- "fumanopresente"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "P027")] <- "FreqAlcool1m"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "P034")] <- "exercicio3m"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "P035")] <- "exerciciodias"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "P03701")] <- "exerciciohor"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "P03702")] <- "exerciciomin"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "P04501")] <- "TempoNaTV1d"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "P07004")] <- "FonteInformacaoJornRevis30d"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "P07005")] <- "FonteInformacaoTV30d"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "P07006")] <- "FonteInformacaoRadio30d"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "P07007")] <- "FonteInformacaoInternet30d"
-
-
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q079")] <- "artrite"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q074")] <- "asma"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q060")] <- "hipercolesterol"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q03001")] <- "diabetes"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q09010")] <- "DORT"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q00201")] <- "hipertensao"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q124")] <- "insrencronica"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q11604")] <- "doencronpul"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q092")] <- "depressao"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q11008")] <- "transbip"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q11009")] <- "toc"
-
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "VDD004A")] <- "niveleducacional"
-colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "VDF003")] <- "rendafamiliarpc"
-
-dadoswp7$variables <- droplevels(dadoswp7$variables)
-
-#dadoswp7$variables[is.na(dadoswp7$variables$visitasdoac12m),"visitasdoac12m"] <- "Nunca recebeu"
-
-# Criando e modificando variáveis
-library(dplyr)
-library(tidyr)
-
-dadoswp7$variables$exercicio3m = ifelse(dadoswp7$variables$exercicio3m == "Sim",1,0)
-dadoswp7$variables$exerciciodiasB = ifelse(is.na(dadoswp7$variables$exerciciodias),1,dadoswp7$variables$exerciciodias)
-dadoswp7$variables$exerciciodiasC = dadoswp7$variables$exercicio3m + dadoswp7$variables$exerciciodiasB
-dadoswp7$variables$exerciciodiasD = dadoswp7$variables$exerciciodiasC-1
-
-dadoswp7$variables$artrite[is.na(dadoswp7$variables$artrite)] = "Não"
-dadoswp7$variables$asma[is.na(dadoswp7$variables$asma)] = "Não"
-dadoswp7$variables$hipercolesterol[is.na(dadoswp7$variables$hipercolesterol)] = "Não"
-dadoswp7$variables$diabetes[is.na(dadoswp7$variables$diabetes)] = "Não"
-dadoswp7$variables$DORT[is.na(dadoswp7$variables$DORT)] = "Não"
-dadoswp7$variables$hipertensao[is.na(dadoswp7$variables$hipertensao)] = "Não"
-dadoswp7$variables$insrencronica[is.na(dadoswp7$variables$insrencronica)] = "Não"
-dadoswp7$variables$doencronpul[is.na(dadoswp7$variables$doencronpul)] = "Não"
-dadoswp7$variables$depressao[is.na(dadoswp7$variables$depressao)] = "Não"
-dadoswp7$variables$transbip[is.na(dadoswp7$variables$transbip)] = "Não"
-dadoswp7$variables$toc[is.na(dadoswp7$variables$toc)] = "Não"
 
 dadoswp7$variables <- dadoswp7$variables %>% mutate (
 CorRaca3 = as.factor(ifelse(CorRaca == "Branca","Branca",
                    ifelse(CorRaca =="Preta"|CorRaca=="Parda","Preta ou Marrom","Leste Asiático ou Indígena"))),
 EmRelacionamento = as.factor(ifelse(C01001 == "Sim" | C013 == "Sim","Sim","Não")),
-Idade = as.factor(ifelse(idade<18,"Menor de 18",
+Idade = as.factor(ifelse(idade<18, NA,
                          ifelse(idade >= 18 & idade <= 29,"18 a 29",
                                 ifelse(idade >= 30 & idade <= 39, "30 a 39",
                                       ifelse(idade >= 40 & idade <= 49,"40 a 49",
@@ -160,6 +161,7 @@ DoenCronPul = ifelse(doencronpul == "Sim",1,0),
 Depressao = ifelse(depressao == "Sim",1,0),
 TOC = ifelse(toc == "Sim",1,0),
 TransBip = ifelse(transbip == "Sim",1,0),
+Dor_Cron_Col = ifelse(dor_cron_col == "Sim",1,0),
 cronicasx = Artrite+Asma+Hipercolesterol+Diabetes+Hipertensao+InsRenCronica+DoenCronPul,
 DoencasCronicas = ifelse(cronicasx == 0, "Nenhuma",
                          ifelse(cronicasx == 1, "Uma",
@@ -217,12 +219,14 @@ dadoswp7$variables$TransBip <- as.factor(dadoswp7$variables$TransBip)
 levels(dadoswp7$variables$TransBip) <- c("Não","Sim")
 dadoswp7$variables$TOC <- as.factor(dadoswp7$variables$TOC)
 levels(dadoswp7$variables$TOC) <- c("Não","Sim")
+dadoswp7$variables$Dor_Cron_Col <- as.factor(dadoswp7$variables$Dor_Cron_Col)
+levels(dadoswp7$variables$Dor_Cron_Col) <- c("Não","Sim")
 
 dadoswp7$variables <- dadoswp7$variables %>% 
   select(FezMeditacao12m,FezYoga12m,FezTaix12m,QualquerTipoMedit,
          Sexo,Idade,CorRaca3,EmRelacionamento,Regiao,NivelEducacional,RendaFamiliarPc,
          VisitasDoAC12m,TemPlanoSaude,
-         DoencasCronicas,TranstornosMentais,
+         DoencasCronicas,Dor_Cron_Col, TranstornosMentais,
          Artrite,Asma,Hipercolesterol,Diabetes,DORT,Hipertensao,InsRenCronica,DoenCronPul,
          Depressao,TransBip,TOC,
          Tabagismo,FreqAlcool1m,Exercicio1s)
@@ -247,8 +251,10 @@ saveRDS(dadoswp7,"dadoswp7a.rds")
 
 ```{r Características da amostra, eval=T, echo=FALSE, message=F, warning=F}
 
+dadoswp7a <- readRDS("dadoswp7a.rds")
+
 library(gtsummary)
-tbl_svysummary(dadoswp7, include=c(FezMeditacao12m,FezYoga12m,FezTaix12m,QualquerTipoMedit,
+tbl_svysummary(dadoswp7a, include=c(FezMeditacao12m,FezYoga12m,FezTaix12m,QualquerTipoMedit,
                Regiao,Sexo,Idade,CorRaca3,EmRelacionamento,NivelEducacional,RendaFamiliarPc,
                VisitasDoAC12m,TemPlanoSaude,
                DoencasCronicas,TranstornosMentais,
@@ -272,7 +278,7 @@ tbl_svysummary(dadoswp7, include=c(FezMeditacao12m,FezYoga12m,FezTaix12m,Qualque
 
 ```{r Caracteristicas - geral, eval=T, echo=FALSE, message=F, warning=F}
 
-tbl_svysummary(dadoswp7,by = QualquerTipoMedit, 
+tbl_svysummary(dadoswp7a,by = QualquerTipoMedit, 
                include=c(Regiao,Sexo,Idade,CorRaca3,EmRelacionamento,NivelEducacional,RendaFamiliarPc,
                VisitasDoAC12m,TemPlanoSaude,
                DoencasCronicas,TranstornosMentais,
@@ -300,7 +306,7 @@ tbl_svysummary(dadoswp7,by = QualquerTipoMedit,
 
 ```{r Características - meditação, eval=T, echo=FALSE, message=F, warning=F}
 
-tbl_svysummary(dadoswp7,by = FezMeditacao12m, 
+tbl_svysummary(dadoswp7a,by = FezMeditacao12m, 
                include=c(Regiao,Sexo,Idade,CorRaca3,EmRelacionamento,NivelEducacional,RendaFamiliarPc,
                VisitasDoAC12m,TemPlanoSaude,
                DoencasCronicas,TranstornosMentais,
@@ -320,12 +326,6 @@ tbl_svysummary(dadoswp7,by = FezMeditacao12m,
 
 ```
 
-```{r Características - meditação 2, eval=F, echo=FALSE, message=F, warning=F}
-
-svyby(~I(Regiao),~FezMeditacao12m,design=dadoswp7, svymean,vartype="se",method="me",df=degf(dadoswp7))
-
-```
-
 <br/><br/>
 
 ### Características dos que utilizaram práticas mente-corpo: yoga
@@ -334,7 +334,7 @@ svyby(~I(Regiao),~FezMeditacao12m,design=dadoswp7, svymean,vartype="se",method="
 
 ```{r Características yoga, eval=T, echo=FALSE, message=F, warning=F}
 
-tbl_svysummary(dadoswp7,by = FezYoga12m, 
+tbl_svysummary(dadoswp7a,by = FezYoga12m, 
                include=c(Regiao,Sexo,Idade,CorRaca3,EmRelacionamento,NivelEducacional,RendaFamiliarPc,
                VisitasDoAC12m,TemPlanoSaude,
                DoencasCronicas,TranstornosMentais,
@@ -362,7 +362,7 @@ tbl_svysummary(dadoswp7,by = FezYoga12m,
 
 ```{r Características - taix, eval=T, echo=FALSE, message=F, warning=F}
 
-tbl_svysummary(dadoswp7,by = FezTaix12m, 
+tbl_svysummary(dadoswp7a,by = FezTaix12m, 
                include=c(Regiao,Sexo,Idade,CorRaca3,EmRelacionamento,NivelEducacional,RendaFamiliarPc,
                VisitasDoAC12m,TemPlanoSaude,
                DoencasCronicas,TranstornosMentais,
@@ -379,5 +379,46 @@ tbl_svysummary(dadoswp7,by = FezTaix12m,
 #  )
 
 #print(tbl)
+
+```
+
+```{r Características - tabela final, eval=F, echo=FALSE, message=F, warning=F}
+
+dadoswp7a <- readRDS("dadoswp7a.rds")
+
+library(survey)
+
+# Tabela 1
+
+svyby(~Idade, ~FezMeditacao12m, dadoswp7a, na = TRUE, svymean)
+
+svyby(~RendaFamiliarPc, ~FezMeditacao12m, dadoswp7a, na = TRUE, svymean)
+
+# Tabela 2
+
+svyby(~FezMeditacao12m, ~Dor_Cron_Col, dadoswp7a, na = TRUE, svymean)
+
+
+#dadoswp7$variables[is.na(dadoswp7$variables$Idade),] <- "Menor de 18"
+
+#svyby(~I(Idade),~FezMeditacao12m,design=subset(dados, !is.na(Idade)), svymean,vartype="se", method="me")
+
+#dadoswp7$variables[is.na(dadoswp7$variables$visitasdoac12m),"visitasdoac12m"] <- "Nunca recebeu"
+
+#svyby(~I(Regiao),~FezMeditacao12m,design=dadoswp7, svymean,vartype="se",method="me",df=degf(dadoswp7))
+
+#svyby(~I(Regiao),~FezMeditacao12m,design=subset(dadoswp7, !is.na(Exercicio1s)), svymean,vartype="se",method="me")
+      
+#svyby(~I(RendaFamiliarPc),~FezMeditacao12m,design=dadoswp7, svymean,vartype="se",method="me",na.rm.all = TRUE)
+#svyby(~I(Idade),~FezMeditacao12m,design=dadoswp7, svymean,vartype="se",method="me",na.rm.by = TRUE)
+
+#svyby(~I(RendaFamiliarPc),~FezMeditacao12m,design=subset(dadoswp7, !is.na(Exercicio1s)), svymean,vartype="se",method="me")
+
+#design=subset(dadosPNS, C006=="Mulher")
+#dadoswp7$variables <- dadoswp7$variables  %>% filter(is.na(dadoswp7$variables$RendaFamiliarPc))
+
+#svyby(~I(RendaFamiliarPc),~FezMeditacao12m,design=dadoswp7, svymean,vartype="se",method="me",
+#      df=degf(dadoswp7))
+
 
 ```
