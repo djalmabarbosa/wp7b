@@ -666,6 +666,46 @@ stargazer(logit1,logit2,logit3,
 </div>
 <br/><br/>
 
+### Diagnóstico de Câncer
+<br/>
+<div align="center">
+```{r eval=T, echo=FALSE, warning=F, message=F,results='asis'}
+
+logit1 <- (svyglm(FezMeditacao12m~Cancer, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit2 <- (svyglm(FezYoga12m~Cancer, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+logit3 <- (svyglm(FezTaix12m~Cancer, family=quasibinomial, design=dadoswp7a, na.action = na.omit))
+
+Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
+covlabels <- levels(dadoswp7a$variables$Cancer)[-1]
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[21], ";  Cagetoria de referência:",
+                    levels(dadoswp7a$variables$Cancer)[1])
+
+OR1.vector <- exp(logit1$coef)
+CI1.vector <- exp(confint(logit1))
+
+OR2.vector <- exp(logit2$coef)
+CI2.vector <- exp(confint(logit2))
+
+OR3.vector <- exp(logit3$coef)
+CI3.vector <- exp(confint(logit3))
+
+p.values1 <- summary(logit1)$coefficients[, 4]
+p.values2 <- summary(logit2)$coefficients[, 4]
+p.values3 <- summary(logit3)$coefficients[, 4]
+
+library(stargazer)
+stargazer(logit1,logit2,logit3, 
+          coef = list(OR1.vector,OR2.vector,OR3.vector), ci = T, 
+          ci.custom = list(CI1.vector,CI2.vector,CI3.vector),
+          p = list(p.values1,p.values2,p.values3),
+          type='html', header = F, omit=c("Constant"),
+          notes=Notes,notes.append=F,notes.label = noteslabel,model.names=T,
+          single.row = F,covariate.labels=covlabels,dep.var.caption="Variável Dependente", star.char = "&#9768;")
+
+```
+</div>
+<br/><br/>
+
 ### Diagnóstico de dor crônica associada à coluna
 <br/>
 <div align="center">
@@ -677,7 +717,7 @@ logit3 <- (svyglm(FezTaix12m~Dor_Cron_Col, family=quasibinomial, design=dadoswp7
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
 covlabels <- levels(dadoswp7a$variables$Dor_Cron_Col)[-1]
-noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[21], ";  Cagetoria de referência:",
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[22], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$Dor_Cron_Col)[1])
 
 OR1.vector <- exp(logit1$coef)
@@ -717,7 +757,7 @@ logit3 <- (svyglm(FezTaix12m~DORT, family=quasibinomial, design=dadoswp7a, na.ac
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
 covlabels <- levels(dadoswp7a$variables$DORT)[-1]
-noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[22], ";  Cagetoria de referência:",
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[23], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$DORT)[1])
 
 OR1.vector <- exp(logit1$coef)
@@ -757,7 +797,7 @@ logit3 <- (svyglm(FezTaix12m~Depressao, family=quasibinomial, design=dadoswp7a, 
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
 covlabels <- levels(dadoswp7a$variables$Depressao)[-1]
-noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[23], ";  Cagetoria de referência:",
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[24], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$Depressao)[1])
 
 OR1.vector <- exp(logit1$coef)
@@ -801,7 +841,7 @@ logit3 <- (svyglm(FezTaix12m~Tabagismo, family=quasibinomial, design=dadoswp7a, 
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
 covlabels <- levels(dadoswp7a$variables$Tabagismo)[-1]
-noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[24], ";  Cagetoria de referência:",
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[25], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$Tabagismo)[1])
 
 OR1.vector <- exp(logit1$coef)
@@ -841,7 +881,7 @@ logit3 <- (svyglm(FezTaix12m~FreqAlcool1m, family=quasibinomial, design=dadoswp7
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
 covlabels <- levels(dadoswp7a$variables$FreqAlcool1m)[-1]
-noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[25], ";  Cagetoria de referência:",
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[26], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$FreqAlcool1m)[1])
 
 OR1.vector <- exp(logit1$coef)
@@ -881,7 +921,7 @@ logit3 <- (svyglm(FezTaix12m~Exercicio1s, family=quasibinomial, design=dadoswp7a
 
 Notes <- "<span>&#9768;&#9768;&#9768;</span>: p<0.01; <span>&#9768;&#9768;</span>: p<0.05; <span>&#9768;</span>: p<0.1"
 covlabels <- levels(dadoswp7a$variables$Exercicio1s)[-1]
-noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[26], ";  Cagetoria de referência:",
+noteslabel <- paste("Variável Independente:", names(dadoswp7a$variables)[27], ";  Cagetoria de referência:",
                     levels(dadoswp7a$variables$Exercicio1s)[1])
 
 OR1.vector <- exp(logit1$coef)

@@ -94,6 +94,7 @@ dadoswp7 <- readRDS("pns19IBGE.rds")
   colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q11008")] <- "transbip"
   colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q11009")] <- "toc"
   colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q084")] <- "dor_cron_col"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "Q120")] <- "cancer"
   
   colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "VDD004A")] <- "niveleducacional"
   colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "VDF003")] <- "rendafamiliarpc"
@@ -121,6 +122,7 @@ dadoswp7 <- readRDS("pns19IBGE.rds")
   dadoswp7$variables$doencronpul[is.na(dadoswp7$variables$doencronpul)] = "Não"
   dadoswp7$variables$depressao[is.na(dadoswp7$variables$depressao)] = "Não"
   dadoswp7$variables$dor_cron_col[is.na(dadoswp7$variables$dor_cron_col)] = "Não"
+  dadoswp7$variables$cancer[is.na(dadoswp7$variables$cancer)] = "Não"
   
 
 
@@ -162,6 +164,7 @@ Depressao = ifelse(depressao == "Sim",1,0),
 TOC = ifelse(toc == "Sim",1,0),
 TransBip = ifelse(transbip == "Sim",1,0),
 Dor_Cron_Col = ifelse(dor_cron_col == "Sim",1,0),
+Cancer = ifelse(cancer == "Sim",1,0),
 cronicasx = Artrite+Asma+Hipercolesterol+Diabetes+Hipertensao+InsRenCronica+DoenCronPul,
 DoencasCronicas = ifelse(cronicasx == 0, "Nenhuma",
                          ifelse(cronicasx == 1, "Uma",
@@ -221,13 +224,15 @@ dadoswp7$variables$TOC <- as.factor(dadoswp7$variables$TOC)
 levels(dadoswp7$variables$TOC) <- c("Não","Sim")
 dadoswp7$variables$Dor_Cron_Col <- as.factor(dadoswp7$variables$Dor_Cron_Col)
 levels(dadoswp7$variables$Dor_Cron_Col) <- c("Não","Sim")
+dadoswp7$variables$Cancer <- as.factor(dadoswp7$variables$Cancer)
+levels(dadoswp7$variables$Cancer) <- c("Não","Sim")
 
 dadoswp7$variables <- dadoswp7$variables %>% 
   select(FezMeditacao12m,FezYoga12m,FezTaix12m,QualquerTipoMedit,
          Sexo,Idade,CorRaca3,EmRelacionamento,Regiao,NivelEducacional,RendaFamiliarPc,
          TemPlanoSaude,
          DoencasCronicas,Artrite,Asma,Hipercolesterol,Diabetes,Hipertensao,InsRenCronica,DoenCronPul,
-         Dor_Cron_Col,DORT,
+         Cancer,Dor_Cron_Col,DORT,
          Depressao,
          Tabagismo,FreqAlcool1m,Exercicio1s)
 
@@ -251,12 +256,12 @@ dadoswp7a <- readRDS("dadoswp7a.rds")
 
 library(gtsummary)
 tbl_svysummary(dadoswp7a, include=c(FezMeditacao12m,FezYoga12m,FezTaix12m,QualquerTipoMedit,
-               Regiao,Sexo,Idade,CorRaca3,EmRelacionamento,NivelEducacional,RendaFamiliarPc,
-               VisitasDoAC12m,TemPlanoSaude,
-               DoencasCronicas,TranstornosMentais,
-               Artrite,Asma,Hipercolesterol,Diabetes,DORT,Hipertensao,InsRenCronica,DoenCronPul,
-               Depressao,TransBip,TOC,
-               Tabagismo,FreqAlcool1m,Exercicio1s),
+               Sexo,Idade,CorRaca3,EmRelacionamento,Regiao,NivelEducacional,RendaFamiliarPc,
+                         TemPlanoSaude,
+                         DoencasCronicas,Artrite,Asma,Hipercolesterol,Diabetes,Hipertensao,InsRenCronica,DoenCronPul,
+                         Dor_Cron_Col,DORT,
+                         Depressao,
+                         Tabagismo,FreqAlcool1m,Exercicio1s),
                digits = list(all_categorical() ~ c(2)),
                missing = 'no')
 
@@ -275,12 +280,12 @@ tbl_svysummary(dadoswp7a, include=c(FezMeditacao12m,FezYoga12m,FezTaix12m,Qualqu
 ```{r Caracteristicas - geral, eval=T, echo=FALSE, message=F, warning=F}
 
 tbl_svysummary(dadoswp7a,by = QualquerTipoMedit, 
-               include=c(Regiao,Sexo,Idade,CorRaca3,EmRelacionamento,NivelEducacional,RendaFamiliarPc,
-               VisitasDoAC12m,TemPlanoSaude,
-               DoencasCronicas,TranstornosMentais,
-               Artrite,Asma,Hipercolesterol,Diabetes,DORT,Hipertensao,InsRenCronica,DoenCronPul,
-               Depressao,TransBip,TOC,
-               Tabagismo,FreqAlcool1m,Exercicio1s),
+               include=c(Sexo,Idade,CorRaca3,EmRelacionamento,Regiao,NivelEducacional,RendaFamiliarPc,
+                         TemPlanoSaude,
+                         DoencasCronicas,Artrite,Asma,Hipercolesterol,Diabetes,Hipertensao,InsRenCronica,DoenCronPul,
+                         Dor_Cron_Col,DORT,
+                         Depressao,
+                         Tabagismo,FreqAlcool1m,Exercicio1s),
                digits = list(all_categorical() ~ c(2)),
                missing = 'no')
 

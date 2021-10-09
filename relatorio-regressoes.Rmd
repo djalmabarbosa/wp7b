@@ -33,7 +33,7 @@ library(survey)
 logit1 <- (svyglm(FezMeditacao12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
                   TemPlanoSaude+
                   DoencasCronicas+
-                  Dor_Cron_Col+DORT+
+                  Cancer+Dor_Cron_Col+DORT+
                   Depressao+
                   Tabagismo+FreqAlcool1m+Exercicio1s,
                   family=quasibinomial, design=dadoswp7a))
@@ -41,7 +41,7 @@ logit1 <- (svyglm(FezMeditacao12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+Ni
 logit2 <- (svyglm(FezYoga12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
                   TemPlanoSaude+
                   DoencasCronicas+
-                  Dor_Cron_Col+DORT+
+                  Cancer+Dor_Cron_Col+DORT+
                   Depressao+
                   Tabagismo+FreqAlcool1m+Exercicio1s,
                   family=quasibinomial, design=dadoswp7a))
@@ -49,7 +49,7 @@ logit2 <- (svyglm(FezYoga12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEd
 logit3 <- (svyglm(FezTaix12m~Sexo+Idade+CorRaca3+EmRelacionamento+Regiao+NivelEducacional+RendaFamiliarPc+
                   TemPlanoSaude+
                   DoencasCronicas+
-                  Dor_Cron_Col+DORT+
+                  Cancer+Dor_Cron_Col+DORT+
                   Depressao+
                   Tabagismo+FreqAlcool1m+Exercicio1s,
                   family=quasibinomial, design=dadoswp7a))
