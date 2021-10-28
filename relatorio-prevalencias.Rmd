@@ -141,8 +141,9 @@ FezTaix12m = as.factor(ifelse(feztaix12m == "Sim",1,0)),
   FezTaix12m = replace_na(FezTaix12m, 0),
 FezMeditacao12m = as.factor(ifelse(fezmeditacao12m == "Sim",1,0)),
   FezMeditacao12m = replace_na(FezMeditacao12m, 0),
-FezApenasMeditacao = as.factor(ifelse(J05402=="Não"&J05403=="Não"&J05404=="Não"&J05405=="Não"& fezmeditacao12m=="Sim"&
-                                      fezyoga12m=="Não"&feztaix12m=="Não"&J05409=="Não"&J054010=="Não","Sim","Não")),
+FezApenasMeditacao = as.factor(ifelse(fezmeditacao12m=="Sim"&fezyoga12m=="Não"&feztaix12m=="Não","Sim","Não")),
+FezApenasYoga = as.factor(ifelse(fezmeditacao12m=="Não"&fezyoga12m=="Sim"&feztaix12m=="Não","Sim","Não")),
+FezApenasTaix = as.factor(ifelse(fezmeditacao12m=="Não"&fezyoga12m=="Não"&feztaix12m=="Sim","Sim","Não")),
 QualquerTipoMedit = as.factor(ifelse(FezMeditacao12m==1 | FezYoga12m==1 | FezTaix12m==1,1,0)),
 ApenasQualquerTipoMedit = as.factor(ifelse(QualquerTipoMedit==1 & J05402=="Não" & J05403=="Não" & J05404=="Não" &
                                             J05405=="Não"&J05409=="Não"&J054010=="Não","Sim","Não")),
@@ -229,6 +230,7 @@ levels(dadoswp7$variables$Cancer) <- c("Não","Sim")
 
 dadoswp7$variables <- dadoswp7$variables %>% 
   select(FezMeditacao12m,FezYoga12m,FezTaix12m,QualquerTipoMedit,
+         FezApenasMeditacao,FezApenasYoga,FezApenasTaix,
          Sexo,Idade,CorRaca3,EmRelacionamento,Regiao,NivelEducacional,RendaFamiliarPc,
          TemPlanoSaude,
          DoencasCronicas,Artrite,Asma,Hipercolesterol,Diabetes,Hipertensao,InsRenCronica,DoenCronPul,
@@ -244,7 +246,125 @@ dadoswp7$variables$EmRelacionamento <- relevel(dadoswp7$variables$EmRelacionamen
 
 saveRDS(dadoswp7,"dadoswp7a.rds")
 
+dadospnsx <-dadoswp7$variables
+
 ```
+
+```{r LCA, eval=F, message=F, warning=F}
+
+# Análise de classes latentes
+
+library(poLCA)
+f <- cbind(FezMeditacao12m,FezYoga12m,FezTaix12m)~1
+
+lca1 <- poLCA(f,dadospnsx,nclass=7, graphs = T)
+
+# run a sequence of models with 1-10 classes and print out the model with the lowest BIC
+max_II <- -100000
+min_bic <- 100000
+for(i in 2:10){
+  lc <- poLCA(f, dadospnsx, nclass=i, maxiter=3000, 
+              tol=1e-5, na.rm=FALSE,  
+              nrep=10, verbose=TRUE, calc.se=TRUE)
+  if(lc$bic < min_bic){
+    min_bic <- lc$bic
+    LCA_best_model<-lc
+  }
+}    	
+LCA_best_model
+
+
+# Construção da tabela com os critérios
+
+## models with different number of groups without covariates:
+set.seed(01012)
+lc1<-poLCA(f, data=dadossps, nclass=1, na.rm = FALSE, nrep=30, maxiter=3000) #Loglinear independence model.
+lc2<-poLCA(f, data=dadossps, nclass=2, na.rm = FALSE, nrep=30, maxiter=3000)
+lc3<-poLCA(f, data=dadossps, nclass=3, na.rm = FALSE, nrep=30, maxiter=3000)
+lc4<-poLCA(f, data=dadossps, nclass=4, na.rm = FALSE, nrep=30, maxiter=3000) 
+lc5<-poLCA(f, data=dadossps, nclass=5, na.rm = FALSE, nrep=30, maxiter=3000)
+lc6<-poLCA(f, data=dadossps, nclass=6, na.rm = FALSE, nrep=30, maxiter=3000)
+lc7<-poLCA(f, data=dadossps, nclass=7, na.rm = FALSE, nrep=30, maxiter=3000)
+lc8<-poLCA(f, data=dadossps, nclass=8, na.rm = FALSE, nrep=30, maxiter=3000)
+lc9<-poLCA(f, data=dadossps, nclass=9, na.rm = FALSE, nrep=30, maxiter=3000)
+
+# generate dataframe with fit-values
+
+results <- data.frame(Modell=c("Modell 1"),
+                      log_likelihood=lc1$llik,
+                      df = lc1$resid.df,
+                      BIC=lc1$bic,
+                      ABIC=  (-2*lc1$llik) + ((log((lc1$N + 2)/24)) * lc1$npar),
+                      CAIC = (-2*lc1$llik) + lc1$npar * (1 + log(lc1$N)), 
+                      likelihood_ratio=lc1$Gsq)
+results$Modell<-as.integer(results$Modell)
+results[1,1]<-c("Modell 1")
+results[2,1]<-c("Modell 2")
+results[3,1]<-c("Modell 3")
+results[4,1]<-c("Modell 4")
+results[5,1]<-c("Modell 5")
+results[6,1]<-c("Modell 6")
+results[7,1]<-c("Modell 7")
+results[8,1]<-c("Modell 8")
+results[9,1]<-c("Modell 9")
+
+results[2,2]<-lc2$llik
+results[3,2]<-lc3$llik
+results[4,2]<-lc4$llik
+results[5,2]<-lc5$llik
+results[6,2]<-lc6$llik
+results[7,2]<-lc7$llik
+results[8,2]<-lc8$llik
+results[9,2]<-lc9$llik
+
+results[2,3]<-lc2$resid.df
+results[3,3]<-lc3$resid.df
+results[4,3]<-lc4$resid.df
+results[5,3]<-lc5$resid.df
+results[6,3]<-lc6$resid.df
+results[7,3]<-lc7$resid.df
+results[8,3]<-lc8$resid.df
+results[9,3]<-lc9$resid.df
+
+results[2,4]<-lc2$bic
+results[3,4]<-lc3$bic
+results[4,4]<-lc4$bic
+results[5,4]<-lc5$bic
+results[6,4]<-lc6$bic
+results[7,4]<-lc7$bic
+results[8,4]<-lc8$bic
+results[9,4]<-lc9$bic
+
+results[2,5]<-(-2*lc2$llik) + ((log((lc2$N + 2)/24)) * lc2$npar) #abic
+results[3,5]<-(-2*lc3$llik) + ((log((lc3$N + 2)/24)) * lc3$npar)
+results[4,5]<-(-2*lc4$llik) + ((log((lc4$N + 2)/24)) * lc4$npar)
+results[5,5]<-(-2*lc5$llik) + ((log((lc5$N + 2)/24)) * lc5$npar)
+results[6,5]<-(-2*lc6$llik) + ((log((lc6$N + 2)/24)) * lc6$npar)
+results[7,5]<-(-2*lc8$llik) + ((log((lc7$N + 2)/24)) * lc7$npar)
+results[8,5]<-(-2*lc9$llik) + ((log((lc8$N + 2)/24)) * lc8$npar)
+results[9,5]<-(-2*lc9$llik) + ((log((lc9$N + 2)/24)) * lc9$npar)
+
+
+results[2,6]<- (-2*lc2$llik) + lc2$npar * (1 + log(lc2$N)) #caic
+results[3,6]<- (-2*lc3$llik) + lc3$npar * (1 + log(lc3$N))
+results[4,6]<- (-2*lc4$llik) + lc4$npar * (1 + log(lc4$N))
+results[5,6]<- (-2*lc5$llik) + lc5$npar * (1 + log(lc5$N))
+results[6,6]<- (-2*lc6$llik) + lc6$npar * (1 + log(lc6$N))
+results[7,6]<- (-2*lc7$llik) + lc7$npar * (1 + log(lc7$N))
+results[8,6]<- (-2*lc8$llik) + lc8$npar * (1 + log(lc8$N))
+results[9,6]<- (-2*lc9$llik) + lc9$npar * (1 + log(lc9$N))
+
+results[2,7]<-lc2$Gsq
+results[3,7]<-lc3$Gsq
+results[4,7]<-lc4$Gsq
+results[5,7]<-lc5$Gsq
+results[6,7]<-lc6$Gsq
+results[7,7]<-lc7$Gsq
+results[8,7]<-lc8$Gsq
+results[9,7]<-lc9$Gsq
+
+```
+
 
 ### Características da amostra
 
@@ -394,7 +514,6 @@ svymean(~FezMeditacao12m, design=dadoswp7a, na.rm=TRUE)
 
 ```
 
-
 ```{r Características - tabela final, eval=F, echo=FALSE, message=F, warning=F}
 
 dadoswp7a <- readRDS("dadoswp7a.rds")
@@ -410,6 +529,9 @@ svyby(~RendaFamiliarPc, ~FezMeditacao12m, dadoswp7a, na = TRUE, svymean)
 # Tabela 2
 
 svyby(~FezMeditacao12m, ~Dor_Cron_Col, dadoswp7a, na = TRUE, svymean)
+
+svyby(~FezMeditacao12m, ~FezYoga12m, dadoswp7a, na = TRUE, svymean)
+
 
 
 #dadoswp7$variables[is.na(dadoswp7$variables$Idade),] <- "Menor de 18"
