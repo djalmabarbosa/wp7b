@@ -85,6 +85,20 @@ stargazer(logit1,logit2,logit3,
 </div>
 <br/><br/>
 
+### Regressão logística multinomial
+
+```{r}
+
+library(svyVGAM)
+
+logitm <- svy_vglm(
+                  MindBody~Sexo+Idade,
+                  design=dadoswp7a,
+                  family = multinomial(refLevel = "Nenhuma")
+  ) 
+
+```
+
 <br/>
 
 <div align="center">

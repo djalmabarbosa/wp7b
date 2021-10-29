@@ -135,11 +135,11 @@ Idade = as.factor(ifelse(idade<18, NA,
                                 ifelse(idade >= 30 & idade <= 39, "30 a 39",
                                       ifelse(idade >= 40 & idade <= 49,"40 a 49",
                                              ifelse(idade >= 50 & idade <= 64,"50 a 64","Maior que 64")))))),
-FezYoga12m = as.factor(ifelse(fezyoga12m == "Sim",1,0)),
+FezYoga12m = ifelse(fezyoga12m == "Sim",1,0),
   FezYoga12m = replace_na(FezYoga12m, 0),
-FezTaix12m = as.factor(ifelse(feztaix12m == "Sim",1,0)),
+FezTaix12m = ifelse(feztaix12m == "Sim",1,0),
   FezTaix12m = replace_na(FezTaix12m, 0),
-FezMeditacao12m = as.factor(ifelse(fezmeditacao12m == "Sim",1,0)),
+FezMeditacao12m = ifelse(fezmeditacao12m == "Sim",1,0),
   FezMeditacao12m = replace_na(FezMeditacao12m, 0),
 FezApenasMeditacao = as.factor(ifelse(fezmeditacao12m=="Sim"&fezyoga12m=="Não"&feztaix12m=="Não","Sim","Não")),
 FezApenasYoga = as.factor(ifelse(fezmeditacao12m=="Não"&fezyoga12m=="Sim"&feztaix12m=="Não","Sim","Não")),
@@ -147,6 +147,9 @@ FezApenasTaix = as.factor(ifelse(fezmeditacao12m=="Não"&fezyoga12m=="Não"&fezt
 QualquerTipoMedit = as.factor(ifelse(FezMeditacao12m==1 | FezYoga12m==1 | FezTaix12m==1,1,0)),
 ApenasQualquerTipoMedit = as.factor(ifelse(QualquerTipoMedit==1 & J05402=="Não" & J05403=="Não" & J05404=="Não" &
                                             J05405=="Não"&J05409=="Não"&J054010=="Não","Sim","Não")),
+mindbodyx = as.numeric(FezMeditacao12m)+as.numeric(FezYoga12m)+as.numeric(FezTaix12m),
+MindBody = as.factor(ifelse(mindbodyx == 0, "Nenhuma",
+                         ifelse(mindbodyx == 1, "Uma","Duas ou Três"))),
 Regiao = as.factor(ifelse(UF == "Rondônia"|UF == "Acre"|UF == "Amazonas"|UF == "Roraima"|UF == "Pará"|UF == "Amapá"|UF == "Tocantis","Norte",
                           ifelse(UF == "Maranhão"|UF == "Piauí"|UF == "Ceará"|UF == "Rio Grande do Norte"|UF == "Paraíba"|UF == "Pernambuco"|UF == "Alagoas" |UF == "Sergipe"|UF == "Bahia","Nordeste",
                                  ifelse(UF == "Minas Gerais"|UF == "Espírito Santo"|UF == "Rio de Janeiro"|UF == "São Paulo","Sudeste",
@@ -170,7 +173,6 @@ cronicasx = Artrite+Asma+Hipercolesterol+Diabetes+Hipertensao+InsRenCronica+Doen
 DoencasCronicas = ifelse(cronicasx == 0, "Nenhuma",
                          ifelse(cronicasx == 1, "Uma",
                                 ifelse(cronicasx == 2, "Duas","Três ou mais"))),
-
 TranstornosMentaisx = Depressao+TOC+TransBip,
 TranstornosMentais = as.factor(ifelse(TranstornosMentaisx == 0, "Nenhum",
                          ifelse(TranstornosMentaisx == 1, "Um",
@@ -182,8 +184,12 @@ RendaFamiliarPc = as.factor(ntile(rendafamiliarpc, 3)),
 VisitasDoAC12m = as.factor(ifelse(visitasdoac12m == "Nunca recebeu","Nunca recebeu","Já recebeu")),
 NivelEducacional = as.factor(ifelse(niveleducacional == "Sem instrução" | niveleducacional == "Fundamental incompleto ou equivalente"|
                                       niveleducacional == "Fundamental completo ou equivalente"| niveleducacional == "Médio incompleto ou equivalente","Menos que nível médio complemento",
-                                    ifelse(niveleducacional == "Médio completo ou equivalente", "Médio completo","Superior incompleto ou mais")))
+                                    ifelse(niveleducacional == "Médio completo ou equivalente", "Médio completo","Superior incompleto ou mais"))),
+FezMeditacao12m = as.factor(FezMeditacao12m),
+FezYoga12m = as.factor(FezYoga12m),
+FezTaix12m = as.factor(FezTaix12m)
 )
+
 
 levels(dadoswp7$variables$RendaFamiliarPc) <- c("0 a 499 reais per capita", "500 a 1087 reais per capita ","1088 reais per capita ou mais")
 
@@ -231,6 +237,7 @@ levels(dadoswp7$variables$Cancer) <- c("Não","Sim")
 dadoswp7$variables <- dadoswp7$variables %>% 
   select(FezMeditacao12m,FezYoga12m,FezTaix12m,QualquerTipoMedit,
          FezApenasMeditacao,FezApenasYoga,FezApenasTaix,
+         MindBody,
          Sexo,Idade,CorRaca3,EmRelacionamento,Regiao,NivelEducacional,RendaFamiliarPc,
          TemPlanoSaude,
          DoencasCronicas,Artrite,Asma,Hipercolesterol,Diabetes,Hipertensao,InsRenCronica,DoenCronPul,
