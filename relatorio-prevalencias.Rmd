@@ -124,8 +124,6 @@ dadoswp7 <- readRDS("pns19IBGE.rds")
   dadoswp7$variables$dor_cron_col[is.na(dadoswp7$variables$dor_cron_col)] = "Não"
   dadoswp7$variables$cancer[is.na(dadoswp7$variables$cancer)] = "Não"
   
-
-
 dadoswp7$variables <- dadoswp7$variables %>% mutate (
 CorRaca3 = as.factor(ifelse(CorRaca == "Branca","Branca",
                    ifelse(CorRaca =="Preta"|CorRaca=="Parda","Preta ou Marrom","Leste Asiático ou Indígena"))),
@@ -144,6 +142,10 @@ FezMeditacao12m = ifelse(fezmeditacao12m == "Sim",1,0),
 FezApenasMeditacao = as.factor(ifelse(fezmeditacao12m=="Sim"&fezyoga12m=="Não"&feztaix12m=="Não","Sim","Não")),
 FezApenasYoga = as.factor(ifelse(fezmeditacao12m=="Não"&fezyoga12m=="Sim"&feztaix12m=="Não","Sim","Não")),
 FezApenasTaix = as.factor(ifelse(fezmeditacao12m=="Não"&fezyoga12m=="Não"&feztaix12m=="Sim","Sim","Não")),
+FezTaixeYoga = as.factor(ifelse(fezmeditacao12m=="Não"&fezyoga12m=="Sim"&feztaix12m=="Sim","Sim","Não")),
+FezTaixeMeditacao = as.factor(ifelse(fezmeditacao12m=="Sim"&fezyoga12m=="Não"&feztaix12m=="Sim","Sim","Não")),
+FezYogaeMeditacao = as.factor(ifelse(fezmeditacao12m=="Sim"&fezyoga12m=="Sim"&feztaix12m=="Não","Sim","Não")),
+FezTaixeMeditacaoeYoga = as.factor(ifelse(fezmeditacao12m=="Sim"&fezyoga12m=="Sim"&feztaix12m=="Sim","Sim","Não")),
 QualquerTipoMedit = as.factor(ifelse(FezMeditacao12m==1 | FezYoga12m==1 | FezTaix12m==1,1,0)),
 ApenasQualquerTipoMedit = as.factor(ifelse(QualquerTipoMedit==1 & J05402=="Não" & J05403=="Não" & J05404=="Não" &
                                             J05405=="Não"&J05409=="Não"&J054010=="Não","Sim","Não")),
@@ -243,7 +245,8 @@ dadoswp7$variables <- dadoswp7$variables %>%
          DoencasCronicas,Artrite,Asma,Hipercolesterol,Diabetes,Hipertensao,InsRenCronica,DoenCronPul,
          Cancer,Dor_Cron_Col,DORT,
          Depressao,
-         Tabagismo,FreqAlcool1m,Exercicio1s)
+         Tabagismo,FreqAlcool1m,Exercicio1s,
+         UPA_PNS, estrato, M001)
 
 dadoswp7$variables$TemPlanoSaude <- relevel(dadoswp7$variables$TemPlanoSaude, ref = "Não")
 dadoswp7$variables$Tabagismo <- relevel(dadoswp7$variables$Tabagismo, ref = "Não")
