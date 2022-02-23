@@ -112,18 +112,18 @@ dadoswp7 <- readRDS("pns19IBGE.rds")
   dadoswp7$variables$exerciciodiasC = dadoswp7$variables$exercicio3m + dadoswp7$variables$exerciciodiasB
   dadoswp7$variables$exerciciodiasD = dadoswp7$variables$exerciciodiasC-1
   
-  dadoswp7$variables$artrite[is.na(dadoswp7$variables$artrite)] = "Não"
-  dadoswp7$variables$asma[is.na(dadoswp7$variables$asma)] = "Não"
-  dadoswp7$variables$hipercolesterol[is.na(dadoswp7$variables$hipercolesterol)] = "Não"
-  dadoswp7$variables$diabetes[is.na(dadoswp7$variables$diabetes)] = "Não"
-  dadoswp7$variables$DORT[is.na(dadoswp7$variables$DORT)] = "Não"
-  dadoswp7$variables$hipertensao[is.na(dadoswp7$variables$hipertensao)] = "Não"
-  dadoswp7$variables$insrencronica[is.na(dadoswp7$variables$insrencronica)] = "Não"
-  dadoswp7$variables$doencronpul[is.na(dadoswp7$variables$doencronpul)] = "Não"
-  dadoswp7$variables$depressao[is.na(dadoswp7$variables$depressao)] = "Não"
-  dadoswp7$variables$dor_cron_col[is.na(dadoswp7$variables$dor_cron_col)] = "Não"
-  dadoswp7$variables$cancer[is.na(dadoswp7$variables$cancer)] = "Não"
-  
+dadoswp7$variables$artrite[is.na(dadoswp7$variables$artrite)] = "Não"
+dadoswp7$variables$asma[is.na(dadoswp7$variables$asma)] = "Não"
+dadoswp7$variables$hipercolesterol[is.na(dadoswp7$variables$hipercolesterol)] = "Não"
+dadoswp7$variables$diabetes[is.na(dadoswp7$variables$diabetes)] = "Não"
+dadoswp7$variables$DORT[is.na(dadoswp7$variables$DORT)] = "Não"
+dadoswp7$variables$hipertensao[is.na(dadoswp7$variables$hipertensao)] = "Não"
+dadoswp7$variables$insrencronica[is.na(dadoswp7$variables$insrencronica)] = "Não"
+dadoswp7$variables$doencronpul[is.na(dadoswp7$variables$doencronpul)] = "Não"
+dadoswp7$variables$depressao[is.na(dadoswp7$variables$depressao)] = "Não"
+dadoswp7$variables$dor_cron_col[is.na(dadoswp7$variables$dor_cron_col)] = "Não"
+dadoswp7$variables$cancer[is.na(dadoswp7$variables$cancer)] = "Não"
+
 dadoswp7$variables <- dadoswp7$variables %>% mutate (
 CorRaca3 = as.factor(ifelse(CorRaca == "Branca","Branca",
                    ifelse(CorRaca =="Preta"|CorRaca=="Parda","Preta ou Marrom","Leste Asiático ou Indígena"))),
@@ -192,7 +192,6 @@ FezYoga12m = as.factor(FezYoga12m),
 FezTaix12m = as.factor(FezTaix12m)
 )
 
-
 levels(dadoswp7$variables$RendaFamiliarPc) <- c("0 a 499 reais per capita", "500 a 1087 reais per capita ","1088 reais per capita ou mais")
 
 dadoswp7$variables$Exercicio1s <- factor(dadoswp7$variables$Exercicio1s,
@@ -210,6 +209,9 @@ dadoswp7$variables$NivelEducacional <- factor(dadoswp7$variables$NivelEducaciona
 dadoswp7$variables$CorRaca3 <- factor(dadoswp7$variables$CorRaca3,
                                               levels = c("Branca", "Preta ou Marrom","Leste Asiático ou Indígena"))
 
+dadoswp7$variables$FezApenasMeditacao[is.na(dadoswp7$variables$FezApenasMeditacao)] = "Não"
+dadoswp7$variables$FezApenasYoga[is.na(dadoswp7$variables$FezApenasYoga)] = "Não"
+dadoswp7$variables$FezApenasTaix[is.na(dadoswp7$variables$FezApenasTaix)] = "Não" 
 
 dadoswp7$variables$Artrite <- as.factor(dadoswp7$variables$Artrite)
 levels(dadoswp7$variables$Artrite) <- c("Não","Sim")
@@ -256,7 +258,13 @@ dadoswp7$variables$EmRelacionamento <- relevel(dadoswp7$variables$EmRelacionamen
 
 saveRDS(dadoswp7,"dadoswp7a.rds")
 
-dadospnsx <-dadoswp7$variables
+dadosibge <-dadoswp7$variables
+
+dadosibge <- dadosibge %>% filter(M001 == "Realizada")
+dadosibge <- dadosibge %>% filter(!is.na(Idade))
+dadosibge <- dadosibge %>% filter(!is.na(RendaFamiliarPc))
+
+saveRDS(dadosibge,"dadosibge.rds")
 
 ```
 
