@@ -4,7 +4,7 @@ title: " "
 
 <br/><br/>
 
-```{r Organização dos Dados, eval=T, echo=F, message=F}
+```{r Organização dos Dados - web, eval=T, echo=F, message=F}
 
 dadoswp7 <- readRDS("pns19IBGE.rds")
   
@@ -71,6 +71,7 @@ dadoswp7 <- readRDS("pns19IBGE.rds")
   
   colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "P018")] <- "consomeFrutas"
   colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "P050")] <- "fumanopresente"
+  colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "P051")] <- "fumounopassado"
   colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "P027")] <- "FreqAlcool1m"
   colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "P034")] <- "exercicio3m"
   colnames(dadoswp7$variables)[which(names(dadoswp7$variables) == "P035")] <- "exerciciodias"
@@ -179,6 +180,7 @@ TranstornosMentaisx = Depressao+TOC+TransBip,
 TranstornosMentais = as.factor(ifelse(TranstornosMentaisx == 0, "Nenhum",
                          ifelse(TranstornosMentaisx == 1, "Um",
                                 ifelse(TranstornosMentaisx == 2, "Dois","Três")))),
+DoencasCronicas2 = ifelse(DoencasCronicas == "Nenhuma","Não","Sim"),
 ConsomeFrutas = as.factor(ifelse(consomeFrutas == 0, "Nunca",
                          ifelse(consomeFrutas == 1| consomeFrutas == 2, "Uma a duas vezes por semana",
                                 ifelse(consomeFrutas == 3|consomeFrutas == 4, "Três a quatro vezes por semana","Cinco ou mais vezes por semana")))),
@@ -244,7 +246,7 @@ dadoswp7$variables <- dadoswp7$variables %>%
          MindBody,
          Sexo,Idade,CorRaca3,EmRelacionamento,Regiao,NivelEducacional,RendaFamiliarPc,
          TemPlanoSaude,
-         DoencasCronicas,Artrite,Asma,Hipercolesterol,Diabetes,Hipertensao,InsRenCronica,DoenCronPul,
+         DoencasCronicas,DoencasCronicas2,Artrite,Asma,Hipercolesterol,Diabetes,Hipertensao,InsRenCronica,DoenCronPul,
          Cancer,Dor_Cron_Col,DORT,
          Depressao,
          Tabagismo,FreqAlcool1m,Exercicio1s,
